@@ -1,6 +1,4 @@
-import 'cadastrar_consulta.dart';
-import 'editar_consulta.dart';
-import 'listar_consultas.dart';
+import '../usecases/usecases.dart';
 
 abstract class Agenda
     implements ListarConsultas, CadastrarConsulta, EditarConsulta {
