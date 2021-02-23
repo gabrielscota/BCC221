@@ -15,7 +15,7 @@ main() {
 
   // Assistente é um UsuarioAssistenteAdministrativo
   Assistente assistente = Assistente(0);
-  assistente.nome = 'Sata';
+  assistente.nome = 'Sara';
   assistente.login = 'sara';
   assistente.senha = '1234';
 
@@ -35,6 +35,6 @@ main() {
     'Consulta marcada pela assistente: ${assistente.nome}',
   );
 
-  recepcionista.listarConsultas(ortodontista.agenda);
-  // assistente.listarConsultas(ortodontista.agenda);
+  // recepcionista.listarConsultas(ortodontista.agenda);
+  assistente.listarConsultas(ortodontista.agenda);
 }
