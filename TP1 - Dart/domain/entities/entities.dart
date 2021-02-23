@@ -1,3 +1,4 @@
+export './admin.dart';
 export './assistent.dart';
 export './clinic.dart';
 export './consutation.dart';
@@ -13,3 +14,4 @@ export './receptionist.dart';
 export './schedule.dart';
 export './time_sheet.dart';
 export './user.dart';
+export './user_permissions.dart';
