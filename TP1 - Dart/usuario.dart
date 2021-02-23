@@ -18,7 +18,7 @@ class Usuario extends Pessoa {
   set senha(String senha) => this._senha = senha;
 }
 
-class UsuarioGeral implements Agenda {
+class UsuarioGeral with Agenda {
   final int _id;
 
   UsuarioGeral(this._id);
