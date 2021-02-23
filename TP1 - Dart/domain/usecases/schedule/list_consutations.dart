@@ -1,3 +1,5 @@
-abstract class ListarConsultas {
-  void listarConsultas(List<String> agenda);
+import '../../entities/entities.dart';
+
+abstract class ListConsutations {
+  void listConsutations(Schedule schedule);
 }

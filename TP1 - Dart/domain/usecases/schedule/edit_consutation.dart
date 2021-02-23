@@ -1,3 +1,5 @@
-abstract class EditarConsulta {
-  void editarConsulta(int index, String consulta);
+import '../../entities/entities.dart';
+
+abstract class EditConsutation {
+  void editConsutation(Schedule schedule, Consutation consutation);
 }
