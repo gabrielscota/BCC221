@@ -1,0 +1,15 @@
+export './assistent.dart';
+export './clinic.dart';
+export './consutation.dart';
+export './employee.dart';
+export './expense.dart';
+export './orthodontist.dart';
+export './patient.dart';
+export './payment.dart';
+export './payment_consutation.dart';
+export './person.dart';
+export './point.dart';
+export './receptionist.dart';
+export './schedule.dart';
+export './time_sheet.dart';
+export './user.dart';

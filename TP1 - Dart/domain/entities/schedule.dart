@@ -1,13 +1,16 @@
-import '../usecases/usecases.dart';
+import './entities.dart';
 
-abstract class Agenda
-    implements ListarConsultas, CadastrarConsulta, EditarConsulta {
-  @override
-  void addConsulta(List<String> agenda, String consulta);
+class Schedule {
+  final String _id;
+  List<Consutation> _consutations;
 
-  @override
-  void editarConsulta(int index, String consulta);
+  Schedule(this._id) : _consutations = [];
 
-  @override
-  void listarConsultas(List<String> agenda);
+  // Getter's
+  String get id => this._id;
+  List<Consutation> get consutations => this._consutations;
+
+  // Setter's
+  set consutations(List<Consutation> consutations) =>
+      this._consutations = consutations;
 }
