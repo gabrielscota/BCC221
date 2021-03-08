@@ -13,6 +13,7 @@ class Person
 
 public:
   Person(string id, string name);
+  Person();
   ~Person();
 
   string getId();

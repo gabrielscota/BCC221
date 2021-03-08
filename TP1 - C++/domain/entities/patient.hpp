@@ -10,10 +10,11 @@ using namespace std;
 
 class Patient : public Person
 {
-  string id;
+  
 
 public:
-  Patient(string id);
+  Patient();
+  Patient(string id, string name);
   ~Patient();
 
   string getId();
