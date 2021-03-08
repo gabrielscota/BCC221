@@ -1,5 +1,12 @@
 #include "user.hpp"
 
+User::User(){
+    Person();
+    login = ' ';
+    password = ' ';
+    permissions = nullptr;
+}
+
 User::User(string id, string login, string password, UserPermissions *permissions){
     Person(id);
     this->login = login;
