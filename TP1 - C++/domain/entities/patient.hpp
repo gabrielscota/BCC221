@@ -13,8 +13,9 @@ class Patient : public Person
   
 
 public:
-  Patient();
-  Patient(string id, string name);
+  Patient();                                //  Constructor Method
+  Patient(string id);                       //  Constructor Method
+  Patient(string id, string name);          //  Constructor Method
   ~Patient();
 
   string getId();

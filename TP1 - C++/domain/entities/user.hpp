@@ -11,7 +11,6 @@ using namespace std;
 
 class User : public Person
 {
-  string id;
   string login;
   string password;
   UserPermissions *permissions;

@@ -4,6 +4,10 @@ Patient::Patient(){
     Person();
 }
 
+Patient::Patient(string id){
+    Person(id);
+}
+
 Patient::Patient(string id, string name){
     Person(id, name);
 }

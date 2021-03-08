@@ -13,7 +13,8 @@ class Person
 
 public:
   Person(string id, string name);
-  Person();
+  Person(string id);            //Constructor method with null name
+  Person();                     //Empty constructor method
   ~Person();
 
   string getId();

@@ -5,6 +5,11 @@ Person::Person(string id, string name) :
     name(name)
 {}
 
+Person::Person(string id){
+    this->id = id;
+    name = ' ';
+}
+
 Person::Person(){
     id = ' ';
     name = ' ';
