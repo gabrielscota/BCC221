@@ -25,6 +25,7 @@ class Clinic
   Admin *admin;
 
 public:
+  Clinic();
   Clinic(string id, vector<Orthodontist *> orthodontists, vector<Assistent *> assistents, vector<Patient *> patients, vector<Expense *> expenses, Receptionist *receptionist, Admin *admin);
   ~Clinic();
 
@@ -42,6 +43,7 @@ public:
   void setExpenses(vector<Expense *> expenses);
   void setReceptionist(Receptionist *receptionist);
   void setAdmin(Admin *admin);
+  void listOrthodontists();
 };
 
 #endif /* CLINIC_H_ */

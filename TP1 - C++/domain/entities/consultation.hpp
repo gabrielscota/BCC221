@@ -18,7 +18,7 @@ class Consultation
   PaymentConsultation *paymentConsultation;
 
 public:
-  Consultation(string id, Patient *patient, string date, string description, PaymentConsultation paymentConsultation);
+  Consultation(string id, Patient *patient, string date, string description, PaymentConsultation *paymentConsultation);
   ~Consultation();
 
   string getId();

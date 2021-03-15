@@ -17,6 +17,7 @@ class Orthodontist : public Employee
   Assistent *assistent;
 
 public:
+  
   Orthodontist(string id);
   ~Orthodontist();
 

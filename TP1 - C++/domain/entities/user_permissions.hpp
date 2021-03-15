@@ -28,10 +28,12 @@ class GeneralUser : public UserPermissions
 
 class AdministrativeAssistantUser : public UserPermissions
 {
+  
 };
 
 class AdministrativeUser : public UserPermissions
 {
+
 };
 
 #endif /* USERPERMISSIONS_H_ */

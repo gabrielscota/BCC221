@@ -10,8 +10,6 @@ using namespace std;
 
 class Assistent : public Employee
 {
-  string id;
-
 public:
   Assistent(string id);
   ~Assistent();
