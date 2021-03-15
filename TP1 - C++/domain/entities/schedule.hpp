@@ -6,23 +6,23 @@
 #include <vector>
 
 #include "point.hpp"
-#include "consutation.hpp"
+#include "consultation.hpp"
 
 using namespace std;
 
 class Schedule
 {
   string id;
-  vector<Consutation *> consutations;
+  vector<Consultation *> consultations;
 
 public:
-  Schedule(string id, vector<Consutation *> consutations);
+  Schedule(string id, vector<Consultation *> consultations);
   ~Schedule();
 
   string getId();
-  vector<Consutation *> getConsutations();
+  vector<Consultation *> getConsultations();
 
-  void setConsutations(vector<Consutation *> consutations);
+  void setConsutations(vector<Consultation *> consultations);
 };
 
 #endif /* SCHEDULE_H_ */
