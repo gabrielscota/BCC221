@@ -7,6 +7,13 @@ User::User(){
     permissions = nullptr;
 }
 
+User::User(string id){
+    Person(id);
+    login = ' ';
+    password = ' ';
+    permissions = nullptr;
+}
+
 User::User(string id, string login, string password, UserPermissions *permissions){
     Person(id);
     this->login = login;

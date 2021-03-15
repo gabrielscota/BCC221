@@ -18,6 +18,7 @@ class User : public Person
 public:
 
   User();
+  User(string id);
   User(string id, string login, string password, UserPermissions *permissions);
   ~User();
 

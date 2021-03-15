@@ -13,7 +13,6 @@ using namespace std;
 
 class Employee : public User
 {
-  string id;
   TimeSheet *timeSheet;
   vector<Payment *> payments;
 
