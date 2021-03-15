@@ -10,7 +10,7 @@ using namespace std;
 
 class Receptionist : public Employee
 {
-  string id;
+
 
 public:
   Receptionist(string id);

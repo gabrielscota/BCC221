@@ -1,7 +1,13 @@
 #include "employee.hpp"
+ 
+Employee::Employee(string id){
+    User(id);
+    this->timeSheet = nullptr;
+    this->payments = nullptr;
+}
 
 Employee::Employee(string id, TimeSheet *timeSheet, vector<Payment *> payments){
-    User::User(id);
+    User(id);
     this->timeSheet = timeSheet;
     this->payments = payments;
 }

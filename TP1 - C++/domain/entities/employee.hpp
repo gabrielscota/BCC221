@@ -17,6 +17,7 @@ class Employee : public User
   vector<Payment *> payments;
 
 public:
+  Employee(string id);
   Employee(string id, TimeSheet *timeSheet, vector<Payment *> payments);
   ~Employee();
 
