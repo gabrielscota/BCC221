@@ -1,4 +1,4 @@
-#include "consultation.hpp"
+#include "../../domain/entities/consultation.hpp"
 
 Consultation::Consultation(string id, Patient *patient, string date, string description, PaymentConsultation *paymentConsultation):
     id(id),

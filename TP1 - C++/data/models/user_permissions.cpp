@@ -1,4 +1,4 @@
-#include "user_permissions.hpp"
+#include "../../domain/entities/user_permissions.hpp"
 
 UserPermissions::UserPermissions(string id, vector<string> permissions){
     this->id = id;

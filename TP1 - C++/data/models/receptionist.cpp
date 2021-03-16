@@ -1,4 +1,4 @@
-#include "receptionist.hpp"
+#include "../../domain/entities/receptionist.hpp"
 
 Receptionist::Receptionist(string id):
     Employee(id){};

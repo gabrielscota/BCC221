@@ -1,38 +1,40 @@
-#include "user.hpp"
+#include "../../domain/entities/user.hpp"
 
-User::User(){
-    Person();
+User::User() : Person()
+{
     login = ' ';
     password = ' ';
     permissions = nullptr;
 }
 
-User::User(string id){
-    Person(id);
+User::User(string id) : Person(id)
+{
     login = ' ';
     password = ' ';
     permissions = nullptr;
 }
 
-User::User(string id, string login, string password, UserPermissions *permissions){
-    Person(id);
+User::User(string id, string login, string password, UserPermissions *permissions) : Person(id)
+{
     this->login = login;
     this->password = password;
     this->permissions = permissions;
 }
 
-User::~User(){}
+User::~User() {}
 
-void User::setLogin(string login){
+void User::setLogin(string login)
+{
     this->login = login;
 }
 
-void User::setPassword(string password){
+void User::setPassword(string password)
+{
     this->password = password;
 }
 
-
-void User::setPermissions(UserPermissions *permissions){
+void User::setPermissions(UserPermissions *permissions)
+{
     this->permissions = permissions;
 }
 

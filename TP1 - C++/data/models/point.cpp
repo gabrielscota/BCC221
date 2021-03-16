@@ -1,4 +1,4 @@
-#include "point.hpp"
+#include "../../domain/entities/point.hpp"
 
 Point::Point(string id, string date, string observation):
     id(id),

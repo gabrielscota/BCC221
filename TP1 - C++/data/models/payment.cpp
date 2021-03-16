@@ -1,4 +1,4 @@
-#include "payment.hpp"
+#include "../../domain/entities/payment.hpp"
 
 Payment::Payment(string id, string date, double value, string description):
     id(id),

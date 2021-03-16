@@ -1,4 +1,4 @@
-#include "clinic.hpp"
+#include "../../domain/entities/clinic.hpp"
 
 
 Clinic::Clinic(string id, vector<Orthodontist *> orthodontists, vector<Assistent *> assistents, 

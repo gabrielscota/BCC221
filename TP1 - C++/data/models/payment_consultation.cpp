@@ -1,4 +1,4 @@
-#include "payment_consultation.hpp"
+#include "../../domain/entities/payment_consultation.hpp"
 
 PaymentConsultation::PaymentConsultation(string id, double value):
     id(id),

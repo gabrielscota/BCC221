@@ -1,4 +1,4 @@
-#include "schedule.hpp"
+#include "../../domain/entities/schedule.hpp"
 
 Schedule::Schedule(string id, vector<Consultation *> consultations){
     this->id = id;
