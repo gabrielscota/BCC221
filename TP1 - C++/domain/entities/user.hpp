@@ -25,7 +25,7 @@ public:
   string getLogin();
   string getPassword();
   UserPermissions *getUserPermissions();
-
+  
   void setLogin(string login);
   void setPassword(string password);
   void setUserPermissions(UserPermissions *userPermissions);

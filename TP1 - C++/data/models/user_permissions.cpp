@@ -15,7 +15,8 @@ string UserPermissions::getId()
     return this->id;
 }
 
-void UserPermissions::showMenuOptions(){
+void UserPermissions::showMenuOptions()
+{
     cout << "" << endl;
 }
 
@@ -24,7 +25,8 @@ vector<string> UserPermissions::getPermissions()
     return this->permissions;
 }
 
-string UserPermissions::getType(){
+string UserPermissions::getType()
+{
     return "UserPermissions";
 }
 
@@ -47,26 +49,30 @@ string GeneralUser::getType()
     return "GeneralUser";
 }
 
-void GeneralUser::showMenuOptions(){
-        int option = -1;
-        cout << "1 - Agenda" << endl;
-        cout << "0 - Deslogar" << endl;
+void GeneralUser::showMenuOptions()
+{
+    int option = -1;
+    cout << "1 - Agenda" << endl;
+    cout << "0 - Deslogar" << endl;
+    while (option != 0)
+    {
         cout << "\n> Informe uma das opcoes acima: ";
         cin >> option;
-        while(option != 0){
-            switch (option)
-            {
-            case 1:
-                cout << "chama funcao edita agenda" << endl;
-                break;
-            case 0:
-                cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n" << endl;
-                break;
-            default:
-                cout << "Opcao Invalida."<<endl;
-                break;
-            }
+        switch (option)
+        {
+        case 1:
+            cout << "chama funcao edita agenda" << endl;
+            break;
+        case 0:
+            system("clear || cls");
+            cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n"
+                 << endl;
+            break;
+        default:
+            cout << "Opcao Invalida." << endl;
+            break;
         }
+    }
 }
 
 AdministrativeAssistantUser::AdministrativeAssistantUser()
@@ -81,14 +87,16 @@ string AdministrativeAssistantUser::getType()
     return "AdministrativeAssistantUser";
 }
 
-void AdministrativeAssistantUser::showMenuOptions(){
+void AdministrativeAssistantUser::showMenuOptions()
+{
     int option = -1;
     cout << "1 - Agenda" << endl;
     cout << "2 - Fazer pagamento de conta" << endl;
     cout << "0 - Deslogar" << endl;
-    cout << "\n> Informe uma das opcoes acima: ";
-    cin >> option;
-    while(option != 0){
+    while (option != 0)
+    {
+        cout << "\n> Informe uma das opcoes acima: ";
+        cin >> option;
         switch (option)
         {
         case 1:
@@ -98,13 +106,15 @@ void AdministrativeAssistantUser::showMenuOptions(){
             cout << "chama funcao cadastra despesa" << endl;
             break;
         case 0:
-            cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n" << endl;
+            system("clear || cls");
+            cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n"
+                 << endl;
             break;
         default:
-            cout << "Opcao Invalida."<<endl;
+            cout << "Opcao Invalida." << endl;
             break;
         }
-    }   
+    }
 }
 
 AdministrativeUser::AdministrativeUser()
@@ -119,15 +129,16 @@ string AdministrativeUser::getType()
     return "AdministrativeUser";
 }
 
-void AdministrativeUser::showMenuOptions(){
+void AdministrativeUser::showMenuOptions()
+{
     int option = -1;
     cout << "1 - Agenda" << endl;
     cout << "2 - Fazer pagamento de conta" << endl;
     cout << "3 - Relatorio" << endl;
     cout << "4 - Criar novo usuario" << endl;
     cout << "0 - Deslogar" << endl;
-    while(option != 0){
-        cout << option << endl;
+    while (option != 0)
+    {
         cout << "\n> Informe uma das opcoes acima: ";
         cin >> option;
         switch (option)
@@ -143,11 +154,12 @@ void AdministrativeUser::showMenuOptions(){
             break;
         case 0:
             system("clear || cls");
-            cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n" << endl;
+            cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n"
+                 << endl;
             break;
         default:
-            cout << "Opcao Invalida."<<endl;
+            cout << "Opcao invalida." << endl;
             break;
         }
-    } 
+    }
 }

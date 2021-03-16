@@ -30,7 +30,8 @@ vector<Orthodontist> Clinic::getOrthodontists()
     return this->orthodontists;
 }
 
-Orthodontist Clinic::getOrthodontist(int index){
+Orthodontist Clinic::getOrthodontist(int index)
+{
     return this->orthodontists[index];
 }
 
@@ -59,7 +60,8 @@ Admin Clinic::getAdmin()
     return this->admin;
 }
 
-User Clinic::getLoggedUser(){
+User Clinic::getLoggedUser()
+{
     return this->loggedUser;
 }
 
@@ -68,7 +70,8 @@ void Clinic::setOrthodontists(vector<Orthodontist> orthodontists)
     this->orthodontists = orthodontists;
 }
 
-void Clinic::setOrthodontist(Orthodontist orthodontist, int index){
+void Clinic::setOrthodontist(Orthodontist orthodontist, int index)
+{
     this->orthodontists[index] = orthodontist;
 }
 
@@ -97,7 +100,8 @@ void Clinic::setAdmin(Admin admin)
     this->admin = admin;
 }
 
-void Clinic::addConsultation(Consultation consultation, int index){
+void Clinic::addConsultation(Consultation consultation, int index)
+{
     Orthodontist aux = getOrthodontist(index);
     aux.addConsultation(consultation);
     this->setOrthodontist(aux, index);
@@ -107,23 +111,26 @@ void Clinic::listOrthodontists()
 {
     for (int i = 0; i < this->orthodontists.size(); i++)
     {
-        cout <<i<<" - "<< this->orthodontists[i].getName() << endl;
+        cout << i << " - " << this->orthodontists[i].getName() << endl;
     }
 }
 
-void Clinic::displaySchedule(int index){
+void Clinic::displaySchedule(int index)
+{
     Orthodontist orthodontist = getOrthodontist(index);
     orthodontist.printSchedule();
 }
 
-void Clinic::setLoggedUser(User loggedUser){
+void Clinic::setLoggedUser(User loggedUser)
+{
     this->loggedUser = loggedUser;
 }
 
-void Clinic::clinicMenu(){
-    int option;
+void Clinic::clinicMenu()
+{
     system("clear || cls");
-    cout << "\n--- Bem vindo, " << this->loggedUser.getName() << "! ---\n" << endl;
+    cout << "\n--- Bem vindo, " << this->loggedUser.getName() << "! ---\n"
+         << endl;
     this->loggedUser.getUserPermissions()->showMenuOptions();
    
 }
@@ -139,7 +146,6 @@ void Clinic::payExpense(){
     cin >> dueDate;
     cout << "Insira a data de pagamento da empresa: " << endl;
     cin >> paymentDate;
-    cin >> dueDate;
     cout << "Insira a descricao da despesa: " << endl;
     cin >> description;
 

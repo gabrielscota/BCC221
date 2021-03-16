@@ -54,7 +54,6 @@ public:
   void listOrthodontists();
   void displaySchedule(int index);
   void payExpense();
-  
 };
 
 #endif /* CLINIC_H_ */
