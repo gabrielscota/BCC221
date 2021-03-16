@@ -1,5 +1,9 @@
 ## Camada de domínio
 
+### Instruções de compilação
+
+`g++ data/models/models.cpp main.cpp -o main.exe`
+
 ### Entidades
 
 - [x] Person
