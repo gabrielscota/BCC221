@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Admin : public User
+class Admin : virtual public User
 {
   string id;
 

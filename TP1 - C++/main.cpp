@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-  Admin admin;
+  Admin admin("teste");
   admin.setLogin("admin");
   admin.setPassword("admin");
 

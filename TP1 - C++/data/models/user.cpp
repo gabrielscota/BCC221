@@ -38,6 +38,18 @@ void User::setPermissions(UserPermissions *permissions)
     this->permissions = permissions;
 }
 
+string User::getLogin(){
+    return this->login;
+}
+string User::getPassword(){
+    return this->password;
+}
+UserPermissions* User::getPermissions(){
+    return this->permissions;
+}
+string User::getId(){
+    return Person::getId();
+}
 /*void setLogin(string login);
   void setPassword(string password);
   void setPermissions(UserPermissions *permissions);*/
