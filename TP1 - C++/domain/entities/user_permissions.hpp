@@ -4,9 +4,9 @@
 #include <string>
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
+class Clinic;
 class UserPermissions
 {
   string id;
@@ -19,7 +19,7 @@ public:
   string getId();
   vector<string> getPermissions();
   virtual string getType();
-  virtual void showMenuOptions();
+  virtual void showMenuOptions(Clinic *clinic);
   void setPermissions(vector<string> permissions);
 };
 
@@ -29,7 +29,7 @@ public:
   GeneralUser();
   ~GeneralUser();
   virtual string getType();
-  virtual void showMenuOptions();
+  virtual void showMenuOptions(Clinic *clinic);
 };
 
 class AdministrativeAssistantUser : public UserPermissions
@@ -38,7 +38,7 @@ public:
   AdministrativeAssistantUser();
   ~AdministrativeAssistantUser();
   virtual string getType();
-  virtual void showMenuOptions();
+  virtual void showMenuOptions(Clinic *clinic);
 };
 
 class AdministrativeUser : public UserPermissions
@@ -47,7 +47,7 @@ public:
   AdministrativeUser();
   ~AdministrativeUser();
   virtual string getType();
-  virtual void showMenuOptions();
+  virtual void showMenuOptions(Clinic *clinic);
 };
 
 #endif /* USERPERMISSIONS_H_ */

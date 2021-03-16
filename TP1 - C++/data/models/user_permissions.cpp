@@ -1,4 +1,5 @@
 #include "../../domain/entities/user_permissions.hpp"
+#include "../../domain/entities/clinic.hpp"
 
 UserPermissions::UserPermissions() {}
 
@@ -15,7 +16,7 @@ string UserPermissions::getId()
     return this->id;
 }
 
-void UserPermissions::showMenuOptions()
+void UserPermissions::showMenuOptions(Clinic *clinic)
 {
     cout << "" << endl;
 }
@@ -49,7 +50,7 @@ string GeneralUser::getType()
     return "GeneralUser";
 }
 
-void GeneralUser::showMenuOptions()
+void GeneralUser::showMenuOptions(Clinic *clinic)
 {
     int option = -1;
     cout << "1 - Agenda" << endl;
@@ -87,7 +88,7 @@ string AdministrativeAssistantUser::getType()
     return "AdministrativeAssistantUser";
 }
 
-void AdministrativeAssistantUser::showMenuOptions()
+void AdministrativeAssistantUser::showMenuOptions(Clinic *clinic)
 {
     int option = -1;
     cout << "1 - Agenda" << endl;
@@ -129,7 +130,7 @@ string AdministrativeUser::getType()
     return "AdministrativeUser";
 }
 
-void AdministrativeUser::showMenuOptions()
+void AdministrativeUser::showMenuOptions(Clinic *clinic)
 {
     int option = -1;
     cout << "1 - Agenda" << endl;
@@ -148,6 +149,7 @@ void AdministrativeUser::showMenuOptions()
             break;
         case 2:
             cout << "chama funcao cadastra despesa" << endl;
+            clinic->payExpense();
             break;
         case 3:
             cout << "chama funcao de gerar relatorio" << endl;
