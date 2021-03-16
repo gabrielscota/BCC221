@@ -59,6 +59,10 @@ Admin Clinic::getAdmin()
     return this->admin;
 }
 
+User Clinic::getLoggedUser(){
+    return this->loggedUser;
+}
+
 void Clinic::setOrthodontists(vector<Orthodontist> orthodontists)
 {
     this->orthodontists = orthodontists;
@@ -110,6 +114,15 @@ void Clinic::listOrthodontists()
 void Clinic::displaySchedule(int index){
     Orthodontist orthodontist = getOrthodontist(index);
     orthodontist.printSchedule();
-
 }
 
+void Clinic::setLoggedUser(User loggedUser){
+    this->loggedUser = loggedUser;
+}
+
+void Clinic::clinicMenu(){
+    int option;
+    system("clear || cls");
+    cout << "\n--- Bem vindo, " << this->loggedUser.getName() << "! ---\n" << endl;
+    this->loggedUser.getUserPermissions()->showMenuOptions();
+}

@@ -8,52 +8,6 @@ using namespace std;
 Consultation createConsultation();
 
 
-void menu(Clinic clinic, User loggedUser)
-{
-    int orthodontistOption;
-    int addConsultation;
-    int option = -1;
-    while (option != 0)
-    {
-      system("clear || cls");
-      cout << "\n--- Bem vindo, " << loggedUser.getName() << "! ---\n"
-           << endl;
-      loggedUser.getUserPermissions()->showMenuOptions();
-
-      cout << "\n> Informe uma das opcoes acima: ";
-      cin >> option;
-      switch (option)
-      {
-      case 0:
-        system("clear || cls");
-        cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n"
-             << endl;
-        break;
-      case 1:
-        system("clear || cls");
-        cout << "\n[-] Lista de ortodontistas disponiveis na clinica:\n"
-             << endl;
-        clinic.listOrthodontists();
-        //-----------------------------------------------------------------------------
-        cout <<"\n[-] Selecione o ortodentista desejado:\n"<<endl;
-        cin  >> orthodontistOption;
-        clinic.displaySchedule(orthodontistOption);
-        cout <<"\n[-] Deseja adicionar uma consulta?\n"<<endl;
-        cout <<"[1] SIM\n"<<endl;
-        cout <<"[2] NAO\n"<<endl;
-        cin  >> addConsultation;
-        if(addConsultation == 1){
-            Consultation consultation = createConsultation();
-            clinic.addConsultation(consultation, orthodontistOption);
-        }
-        string continuePrint;
-        cout << "\n[!] Aperte qualquer tecla + ENTER para continuar!\n"
-             << endl;
-        cin >> continuePrint;
-        break;
-      }
-    }
-}
 
 User login(Clinic clinic)
 {
@@ -111,17 +65,16 @@ User login(Clinic clinic)
 }
 
 Consultation createConsultation(){
-  string patientName, date, description;
+  string patientName, date, description, buffer;
+  getline(cin, buffer);
   double value;
   cout<<"\n[!]Digite o nome do paciente: ";
-  cin>>patientName;
+  getline(cin, patientName);
   Patient patient("10", patientName);
   cout<<"\n[!]Digite a data da consulta: ";
-  cin>>date;
+  getline(cin, date);
   cout<<"\n[!]Digite a descricao da consulta: ";
-  cin>>description;
-  cout<<"Aguarde";
-  cin>>patientName;
+  getline(cin, description);
   cout<<"\n[!]Digite o valor da consulta: ";
   cin>>value;
   PaymentConsultation payment("10", value);
@@ -181,12 +134,12 @@ int main()
   orthodontists.push_back(orthodontist);
   orthodontists.push_back(orthodontist2);
   clinic.setOrthodontists(orthodontists);
-
-  User loggedUser = login(clinic);
-  if (!loggedUser.getLogin().compare(" ") == 0)
+  clinic.setLoggedUser(login(clinic));
+  
+  if (!clinic.getLoggedUser().getLogin().compare(" ") == 0)
   {
     system("clear || cls");
-    menu(clinic, loggedUser);
+    clinic.clinicMenu();
   }
   return 0;
 }

@@ -22,6 +22,7 @@ class Clinic
   vector<Patient> patients;
   vector<Expense> expenses;
   Receptionist receptionist;
+  User loggedUser;
   Admin admin;
 
 public:
@@ -39,6 +40,9 @@ public:
   Receptionist getReceptionist();
   Admin getAdmin();
 
+  void setLoggedUser(User loggedUser);
+  User getLoggedUser();
+  void clinicMenu();
   void setOrthodontists(vector<Orthodontist> orthodontists);
   void setOrthodontist(Orthodontist orthodontist, int index);
   void setAssistents(vector<Assistent> assistents);

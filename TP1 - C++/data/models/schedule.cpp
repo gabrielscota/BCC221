@@ -32,11 +32,11 @@ void Schedule::addConsultation(Consultation consultation){
 
 void Schedule::print(){
     int i;
-    cout<<"Id               |"
-        <<"Patient          |"
-        <<"Date             |"
-        <<"Description      |"<<endl;
-
+    cout<<"Id         |"
+        <<"Paciente          |"
+        <<"Data         |"
+        <<"Descricao      |"
+        <<"Valor      |"<<endl;
     vector<Consultation> consultations = getConsultations();
     for(i = 0; i < getConsultations().size(); i++){
         cout<<consultations[i].getId()<<"   |"

@@ -48,8 +48,25 @@ string GeneralUser::getType()
 }
 
 void GeneralUser::showMenuOptions(){
+        int option = -1;
         cout << "1 - Agenda" << endl;
-        cout << "0 - Sair" << endl;
+        cout << "0 - Deslogar" << endl;
+        cout << "\n> Informe uma das opcoes acima: ";
+        cin >> option;
+        while(option != 0){
+            switch (option)
+            {
+            case 1:
+                cout << "chama funcao edita agenda" << endl;
+                break;
+            case 0:
+                cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n" << endl;
+                break;
+            default:
+                cout << "Opcao Invalida."<<endl;
+                break;
+            }
+        }
 }
 
 AdministrativeAssistantUser::AdministrativeAssistantUser()
@@ -65,9 +82,29 @@ string AdministrativeAssistantUser::getType()
 }
 
 void AdministrativeAssistantUser::showMenuOptions(){
+    int option = -1;
     cout << "1 - Agenda" << endl;
     cout << "2 - Cadastrar despesa" << endl;
-    cout << "0 - Sair" << endl;
+    cout << "0 - Deslogar" << endl;
+    cout << "\n> Informe uma das opcoes acima: ";
+    cin >> option;
+    while(option != 0){
+        switch (option)
+        {
+        case 1:
+            cout << "chama funcao edita agenda" << endl;
+            break;
+        case 2:
+            cout << "chama funcao cadastra despesa" << endl;
+            break;
+        case 0:
+            cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n" << endl;
+            break;
+        default:
+            cout << "Opcao Invalida."<<endl;
+            break;
+        }
+    }   
 }
 
 AdministrativeUser::AdministrativeUser()
@@ -83,8 +120,34 @@ string AdministrativeUser::getType()
 }
 
 void AdministrativeUser::showMenuOptions(){
+    int option = -1;
     cout << "1 - Agenda" << endl;
     cout << "2 - Cadastrar despesa" << endl;
     cout << "3 - Relatorio" << endl;
-    cout << "0 - Sair" << endl;
+    cout << "4 - Criar novo usuario" << endl;
+    cout << "0 - Deslogar" << endl;
+    while(option != 0){
+        cout << option << endl;
+        cout << "\n> Informe uma das opcoes acima: ";
+        cin >> option;
+        switch (option)
+        {
+        case 1:
+            cout << "chama funcao edita agenda" << endl;
+            break;
+        case 2:
+            cout << "chama funcao cadastra despesa" << endl;
+            break;
+        case 3:
+            cout << "chama funcao de gerar relatorio" << endl;
+            break;
+        case 0:
+            system("clear || cls");
+            cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n" << endl;
+            break;
+        default:
+            cout << "Opcao Invalida."<<endl;
+            break;
+        }
+    } 
 }
