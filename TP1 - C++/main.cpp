@@ -111,17 +111,16 @@ User login(Clinic clinic)
 }
 
 Consultation createConsultation(){
-  string patientName, date, description;
+  string patientName, date, description, buffer;
+  getline(cin, buffer);
   double value;
   cout<<"\n[!]Digite o nome do paciente: ";
-  cin>>patientName;
+  getline(cin, patientName);
   Patient patient("10", patientName);
   cout<<"\n[!]Digite a data da consulta: ";
-  cin>>date;
+  getline(cin, date);
   cout<<"\n[!]Digite a descricao da consulta: ";
-  cin>>description;
-  cout<<"Aguarde";
-  cin>>patientName;
+  getline(cin, description);
   cout<<"\n[!]Digite o valor da consulta: ";
   cin>>value;
   PaymentConsultation payment("10", value);
