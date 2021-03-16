@@ -53,7 +53,7 @@ public:
   void addConsultation(Consultation consultation, int index);
   void listOrthodontists();
   void displaySchedule(int index);
-  
+  void showContributors();
 };
 
 #endif /* CLINIC_H_ */
