@@ -13,8 +13,8 @@ using namespace std;
 class Orthodontist : public Employee
 {
   string id;
-  Schedule *schedule;
-  Assistent *assistent;
+  Schedule schedule;
+  Assistent assistent;
 
 public:
   
@@ -22,11 +22,11 @@ public:
   ~Orthodontist();
 
   string getId();
-  Schedule *getSchedule();
-  Assistent *getAssistent();
+  Schedule getSchedule();
+  Assistent getAssistent();
 
-  void setSchedule(Schedule *schedule);
-  void setAssistent(Assistent *assistent);
+  void setSchedule(Schedule schedule);
+  void setAssistent(Assistent assistent);
 };
 
 #endif /* ORTHODONTIST_H_ */

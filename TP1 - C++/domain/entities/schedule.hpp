@@ -13,16 +13,17 @@ using namespace std;
 class Schedule
 {
   string id;
-  vector<Consultation *> consultations;
+  vector<Consultation> consultations;
 
 public:
-  Schedule(string id, vector<Consultation *> consultations);
+  Schedule();
+  Schedule(string id, vector<Consultation> consultations);
   ~Schedule();
 
   string getId();
-  vector<Consultation *> getConsultations();
+  vector<Consultation> getConsultations();
 
-  void setConsutations(vector<Consultation *> consultations);
+  void setConsutations(vector<Consultation> consultations);
 };
 
 #endif /* SCHEDULE_H_ */

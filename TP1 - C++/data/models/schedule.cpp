@@ -1,20 +1,26 @@
 #include "../../domain/entities/schedule.hpp"
 
-Schedule::Schedule(string id, vector<Consultation *> consultations){
+Schedule::Schedule() {}
+
+Schedule::Schedule(string id, vector<Consultation> consultations)
+{
     this->id = id;
     this->consultations = consultations;
 }
 
-Schedule::~Schedule(){}
+Schedule::~Schedule() {}
 
-string Schedule::getId(){
+string Schedule::getId()
+{
     return this->id;
 }
 
-vector <Consultation*> Schedule::getConsultations(){
+vector<Consultation> Schedule::getConsultations()
+{
     return this->consultations;
 }
 
-void Schedule::setConsutations(vector<Consultation *> consultations){
+void Schedule::setConsutations(vector<Consultation> consultations)
+{
     this->consultations = consultations;
 }

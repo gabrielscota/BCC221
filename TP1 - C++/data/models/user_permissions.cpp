@@ -20,6 +20,10 @@ vector<string> UserPermissions::getPermissions()
     return this->permissions;
 }
 
+string UserPermissions::getType(){
+    return "UserPermissions";
+}
+
 void UserPermissions::setPermissions(vector<string> permissions)
 {
     this->permissions = permissions;
@@ -34,6 +38,11 @@ GeneralUser::GeneralUser()
 
 GeneralUser::~GeneralUser(){};
 
+string GeneralUser::getType()
+{
+    return "GeneralUser";
+}
+
 AdministrativeAssistantUser::AdministrativeAssistantUser()
 {
     this->setPermissions({"schedule"});
@@ -41,9 +50,19 @@ AdministrativeAssistantUser::AdministrativeAssistantUser()
 
 AdministrativeAssistantUser::~AdministrativeAssistantUser(){};
 
+string AdministrativeAssistantUser::getType()
+{
+    return "AdministrativeAssistantUser";
+}
+
 AdministrativeUser::AdministrativeUser()
 {
     this->setPermissions({"schedule"});
 };
 
 AdministrativeUser::~AdministrativeUser(){};
+
+string AdministrativeUser::getType()
+{
+    return "AdministrativeUser";
+}

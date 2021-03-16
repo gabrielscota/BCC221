@@ -11,6 +11,7 @@ using namespace std;
 class Assistent : public Employee
 {
 public:
+  Assistent();
   Assistent(string id);
   ~Assistent();
 

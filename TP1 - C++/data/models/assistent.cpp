@@ -1,10 +1,12 @@
 #include "../../domain/entities/assistent.hpp"
 
-Assistent::Assistent(string id):
-    Employee(id){};
+Assistent::Assistent(){};
 
-Assistent::~Assistent(){}
+Assistent::Assistent(string id) : Employee(id){};
 
-string Assistent::getId(){
-     return Employee::getId();
+Assistent::~Assistent() {}
+
+string Assistent::getId()
+{
+    return Employee::getId();
 }

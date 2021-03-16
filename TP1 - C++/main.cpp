@@ -32,34 +32,47 @@ void showMenuOptions(int typeUserPermissions)
 void menu(Clinic clinic, User loggedUser)
 {
   int typeUserPermissions = -1;
-  if (typeid(loggedUser.getUserPermissions()) == typeid(GeneralUser))
+  if (loggedUser.getUserPermissions()->getType().compare("GeneralUser"))
   {
     typeUserPermissions = 0;
   }
-  else if (typeid(loggedUser.getUserPermissions()) == typeid(AdministrativeAssistantUser))
+  else if (loggedUser.getUserPermissions()->getType().compare("AdministrativeAssistantUser"))
   {
     typeUserPermissions = 1;
   }
-  else if (typeid(loggedUser.getUserPermissions()) == typeid(AdministrativeUser))
+  else if (loggedUser.getUserPermissions()->getType().compare("AdministrativeUser"))
   {
     typeUserPermissions = 2;
   }
-  cout << typeUserPermissions << endl;
 
   if (typeUserPermissions != -1)
   {
-    cout << "Bem vindo ao sistema de gerenciamento para clinicas." << endl;
-
     int option = -1;
     while (option != 0)
     {
+      system("clear || cls");
+      cout << "\n--- Bem vindo, " << loggedUser.getName() << "! ---\n"
+           << endl;
       showMenuOptions(typeUserPermissions);
 
-      cout << "> Informe uma das opcoes acima: " << endl;
+      cout << "\n> Informe uma das opcoes acima: ";
+      cin >> option;
       switch (option)
       {
+      case 0:
+        system("clear || cls");
+        cout << "\n[!] Voce esta saindo do sistema, volte sempre!\n"
+             << endl;
+        break;
       case 1:
+        system("clear || cls");
+        cout << "\n[-] Lista de ortodontistas disponiveis na clinica:\n"
+             << endl;
         clinic.listOrthodontists();
+        string continuePrint;
+        cout << "\n[!] Aperte qualquer tecla + ENTER para continuar!\n"
+             << endl;
+        cin >> continuePrint;
         break;
       }
     }
@@ -69,7 +82,8 @@ void menu(Clinic clinic, User loggedUser)
 User login(Clinic clinic)
 {
   int option = 1;
-  cout << "Bem vindo ao sistema de gerenciamento para clinicas." << endl;
+  cout << "\n--- Bem vindo ao sistema de gerenciamento para clinicas. ---\n"
+       << endl;
 
   string login;
   string password;
@@ -78,9 +92,9 @@ User login(Clinic clinic)
 
   while (option)
   {
-    cout << "> Informe seu login: " << endl;
+    cout << "> Informe seu login: ";
     cin >> login;
-    cout << "> Informe sua senha: " << endl;
+    cout << "> Informe sua senha: ";
     cin >> password;
 
     if (clinic.getAdmin().getLogin().compare(login) == 0 && clinic.getAdmin().getPassword().compare(password) == 0)
@@ -112,7 +126,8 @@ User login(Clinic clinic)
     }
     else
     {
-      cout << "[!] Usuario ou senha invalidos, tente novamente." << endl;
+      cout << "\n[!] Usuario ou senha invalidos, tente novamente.\n"
+           << endl;
     }
   }
   return User();
@@ -120,20 +135,23 @@ User login(Clinic clinic)
 
 int main()
 {
-  GeneralUser *receptionistPermissions;
-  AdministrativeAssistantUser *assistentPermissions;
-  AdministrativeUser *adminPermissions;
+  system("clear || cls");
+
+  GeneralUser receptionistPermissions;
+  AdministrativeAssistantUser assistentPermissions;
+  AdministrativeUser adminPermissions;
 
   Admin admin("1");
   admin.setLogin("admin");
   admin.setPassword("admin");
-  admin.setUserPermissions(adminPermissions);
+  admin.setName("Administrador");
+  admin.setUserPermissions(&adminPermissions);
 
   Receptionist receptionist("2");
   receptionist.setLogin("ana");
   receptionist.setPassword("123");
   receptionist.setName("Ana Silva");
-  receptionist.setUserPermissions(receptionistPermissions);
+  receptionist.setUserPermissions(&receptionistPermissions);
 
   Clinic clinic("1", receptionist, admin);
   clinic.setAdmin(admin);
@@ -142,18 +160,27 @@ int main()
   Assistent assistent("3");
   assistent.setLogin("joao");
   assistent.setPassword("123");
-  assistent.setName("Joao");
-  assistent.setUserPermissions(assistentPermissions);
+  assistent.setName("Joao Silva");
+  assistent.setUserPermissions(&assistentPermissions);
 
   vector<Assistent> assistents = clinic.getAssistents();
   assistents.push_back(assistent);
   clinic.setAssistents(assistents);
 
+  Orthodontist orthodontist("4");
+  orthodontist.setLogin("cleiton");
+  orthodontist.setPassword("123");
+  orthodontist.setName("Cleiton Rasta");
+  orthodontist.setAssistent(assistent);
+
+  vector<Orthodontist> orthodontists = clinic.getOrthodontists();
+  orthodontists.push_back(orthodontist);
+  clinic.setOrthodontists(orthodontists);
+
   User loggedUser = login(clinic);
   if (!loggedUser.getLogin().compare(" ") == 0)
   {
     system("clear || cls");
-    cout << typeid(loggedUser.getUserPermissions()).name() << endl;
     menu(clinic, loggedUser);
   }
   return 0;
