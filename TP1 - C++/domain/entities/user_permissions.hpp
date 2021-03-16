@@ -13,6 +13,7 @@ class UserPermissions
   vector<string> permissions;
 
 public:
+  UserPermissions();
   UserPermissions(string id, vector<string> permissions);
   ~UserPermissions();
 
@@ -22,16 +23,16 @@ public:
   void setPermissions(vector<string> permissions);
 };
 
-class GeneralUser : public UserPermissions
+class GeneralUser : virtual public UserPermissions
 {
 };
 
-class AdministrativeAssistantUser : public UserPermissions
+class AdministrativeAssistantUser : virtual public UserPermissions
 {
   
 };
 
-class AdministrativeUser : public UserPermissions
+class AdministrativeUser : virtual public UserPermissions
 {
 
 };
