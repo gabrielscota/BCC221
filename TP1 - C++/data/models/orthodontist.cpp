@@ -32,3 +32,7 @@ void Orthodontist::printSchedule(){
 void Orthodontist::addConsultation(Consultation consultation){
     this->schedule.addConsultation(consultation);
 }
+
+void Orthodontist::editSchedule(int index){
+    Consultation consultation = this->getSchedule().getConsultation(index);
+}

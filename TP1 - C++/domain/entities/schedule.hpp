@@ -22,8 +22,10 @@ public:
 
   string getId();
   vector<Consultation> getConsultations();
+  Consultation getConsultation(int index);
 
-  void setConsutations(vector<Consultation> consultations);
+  void setConsultation(Consultation consultation, int index);
+  void setConsultations(vector<Consultation> consultations);
   void addConsultation(Consultation consultation);
   void print();
 

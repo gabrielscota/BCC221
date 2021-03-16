@@ -29,6 +29,7 @@ public:
   void setAssistent(Assistent assistent);
   void printSchedule();
   void addConsultation(Consultation consultation);
+  void editSchedule(int index);
 };
 
 #endif /* ORTHODONTIST_H_ */

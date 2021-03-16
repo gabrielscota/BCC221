@@ -20,7 +20,15 @@ vector<Consultation> Schedule::getConsultations()
     return this->consultations;
 }
 
-void Schedule::setConsutations(vector<Consultation> consultations)
+Consultation Schedule::getConsultation(int index){
+    return this->consultations[index];
+}
+
+void Schedule::setConsultation(Consultation consultation, int index){
+    this->consultations[index] = consultation;
+}
+
+void Schedule::setConsultations(vector<Consultation> consultations)
 {
     this->consultations = consultations;
 }
