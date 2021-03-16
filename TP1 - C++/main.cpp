@@ -7,49 +7,9 @@ using namespace std;
 
 Consultation createConsultation();
 
-void showMenuOptions(int typeUserPermissions)
-{
-  cout << "Selecione uma das opcoes a seguir:" << endl;
-
-  switch (typeUserPermissions)
-  {
-  case 0:
-    cout << "1 - Agenda" << endl;
-    cout << "0 - Sair" << endl;
-    break;
-  case 1:
-    cout << "1 - Agenda" << endl;
-    cout << "2 - Cadastrar despesa" << endl;
-    cout << "0 - Sair" << endl;
-    break;
-  case 2:
-    cout << "1 - Agenda" << endl;
-    cout << "2 - Cadastrar despesa" << endl;
-    cout << "3 - Relatorio" << endl;
-    cout << "0 - Sair" << endl;
-    break;
-  }
-}
 
 void menu(Clinic clinic, User loggedUser)
 {
-  int typeUserPermissions = -1;
-  if (loggedUser.getUserPermissions()->getType().compare("GeneralUser"))
-  {
-    typeUserPermissions = 0;
-  }
-  else if (loggedUser.getUserPermissions()->getType().compare("AdministrativeAssistantUser"))
-  {
-    typeUserPermissions = 1;
-  }
-  else if (loggedUser.getUserPermissions()->getType().compare("AdministrativeUser"))
-  {
-    typeUserPermissions = 2;
-  }
-
-  if (typeUserPermissions != -1)
-  {
-    
     int orthodontistOption;
     int addConsultation;
     int option = -1;
@@ -58,7 +18,7 @@ void menu(Clinic clinic, User loggedUser)
       system("clear || cls");
       cout << "\n--- Bem vindo, " << loggedUser.getName() << "! ---\n"
            << endl;
-      showMenuOptions(typeUserPermissions);
+      loggedUser.getUserPermissions()->showMenuOptions();
 
       cout << "\n> Informe uma das opcoes acima: ";
       cin >> option;
@@ -86,8 +46,6 @@ void menu(Clinic clinic, User loggedUser)
             Consultation consultation = createConsultation();
             clinic.addConsultation(consultation, orthodontistOption);
         }
-
-
         string continuePrint;
         cout << "\n[!] Aperte qualquer tecla + ENTER para continuar!\n"
              << endl;
@@ -95,7 +53,6 @@ void menu(Clinic clinic, User loggedUser)
         break;
       }
     }
-  }
 }
 
 User login(Clinic clinic)
@@ -119,6 +76,7 @@ User login(Clinic clinic)
     if (clinic.getAdmin().getLogin().compare(login) == 0 && clinic.getAdmin().getPassword().compare(password) == 0)
     {
       loggedUser = clinic.getAdmin();
+      cout<< "Foi"<<endl;
       return loggedUser;
     }
     else if (clinic.getReceptionist().getLogin().compare(login) == 0 && clinic.getReceptionist().getPassword().compare(password) == 0)

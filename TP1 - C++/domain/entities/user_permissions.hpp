@@ -20,7 +20,7 @@ public:
   string getId();
   vector<string> getPermissions();
   virtual string getType();
-
+  virtual void showMenuOptions();
   void setPermissions(vector<string> permissions);
 };
 
@@ -31,6 +31,7 @@ public:
   ~GeneralUser();
 
   virtual string getType();
+  virtual void showMenuOptions();
 };
 
 class AdministrativeAssistantUser : public UserPermissions
@@ -40,6 +41,7 @@ public:
   ~AdministrativeAssistantUser();
 
   virtual string getType();
+  virtual void showMenuOptions();
 };
 
 class AdministrativeUser : public UserPermissions
@@ -49,6 +51,7 @@ public:
   ~AdministrativeUser();
 
   virtual string getType();
+  virtual void showMenuOptions();
 };
 
 #endif /* USERPERMISSIONS_H_ */
