@@ -13,23 +13,22 @@ class User : public Person
 {
   string login;
   string password;
-  UserPermissions permissions;
+  UserPermissions *userPermissions;
 
 public:
-
   User();
   User(string id);
-  User(string id, string login, string password, UserPermissions permissions);
+  User(string id, string login, string password, UserPermissions *userPermissions);
   ~User();
 
   string getId();
   string getLogin();
   string getPassword();
-  UserPermissions getPermissions();
+  UserPermissions *getUserPermissions();
 
   void setLogin(string login);
   void setPassword(string password);
-  void setPermissions(UserPermissions permissions);
+  void setUserPermissions(UserPermissions *userPermissions);
 };
 
 #endif /* USER_H_ */

@@ -1,33 +1,49 @@
 #include "../../domain/entities/user_permissions.hpp"
 
-UserPermissions::UserPermissions(){}
+UserPermissions::UserPermissions() {}
 
-UserPermissions::UserPermissions(string id, vector<string> permissions){
+UserPermissions::UserPermissions(string id, vector<string> permissions)
+{
     this->id = id;
     this->permissions = permissions;
 }
 
-UserPermissions::~UserPermissions(){}
+UserPermissions::~UserPermissions() {}
 
-string UserPermissions::getId(){
+string UserPermissions::getId()
+{
     return this->id;
 }
 
-vector<string> UserPermissions::getPermissions(){
+vector<string> UserPermissions::getPermissions()
+{
     return this->permissions;
 }
 
-void UserPermissions::setPermissions(vector <string> permissions){
+void UserPermissions::setPermissions(vector<string> permissions)
+{
     this->permissions = permissions;
 }
 
 //  GeneralUser, AdministrativeAssistantUser, AdministrativeUser left
 
-GeneralUser::GeneralUser(){};
+GeneralUser::GeneralUser()
+{
+    this->setPermissions({"schedule"});
+};
+
 GeneralUser::~GeneralUser(){};
 
-AdministrativeAssistantUser::AdministrativeAssistantUser(){};
+AdministrativeAssistantUser::AdministrativeAssistantUser()
+{
+    this->setPermissions({"schedule"});
+};
+
 AdministrativeAssistantUser::~AdministrativeAssistantUser(){};
 
-AdministrativeUser::AdministrativeUser(){};
+AdministrativeUser::AdministrativeUser()
+{
+    this->setPermissions({"schedule"});
+};
+
 AdministrativeUser::~AdministrativeUser(){};
