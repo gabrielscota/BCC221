@@ -5,6 +5,8 @@
 
 using namespace std;
 
+Consultation createConsultation();
+
 void showMenuOptions(int typeUserPermissions)
 {
   cout << "Selecione uma das opcoes a seguir:" << endl;
@@ -12,16 +14,16 @@ void showMenuOptions(int typeUserPermissions)
   switch (typeUserPermissions)
   {
   case 0:
-    cout << "1 - Listar ortodontistas" << endl;
+    cout << "1 - Agenda" << endl;
     cout << "0 - Sair" << endl;
     break;
   case 1:
-    cout << "1 - Listar ortodontistas" << endl;
+    cout << "1 - Agenda" << endl;
     cout << "2 - Cadastrar despesa" << endl;
     cout << "0 - Sair" << endl;
     break;
   case 2:
-    cout << "1 - Listar ortodontistas" << endl;
+    cout << "1 - Agenda" << endl;
     cout << "2 - Cadastrar despesa" << endl;
     cout << "3 - Relatorio" << endl;
     cout << "0 - Sair" << endl;
@@ -47,6 +49,9 @@ void menu(Clinic clinic, User loggedUser)
 
   if (typeUserPermissions != -1)
   {
+    
+    int orthodontistOption;
+    int addConsultation;
     int option = -1;
     while (option != 0)
     {
@@ -69,6 +74,20 @@ void menu(Clinic clinic, User loggedUser)
         cout << "\n[-] Lista de ortodontistas disponiveis na clinica:\n"
              << endl;
         clinic.listOrthodontists();
+        //-----------------------------------------------------------------------------
+        cout <<"\n[-] Selecione o ortodentista desejado:\n"<<endl;
+        cin  >> orthodontistOption;
+        clinic.displaySchedule(orthodontistOption);
+        cout <<"\n[-] Deseja adicionar uma consulta?\n"<<endl;
+        cout <<"[1] SIM\n"<<endl;
+        cout <<"[2] NAO\n"<<endl;
+        cin  >> addConsultation;
+        if(addConsultation == 1){
+            Consultation consultation = createConsultation();
+            clinic.addConsultation(consultation, orthodontistOption);
+        }
+
+
         string continuePrint;
         cout << "\n[!] Aperte qualquer tecla + ENTER para continuar!\n"
              << endl;
@@ -133,6 +152,26 @@ User login(Clinic clinic)
   return User();
 }
 
+Consultation createConsultation(){
+  string patientName, date, description;
+  double value;
+  cout<<"\n[!]Digite o nome do paciente: ";
+  cin>>patientName;
+  Patient patient("10", patientName);
+  cout<<"\n[!]Digite a data da consulta: ";
+  cin>>date;
+  cout<<"\n[!]Digite a descricao da consulta: ";
+  cin>>description;
+  cout<<"Aguarde";
+  cin>>patientName;
+  cout<<"\n[!]Digite o valor da consulta: ";
+  cin>>value;
+  PaymentConsultation payment("10", value);
+  Consultation consultation("10", patient, date, description, payment);
+  return consultation;
+}
+
+
 int main()
 {
   system("clear || cls");
@@ -173,8 +212,16 @@ int main()
   orthodontist.setName("Cleiton Rasta");
   orthodontist.setAssistent(assistent);
 
+  Orthodontist orthodontist2("5");
+  orthodontist2.setLogin("cleitin");
+  orthodontist2.setPassword("123");
+  orthodontist2.setName("Cleiton Filho do Rasta");
+  orthodontist2.setAssistent(assistent);
+
+
   vector<Orthodontist> orthodontists = clinic.getOrthodontists();
   orthodontists.push_back(orthodontist);
+  orthodontists.push_back(orthodontist2);
   clinic.setOrthodontists(orthodontists);
 
   User loggedUser = login(clinic);

@@ -32,6 +32,7 @@ public:
 
   string getId();
   vector<Orthodontist> getOrthodontists();
+  Orthodontist getOrthodontist(int index);
   vector<Assistent> getAssistents();
   vector<Patient> getPatients();
   vector<Expense> getExpenses();
@@ -39,12 +40,16 @@ public:
   Admin getAdmin();
 
   void setOrthodontists(vector<Orthodontist> orthodontists);
+  void setOrthodontist(Orthodontist orthodontist, int index);
   void setAssistents(vector<Assistent> assistents);
   void setPatients(vector<Patient> patients);
   void setExpenses(vector<Expense> expenses);
   void setReceptionist(Receptionist receptionist);
   void setAdmin(Admin admin);
+  void addConsultation(Consultation consultation, int index);
   void listOrthodontists();
+  void displaySchedule(int index);
+  
 };
 
 #endif /* CLINIC_H_ */

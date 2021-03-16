@@ -30,6 +30,10 @@ vector<Orthodontist> Clinic::getOrthodontists()
     return this->orthodontists;
 }
 
+Orthodontist Clinic::getOrthodontist(int index){
+    return this->orthodontists[index];
+}
+
 vector<Assistent> Clinic::getAssistents()
 {
     return this->assistents;
@@ -60,6 +64,10 @@ void Clinic::setOrthodontists(vector<Orthodontist> orthodontists)
     this->orthodontists = orthodontists;
 }
 
+void Clinic::setOrthodontist(Orthodontist orthodontist, int index){
+    this->orthodontists[index] = orthodontist;
+}
+
 void Clinic::setAssistents(vector<Assistent> assistents)
 {
     this->assistents = assistents;
@@ -85,10 +93,23 @@ void Clinic::setAdmin(Admin admin)
     this->admin = admin;
 }
 
+void Clinic::addConsultation(Consultation consultation, int index){
+    Orthodontist aux = getOrthodontist(index);
+    aux.addConsultation(consultation);
+    this->setOrthodontist(aux, index);
+}
+
 void Clinic::listOrthodontists()
 {
     for (int i = 0; i < this->orthodontists.size(); i++)
     {
-        cout << this->orthodontists[i].getName() << endl;
+        cout <<i<<" - "<< this->orthodontists[i].getName() << endl;
     }
 }
+
+void Clinic::displaySchedule(int index){
+    Orthodontist orthodontist = getOrthodontist(index);
+    orthodontist.printSchedule();
+
+}
+

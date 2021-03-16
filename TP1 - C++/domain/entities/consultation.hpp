@@ -12,25 +12,25 @@ using namespace std;
 class Consultation
 {
   string id;
-  Patient *patient;
+  Patient patient;
   string date;
   string description;
-  PaymentConsultation *paymentConsultation;
+  PaymentConsultation paymentConsultation;
 
 public:
-  Consultation(string id, Patient *patient, string date, string description, PaymentConsultation *paymentConsultation);
+  Consultation(string id, Patient patient, string date, string description, PaymentConsultation paymentConsultation);
   ~Consultation();
 
   string getId();
-  Patient *getPatient();
+  Patient getPatient();
   string getDate();
   string getDescription();
-  PaymentConsultation *getPaymentConsultation();
+  PaymentConsultation getPaymentConsultation();
 
-  void setPatient(Patient *patient);
+  void setPatient(Patient patient);
   void setDate(string date);
   void setDescription(string description);
-  void setPaymentConsultation(PaymentConsultation *paymentConsultation);
+  void setPaymentConsultation(PaymentConsultation paymentConsultation);
 };
 
 #endif /* CONSUTATION_H_ */

@@ -24,3 +24,11 @@ void Orthodontist::setSchedule(Schedule schedule){
 void Orthodontist::setAssistent(Assistent assistent){
     this->assistent = assistent;
 }
+
+void Orthodontist::printSchedule(){
+    this->schedule.print();
+}
+
+void Orthodontist::addConsultation(Consultation consultation){
+    this->schedule.addConsultation(consultation);
+}

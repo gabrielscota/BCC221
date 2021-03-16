@@ -24,6 +24,9 @@ public:
   vector<Consultation> getConsultations();
 
   void setConsutations(vector<Consultation> consultations);
+  void addConsultation(Consultation consultation);
+  void print();
+
 };
 
 #endif /* SCHEDULE_H_ */

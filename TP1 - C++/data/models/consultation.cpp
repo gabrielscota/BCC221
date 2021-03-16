@@ -1,6 +1,6 @@
 #include "../../domain/entities/consultation.hpp"
 
-Consultation::Consultation(string id, Patient *patient, string date, string description, PaymentConsultation *paymentConsultation):
+Consultation::Consultation(string id, Patient patient, string date, string description, PaymentConsultation paymentConsultation):
     id(id),
     patient(patient),
     date(date),
@@ -13,7 +13,7 @@ string Consultation::getId(){
     return this->id;
 }
 
-Patient* Consultation::getPatient(){
+Patient Consultation::getPatient(){
     return this->patient;
 }
 
@@ -25,11 +25,11 @@ string Consultation::getDescription(){
     return this->description;
 }
 
-PaymentConsultation* Consultation::getPaymentConsultation(){
+PaymentConsultation Consultation::getPaymentConsultation(){
     return this->paymentConsultation;
 }
 
-void Consultation::setPatient(Patient *patient){
+void Consultation::setPatient(Patient patient){
     this->patient = patient;
 }
 
@@ -41,7 +41,7 @@ void Consultation::setDescription(string description){
     this->description = description;
 }
 
-void Consultation::setPaymentConsultation(PaymentConsultation *paymentConsultation){
+void Consultation::setPaymentConsultation(PaymentConsultation paymentConsultation){
     this->paymentConsultation = paymentConsultation;
 }
 
