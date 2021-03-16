@@ -32,6 +32,8 @@ public:
   ~Clinic();
 
   string getId();
+
+
   vector<Orthodontist> getOrthodontists();
   Orthodontist getOrthodontist(int index);
   vector<Assistent> getAssistents();

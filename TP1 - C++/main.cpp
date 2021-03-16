@@ -210,4 +210,25 @@ void editarConsulta(Clinic *clinic, int indexOrtho, int index){
   schedule.setConsultation(consultation, index);
   orthodontist.setSchedule(schedule);
   (*clinic).setOrthodontist(orthodontist, indexOrtho);
-}*/
+}
+
+
+void deleteConsulta(Clinic *clinic,  int indexOrtho, int index){
+  Orthodontist orthodontist = (*clinic).getOrthodontist(indexOrtho);
+  Schedule schedule = orthodontist.getSchedule();
+  vector<Consultation> consultations = orthodontist.getSchedule().getConsultations();
+  
+  consultations.erase(consultations.begin() + index);
+
+  //erase(consultations, index);
+  schedule.setConsultations(consultations);
+  orthodontist.setSchedule(schedule);
+  (*clinic).setOrthodontist(orthodontist, indexOrtho);
+
+}
+
+
+
+
+
+*/
