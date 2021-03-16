@@ -11,7 +11,7 @@
 - [x] Patient
 - [x] PaymentConsutation
 - [x] Consutation
-- [x] UserPermissions (Verificar herança e vetor de permissões)
+- [x] UserPermissions
 - [x] User
 - [x] Point
 - [x] TimeSheet
