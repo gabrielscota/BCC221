@@ -4,17 +4,17 @@ User::User() : Person()
 {
     login = ' ';
     password = ' ';
-    permissions = nullptr;
+    permissions = UserPermissions();
 }
 
 User::User(string id) : Person(id)
 {
     login = ' ';
     password = ' ';
-    permissions = nullptr;
+    permissions = UserPermissions();
 }
 
-User::User(string id, string login, string password, UserPermissions *permissions) : Person(id)
+User::User(string id, string login, string password, UserPermissions permissions) : Person(id)
 {
     this->login = login;
     this->password = password;
@@ -33,7 +33,7 @@ void User::setPassword(string password)
     this->password = password;
 }
 
-void User::setPermissions(UserPermissions *permissions)
+void User::setPermissions(UserPermissions permissions)
 {
     this->permissions = permissions;
 }
@@ -44,7 +44,7 @@ string User::getLogin(){
 string User::getPassword(){
     return this->password;
 }
-UserPermissions* User::getPermissions(){
+UserPermissions User::getPermissions(){
     return this->permissions;
 }
 string User::getId(){

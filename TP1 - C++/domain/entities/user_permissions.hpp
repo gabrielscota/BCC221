@@ -23,18 +23,25 @@ public:
   void setPermissions(vector<string> permissions);
 };
 
-class GeneralUser : virtual public UserPermissions
+class GeneralUser : public UserPermissions
 {
+public:
+  GeneralUser();
+  ~GeneralUser();
 };
 
-class AdministrativeAssistantUser : virtual public UserPermissions
+class AdministrativeAssistantUser : public UserPermissions
 {
-  
+public:
+  AdministrativeAssistantUser();
+  ~AdministrativeAssistantUser();
 };
 
-class AdministrativeUser : virtual public UserPermissions
+class AdministrativeUser : public UserPermissions
 {
-
+public:
+  AdministrativeUser();
+  ~AdministrativeUser();
 };
 
 #endif /* USERPERMISSIONS_H_ */

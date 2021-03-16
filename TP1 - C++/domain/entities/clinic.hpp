@@ -17,32 +17,33 @@ using namespace std;
 class Clinic
 {
   string id;
-  vector<Orthodontist *> orthodontists;
-  vector<Assistent *> assistents;
-  vector<Patient *> patients;
-  vector<Expense *> expenses;
-  Receptionist *receptionist;
-  Admin *admin;
+  vector<Orthodontist> orthodontists;
+  vector<Assistent> assistents;
+  vector<Patient> patients;
+  vector<Expense> expenses;
+  Receptionist receptionist;
+  Admin admin;
 
 public:
   Clinic();
-  Clinic(string id, vector<Orthodontist *> orthodontists, vector<Assistent *> assistents, vector<Patient *> patients, vector<Expense *> expenses, Receptionist *receptionist, Admin *admin);
+  Clinic(string id, vector<Orthodontist> orthodontists, vector<Assistent> assistents, vector<Patient> patients, vector<Expense> expenses, Receptionist receptionist, Admin admin);
+  Clinic(string id, Receptionist receptionist, Admin admin);
   ~Clinic();
 
   string getId();
-  vector<Orthodontist *> getOrthodontists();
-  vector<Assistent *> getAssistents();
-  vector<Patient *> getPatients();
-  vector<Expense *> getExpenses();
-  Receptionist *getReceptionist();
-  Admin *getAdmin();
+  vector<Orthodontist> getOrthodontists();
+  vector<Assistent> getAssistents();
+  vector<Patient> getPatients();
+  vector<Expense> getExpenses();
+  Receptionist getReceptionist();
+  Admin getAdmin();
 
-  void setOrthodontists(vector<Orthodontist *> orthodontists);
-  void setAssistents(vector<Assistent *> assistents);
-  void setPatients(vector<Patient *> patients);
-  void setExpenses(vector<Expense *> expenses);
-  void setReceptionist(Receptionist *receptionist);
-  void setAdmin(Admin *admin);
+  void setOrthodontists(vector<Orthodontist> orthodontists);
+  void setAssistents(vector<Assistent> assistents);
+  void setPatients(vector<Patient> patients);
+  void setExpenses(vector<Expense> expenses);
+  void setReceptionist(Receptionist receptionist);
+  void setAdmin(Admin admin);
   void listOrthodontists();
 };
 

@@ -24,7 +24,10 @@ void UserPermissions::setPermissions(vector <string> permissions){
 //  GeneralUser, AdministrativeAssistantUser, AdministrativeUser left
 
 GeneralUser::GeneralUser(){};
+GeneralUser::~GeneralUser(){};
 
 AdministrativeAssistantUser::AdministrativeAssistantUser(){};
+AdministrativeAssistantUser::~AdministrativeAssistantUser(){};
 
 AdministrativeUser::AdministrativeUser(){};
+AdministrativeUser::~AdministrativeUser(){};

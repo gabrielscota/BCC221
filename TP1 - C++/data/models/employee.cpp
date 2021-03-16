@@ -2,6 +2,8 @@
 
 #include "../../domain/entities/employee.hpp"
 
+Employee::Employee() {}
+
 Employee::Employee(string id) : User(id)
 {
     this->timeSheet = nullptr;

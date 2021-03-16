@@ -11,8 +11,8 @@ using namespace std;
 class Receptionist : public Employee
 {
 
-
 public:
+  Receptionist();
   Receptionist(string id);
   ~Receptionist();
 
