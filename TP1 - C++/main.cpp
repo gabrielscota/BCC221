@@ -140,3 +140,75 @@ int main()
   }
   return 0;
 }
+
+/*
+void editarConsulta(Clinic *clinic, int indexOrtho, int index){
+  string id, patientName, date, description, buffer;
+  Orthodontist orthodontist = (*clinic).getOrthodontist(indexOrtho);
+  Schedule schedule = orthodontist.getSchedule();
+
+  id = orthodontist.getSchedule().getConsultation(index).getId();
+  Patient patient = orthodontist.getSchedule().getConsultation(index).getPatient();
+  PaymentConsultation payment = orthodontist.getSchedule().getConsultation(index).getPaymentConsultation();
+  date = orthodontist.getSchedule().getConsultation(index).getDate();
+  description = orthodontist.getSchedule().getConsultation(index).getDescription();
+
+  int check;
+  double value;
+  
+  patientName = patient.getName();
+  value = payment.getValue();
+
+  getline(cin, buffer);
+  cout <<"\n[!]Deseja alterar o nome do paciente?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite o nome do paciente: ";
+    getline(cin, patientName);
+    patient.setName(patientName);
+  }
+  
+
+  cout <<"\n[!]Deseja alterar a data da consulta?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite a data da consulta: ";
+    getline(cin, date);
+  }
+  
+  cout <<"\n[!]Deseja alterar a descricao da consulta?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite a descricao da consulta: ";
+    getline(cin, description);
+  }
+  
+  cout <<"\n[!]Deseja alterar o valor da consulta?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite o valor da consulta: ";
+    cin>>value;
+    payment.setValue(value);
+  }
+  
+  Consultation consultation(id, patient, date, description, payment);
+  schedule.setConsultation(consultation, index);
+  orthodontist.setSchedule(schedule);
+  (*clinic).setOrthodontist(orthodontist, indexOrtho);
+}*/
