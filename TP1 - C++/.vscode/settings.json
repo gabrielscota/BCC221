@@ -4,6 +4,7 @@
     "ostream": "cpp",
     "memory": "cpp",
     "istream": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "*.tcc": "cpp"
   }
 }

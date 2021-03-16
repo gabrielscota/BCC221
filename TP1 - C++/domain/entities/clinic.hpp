@@ -53,6 +53,7 @@ public:
   void addConsultation(Consultation consultation, int index);
   void listOrthodontists();
   void displaySchedule(int index);
+  void payExpense();
   
 };
 

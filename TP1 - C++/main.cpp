@@ -7,8 +7,6 @@ using namespace std;
 
 Consultation createConsultation();
 
-
-
 User login(Clinic clinic)
 {
   int option = 1;

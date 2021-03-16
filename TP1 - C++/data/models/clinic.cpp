@@ -125,5 +125,25 @@ void Clinic::clinicMenu(){
     system("clear || cls");
     cout << "\n--- Bem vindo, " << this->loggedUser.getName() << "! ---\n" << endl;
     this->loggedUser.getUserPermissions()->showMenuOptions();
-    
+   
+}
+
+void Clinic::payExpense(){
+    string description, dueDate, paymentDate, expenseType;
+    float value;
+    cout << "Insira o tipo da despesa: " << endl;
+    cin >> expenseType;
+    cout << "Insira o valor da despesa: " << endl;
+    cin >> value;
+    cout << "Insira a data de vencimento da despesa: " << endl;
+    cin >> dueDate;
+    cout << "Insira a data de pagamento da empresa: " << endl;
+    cin >> paymentDate;
+    cin >> dueDate;
+    cout << "Insira a descricao da despesa: " << endl;
+    cin >> description;
+
+    string id = to_string(this->expenses.size() + 1);
+    Expense expense(id, description, dueDate, paymentDate, expenseType, value); 
+    this->expenses.push_back(expense);
 }

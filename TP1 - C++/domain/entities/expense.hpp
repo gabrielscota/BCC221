@@ -13,9 +13,10 @@ class Expense
   string dueDate;
   string paymentDate;
   string expenseType;
+  float value;
 
 public:
-  Expense(string id, string description, string dueDate, string paymentDate, string expenseType);
+  Expense(string id, string description, string dueDate, string paymentDate, string expenseType, float value);
   ~Expense();
 
   string getId();
@@ -23,7 +24,9 @@ public:
   string getDueDate();
   string getPaymentDate();
   string getExpenseType();
-
+  float getValue();
+  
+  void setValue(float value);
   void setDescription(string description);
   void setDueDate(string dueDate);
   void setPaymentDate(string paymentDate);

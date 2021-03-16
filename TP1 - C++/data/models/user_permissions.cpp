@@ -84,7 +84,7 @@ string AdministrativeAssistantUser::getType()
 void AdministrativeAssistantUser::showMenuOptions(){
     int option = -1;
     cout << "1 - Agenda" << endl;
-    cout << "2 - Cadastrar despesa" << endl;
+    cout << "2 - Fazer pagamento de conta" << endl;
     cout << "0 - Deslogar" << endl;
     cout << "\n> Informe uma das opcoes acima: ";
     cin >> option;
@@ -122,7 +122,7 @@ string AdministrativeUser::getType()
 void AdministrativeUser::showMenuOptions(){
     int option = -1;
     cout << "1 - Agenda" << endl;
-    cout << "2 - Cadastrar despesa" << endl;
+    cout << "2 - Fazer pagamento de conta" << endl;
     cout << "3 - Relatorio" << endl;
     cout << "4 - Criar novo usuario" << endl;
     cout << "0 - Deslogar" << endl;

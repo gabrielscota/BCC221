@@ -1,7 +1,8 @@
 #include "../../domain/entities/expense.hpp"
 
-Expense::Expense(string id, string getDescription, string dueDate, string paymentDate, string expenseType)
-{
+Expense::Expense(string id, string desciption, string dueDate, string paymentDate, string expenseType, float value)
+{   
+    this->value = value;
     this->id = id;
     this->description = description;
     this->dueDate = dueDate;
@@ -36,6 +37,10 @@ string Expense::getExpenseType()
     return this->expenseType;
 }
 
+float Expense::getValue(){
+    return this->value;
+}
+
 void Expense::setDescription(string description)
 {
     this->description = description;
@@ -54,4 +59,8 @@ void Expense::setPaymentDate(string paymentDate)
 void Expense::setExpenseType(string expenseType)
 {
     this->expenseType = expenseType;
+}
+
+void Expense::setValue(float value){
+    this->value = value;
 }
