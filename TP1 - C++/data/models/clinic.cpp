@@ -125,4 +125,5 @@ void Clinic::clinicMenu(){
     system("clear || cls");
     cout << "\n--- Bem vindo, " << this->loggedUser.getName() << "! ---\n" << endl;
     this->loggedUser.getUserPermissions()->showMenuOptions();
+    
 }
