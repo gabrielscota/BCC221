@@ -9,10 +9,11 @@ using namespace std;
 class PaymentConsultation
 {
   string id;
+  string patientName;
+  string paymentDate;
   double value;
-
 public:
-  PaymentConsultation(string id, double value);
+  PaymentConsultation(string id, double value, string patientName, string paymentDate);
   ~PaymentConsultation();
 
   string getId();

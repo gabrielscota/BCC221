@@ -17,7 +17,7 @@ public:
   Patient(string id);                       //  Constructor Method
   Patient(string id, string name);          //  Constructor Method
   ~Patient();
-
+  
   string getId();
 };
 

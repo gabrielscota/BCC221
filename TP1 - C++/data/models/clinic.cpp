@@ -164,7 +164,7 @@ void Clinic::createConsultation(int indexOrtho)
   getline(cin, description);
   cout << "\n[!]Digite o valor da consulta: ";
   cin >> value;
-  PaymentConsultation payment("10", value);
+  PaymentConsultation payment("10", value, patientName, " ");
   Consultation consultation("10", patient, date, description, payment);
   consultations.push_back(consultation);
   schedule.setConsultations(consultations);
@@ -279,10 +279,16 @@ vector<PaymentConsultation> Clinic::getPayments(){
 }
 
 void Clinic::receiveConsultation(){
-    this->listOrthodontists();
-    int orthodontistIndex;
-    cout << "Digite o numero do ortodontista da consulta que deseja receber pagamento" << endl;
-    cin >> orthodontistIndex;
-    Orthodontist orthodontist = this->getOrthodontist(orthodontistIndex-1);
-    vector<Consultation> orthodontistSchedule = orthodontist.getSchedule().getConsultations();
+    string patientName, paymentDate;
+    float value;
+    cout << "Digite o nome do paciente que esta pagando a consulta" << endl;
+    cin >> patientName;
+    cout << "Digite o valor da consulta" << endl;
+    cin >>  value;
+    cout << "Digite a data de pagamento" << endl;
+    cin >> paymentDate;
+    vector<PaymentConsultation> payments = this->getPayments();
+    string paymentId = "#34";
+    PaymentConsultation payment(paymentId, value, patientName, paymentDate);
+    
 }
