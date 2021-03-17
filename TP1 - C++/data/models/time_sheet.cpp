@@ -1,6 +1,8 @@
 #include "../../domain/entities/time_sheet.hpp"
 
-TimeSheet::TimeSheet(string id, vector<Point *> points):
+TimeSheet::TimeSheet(){};
+
+TimeSheet::TimeSheet(string id, vector<Point > points):
     id(id),
     points(points){};
 
@@ -10,11 +12,15 @@ string TimeSheet::getId(){
     return this->id;
 }
 
-vector <Point *> TimeSheet::getPoints(){
+vector <Point> TimeSheet::getPoints(){
     return this->points;
 }
 
-void TimeSheet::setPoints(vector<Point *> points){
+Point TimeSheet::getPoint(int index){
+    return this->points[index];
+}
+
+void TimeSheet::setPoints(vector<Point> points){
     this->points = points;
 }
 

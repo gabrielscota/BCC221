@@ -52,5 +52,7 @@ public:
 
 void scheduleOption(Clinic *clinic);
 void employeeOption(Clinic *clinic);
-#endif /* USERPERMISSIONS_H_ */
 
+void operationsAssistent(Clinic *clinic, int index);
+void operationsOrthodontist(Clinic *clinic, int index);
+#endif /* USERPERMISSIONS_H_ */

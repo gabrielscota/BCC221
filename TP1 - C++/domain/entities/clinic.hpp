@@ -37,6 +37,7 @@ public:
   vector<Orthodontist> getOrthodontists();
   Orthodontist getOrthodontist(int index);
   vector<Assistent> getAssistents();
+  Assistent getAssistent(int index);
   vector<Patient> getPatients();
   vector<Expense> getExpenses();
   Receptionist getReceptionist();

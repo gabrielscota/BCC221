@@ -13,21 +13,22 @@ using namespace std;
 
 class Employee : public User
 {
-  TimeSheet *timeSheet;
+  TimeSheet timeSheet;
   vector<Payment *> payments;
 
 public:
   Employee();
   Employee(string id);
-  Employee(string id, TimeSheet *timeSheet, vector<Payment *> payments);
+  Employee(string id, TimeSheet timeSheet, vector<Payment *> payments);
   ~Employee();
 
   string getId();
-  TimeSheet *getTimeSheet();
+  TimeSheet getTimeSheet();
   vector<Payment *> getPayments();
 
-  void setTimeSheet(TimeSheet *timeSheet);
+  void setTimeSheet(TimeSheet timeSheet);
   void setPayments(vector<Payment *> payments);
+  void printTimeSheet();
 };
 
 #endif /* EMPLOYEE_H_ */
