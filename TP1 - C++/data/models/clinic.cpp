@@ -115,6 +115,18 @@ void Clinic::listOrthodontists()
     }
 }
 
+void Clinic::listAssistents()
+{
+    for (int i = 0; i < this->assistents.size(); i++)
+    {
+        cout << i << " - " << this->assistents[i].getName() << endl;
+    }
+}
+
+void Clinic::printReceptionist(){
+    cout <<this->receptionist.getName()<< endl;
+}
+
 void Clinic::displaySchedule(int index)
 {
     Orthodontist orthodontist = getOrthodontist(index);

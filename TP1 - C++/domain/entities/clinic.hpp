@@ -54,6 +54,8 @@ public:
   void setAdmin(Admin admin);
   void addConsultation(Consultation consultation, int index);
   void listOrthodontists();
+  void listAssistents();
+  void printReceptionist();
   void displaySchedule(int index);
   void payExpense();
   void createConsultation(int indexOrtho);
