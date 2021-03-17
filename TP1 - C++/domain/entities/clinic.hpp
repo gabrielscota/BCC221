@@ -56,6 +56,9 @@ public:
   void listOrthodontists();
   void displaySchedule(int index);
   void payExpense();
+  void createConsultation(int indexOrtho);
+  void editarConsulta(int indexOrtho, int index);
+  void deleteConsulta(int indexOrtho, int index);
 };
 
 #endif /* CLINIC_H_ */

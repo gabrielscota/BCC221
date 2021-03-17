@@ -60,7 +60,7 @@ User login(Clinic clinic)
   }
   return User();
 }
-
+/*
 Consultation createConsultation()
 {
   string patientName, date, description, buffer;
@@ -78,7 +78,7 @@ Consultation createConsultation()
   PaymentConsultation payment("10", value);
   Consultation consultation("10", patient, date, description, payment);
   return consultation;
-}
+}*/
 
 int main()
 {

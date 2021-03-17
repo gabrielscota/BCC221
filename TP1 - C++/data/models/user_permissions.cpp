@@ -62,7 +62,8 @@ void GeneralUser::showMenuOptions(Clinic *clinic)
         switch (option)
         {
         case 1:
-            cout << "chama funcao edita agenda" << endl;
+            clinic->listOrthodontists();
+            scheduleOption(clinic);
             break;
         case 0:
             system("clear || cls");
@@ -101,7 +102,8 @@ void AdministrativeAssistantUser::showMenuOptions(Clinic *clinic)
         switch (option)
         {
         case 1:
-            cout << "chama funcao edita agenda" << endl;
+            clinic->listOrthodontists();
+            scheduleOption(clinic);
             break;
         case 2:
             cout << "chama funcao cadastra despesa" << endl;
@@ -133,19 +135,20 @@ string AdministrativeUser::getType()
 void AdministrativeUser::showMenuOptions(Clinic *clinic)
 {
     int option = -1;
-    cout << "1 - Agenda" << endl;
-    cout << "2 - Fazer pagamento de conta" << endl;
-    cout << "3 - Relatorio" << endl;
-    cout << "4 - Criar novo usuario" << endl;
-    cout << "0 - Deslogar" << endl;
     while (option != 0)
     {
+        cout << "1 - Agenda" << endl;
+        cout << "2 - Fazer pagamento de conta" << endl;
+        cout << "3 - Relatorio" << endl;
+        cout << "4 - Criar novo usuario" << endl;
+        cout << "0 - Deslogar" << endl;
         cout << "\n> Informe uma das opcoes acima: ";
         cin >> option;
         switch (option)
         {
         case 1:
-            cout << "chama funcao edita agenda" << endl;
+            clinic->listOrthodontists();
+            scheduleOption(clinic);
             break;
         case 2:
             cout << "chama funcao cadastra despesa" << endl;
@@ -164,4 +167,47 @@ void AdministrativeUser::showMenuOptions(Clinic *clinic)
             break;
         }
     }
+}
+
+void scheduleOption(Clinic *clinic){
+    int option, consultationOp;
+    int orthodontistOp;
+    cout<<"[!] Selecione, pelo indice, o ortodontista desejado, ou digite um indice inexistente para sair"<<endl;
+    cin>>orthodontistOp;
+
+    if(orthodontistOp >= 0 && orthodontistOp < clinic->getOrthodontists().size()){
+        cout<< "\n[!] Digite a operacao desejada:\n"
+            << "\n[0] Visualizar Consultas"
+            << "\n[1] Adicionar Consulta"
+            << "\n[2] Editar Consulta"
+            << "\n[3] Remover Consulta"
+            << "\n[!] Digite qualquer tecla diferente para sair!"<<endl;
+    
+        cin>>option;
+    
+        switch(option){
+            case 0:
+                clinic->displaySchedule(orthodontistOp);
+                break;
+            case 1:
+                clinic->createConsultation(orthodontistOp);
+                break;
+            case 2:
+                clinic->displaySchedule(orthodontistOp);
+                cout<< "\n[!] Digite a consulta que deseja alterar:\n";
+                cin >> consultationOp;
+                clinic->editarConsulta(orthodontistOp, consultationOp);
+                break;
+            case 3:
+                clinic->displaySchedule(orthodontistOp);
+                cout<< "\n[!] Digite a consulta que deseja remover:\n";
+                cin >> consultationOp;
+                clinic->deleteConsulta(orthodontistOp, consultationOp);
+            default:
+                break;
+        }
+    }
+
+
+
 }
