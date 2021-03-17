@@ -40,6 +40,10 @@ vector<Assistent> Clinic::getAssistents()
     return this->assistents;
 }
 
+Assistent Clinic::getAssistent(int index){
+    return this->assistents[index];
+}
+
 vector<Patient> Clinic::getPatients()
 {
     return this->patients;

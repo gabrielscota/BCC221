@@ -12,16 +12,18 @@ using namespace std;
 class TimeSheet
 {
   string id;
-  vector<Point *> points;
+  vector<Point > points;
 
 public:
-  TimeSheet(string id, vector<Point *> points);
+  TimeSheet();
+  TimeSheet(string id, vector<Point > points);
   ~TimeSheet();
 
   string getId();
-  vector<Point *> getPoints();
+  vector<Point > getPoints();
+  Point getPoint(int index);
 
-  void setPoints(vector<Point *> points);
+  void setPoints(vector<Point > points);
 };
 
 #endif /* TIMESHEET_H_ */
