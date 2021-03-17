@@ -51,6 +51,6 @@ public:
 };
 
 void scheduleOption(Clinic *clinic);
-
+void employeeOption(Clinic *clinic);
 #endif /* USERPERMISSIONS_H_ */
 

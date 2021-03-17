@@ -70,6 +70,10 @@ void Clinic::setOrthodontist(Orthodontist orthodontist, int index)
 {
     this->orthodontists[index] = orthodontist;
 }
+void Clinic::setOrthodontists(vector<Orthodontist> orthodontists)
+{
+    this->orthodontists= orthodontists;
+}
 
 void Clinic::setAssistents(vector<Assistent> assistents)
 {
