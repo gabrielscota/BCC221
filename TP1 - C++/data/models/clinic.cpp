@@ -176,7 +176,6 @@ void Clinic::editarConsulta(int indexOrtho, int index){
   string id, patientName, date, description, buffer;
   Orthodontist orthodontist = getOrthodontist(indexOrtho);
   Schedule schedule = orthodontist.getSchedule();
-
   id = orthodontist.getSchedule().getConsultation(index).getId();
   Patient patient = orthodontist.getSchedule().getConsultation(index).getPatient();
   PaymentConsultation payment = orthodontist.getSchedule().getConsultation(index).getPaymentConsultation();
@@ -257,7 +256,6 @@ void Clinic::deleteConsulta(int indexOrtho, int index){
 
 }
 
-
 void Clinic::payExpense(){
     string description, dueDate, paymentDate, expenseType;
     float value;
@@ -271,11 +269,11 @@ void Clinic::payExpense(){
     cin >> paymentDate;
     cout << "Insira a descricao da despesa: " << endl;
     cin >> description;
-
     string id = to_string(this->expenses.size() + 1);
     Expense expense(id, description, dueDate, paymentDate, expenseType, value); 
     this->expenses.push_back(expense);
 }
+
 vector<PaymentConsultation> Clinic::getPayments(){
      return this->payments;
 }
@@ -287,5 +285,4 @@ void Clinic::receiveConsultation(){
     cin >> orthodontistIndex;
     Orthodontist orthodontist = this->getOrthodontist(orthodontistIndex-1);
     vector<Consultation> orthodontistSchedule = orthodontist.getSchedule().getConsultations();
-
 }

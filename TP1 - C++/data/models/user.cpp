@@ -40,14 +40,17 @@ string User::getLogin()
 {
     return this->login;
 }
+
 string User::getPassword()
 {
     return this->password;
 }
+
 UserPermissions *User::getUserPermissions()
 {
     return this->userPermissions;
 }
+
 string User::getId()
 {
     return Person::getId();
