@@ -65,10 +65,6 @@ User Clinic::getLoggedUser()
     return this->loggedUser;
 }
 
-void Clinic::setOrthodontists(vector<Orthodontist> orthodontists)
-{
-    this->orthodontists = orthodontists;
-}
 
 void Clinic::setOrthodontist(Orthodontist orthodontist, int index)
 {

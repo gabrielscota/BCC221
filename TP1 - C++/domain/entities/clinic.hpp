@@ -43,7 +43,7 @@ public:
   Admin getAdmin();
   User getLoggedUser();
   vector<PaymentConsultation> getPayments();
-  void setOrthodontists(vector<Orthodontist> orthodontists);
+
   void setLoggedUser(User loggedUser);
   void setOrthodontists(vector<Orthodontist> orthodontists);
   void setOrthodontist(Orthodontist orthodontist, int index);
