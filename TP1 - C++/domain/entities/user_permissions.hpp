@@ -50,4 +50,7 @@ public:
   virtual void showMenuOptions(Clinic *clinic);
 };
 
+void scheduleOption(Clinic *clinic);
+
 #endif /* USERPERMISSIONS_H_ */
+

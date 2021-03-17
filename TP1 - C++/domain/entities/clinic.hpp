@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include <vector>
-
 #include "orthodontist.hpp"
 #include "time_sheet.hpp"
 #include "patient.hpp"
@@ -44,7 +43,7 @@ public:
   Admin getAdmin();
   User getLoggedUser();
   vector<PaymentConsultation> getPayments();
-  
+  void setOrthodontists(vector<Orthodontist> orthodontists);
   void setLoggedUser(User loggedUser);
   void setOrthodontists(vector<Orthodontist> orthodontists);
   void setOrthodontist(Orthodontist orthodontist, int index);
@@ -53,10 +52,12 @@ public:
   void setExpenses(vector<Expense> expenses);
   void setReceptionist(Receptionist receptionist);
   void setAdmin(Admin admin);
-
+  void deleteConsulta(int indexOrtho, int index);
   void clinicMenu();
   void addConsultation(Consultation consultation, int index);
   void listOrthodontists();
+  void listAssistents();
+  void printReceptionist();
   void displaySchedule(int index);
   void payExpense();
   void receiveConsultation();

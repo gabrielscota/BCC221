@@ -115,6 +115,18 @@ void Clinic::listOrthodontists()
     }
 }
 
+void Clinic::listAssistents()
+{
+    for (int i = 0; i < this->assistents.size(); i++)
+    {
+        cout << i << " - " << this->assistents[i].getName() << endl;
+    }
+}
+
+void Clinic::printReceptionist(){
+    cout <<this->receptionist.getName()<< endl;
+}
+
 void Clinic::displaySchedule(int index)
 {
     Orthodontist orthodontist = getOrthodontist(index);
@@ -134,6 +146,117 @@ void Clinic::clinicMenu()
     this->loggedUser.getUserPermissions()->showMenuOptions(this);
    
 }
+
+void Clinic::createConsultation(int indexOrtho)
+{
+  string patientName, date, description, buffer;
+  Orthodontist orthodontist = getOrthodontist(indexOrtho);
+  Schedule schedule = orthodontist.getSchedule();
+  vector <Consultation> consultations = schedule.getConsultations();
+  getline(cin, buffer);
+  double value;
+  cout << "\n[!]Digite o nome do paciente: ";
+  getline(cin, patientName);
+  Patient patient("10", patientName);
+  cout << "\n[!]Digite a data da consulta: ";
+  getline(cin, date);
+  cout << "\n[!]Digite a descricao da consulta: ";
+  getline(cin, description);
+  cout << "\n[!]Digite o valor da consulta: ";
+  cin >> value;
+  PaymentConsultation payment("10", value);
+  Consultation consultation("10", patient, date, description, payment);
+  consultations.push_back(consultation);
+  schedule.setConsultations(consultations);
+  orthodontist.setSchedule(schedule);
+  setOrthodontist(orthodontist, indexOrtho);
+}
+
+void Clinic::editarConsulta(int indexOrtho, int index){
+  string id, patientName, date, description, buffer;
+  Orthodontist orthodontist = getOrthodontist(indexOrtho);
+  Schedule schedule = orthodontist.getSchedule();
+
+  id = orthodontist.getSchedule().getConsultation(index).getId();
+  Patient patient = orthodontist.getSchedule().getConsultation(index).getPatient();
+  PaymentConsultation payment = orthodontist.getSchedule().getConsultation(index).getPaymentConsultation();
+  date = orthodontist.getSchedule().getConsultation(index).getDate();
+  description = orthodontist.getSchedule().getConsultation(index).getDescription();
+
+  int check;
+  double value;
+  
+  patientName = patient.getName();
+  value = payment.getValue();
+
+  getline(cin, buffer);
+  cout <<"\n[!]Deseja alterar o nome do paciente?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite o nome do paciente: ";
+    getline(cin, patientName);
+    patient.setName(patientName);
+  }
+  
+
+  cout <<"\n[!]Deseja alterar a data da consulta?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite a data da consulta: ";
+    getline(cin, date);
+  }
+  
+  cout <<"\n[!]Deseja alterar a descricao da consulta?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite a descricao da consulta: ";
+    getline(cin, description);
+  }
+  
+  cout <<"\n[!]Deseja alterar o valor da consulta?"<<endl;
+  cout <<"[1] SIM"<<endl;
+  cout <<"[2] NAO\n"<<endl;
+  cin  >> check;
+  
+  getline(cin, buffer);
+  if(check == 1){
+    cout<<"\n[!]Digite o valor da consulta: ";
+    cin>>value;
+    payment.setValue(value);
+  }
+  
+  Consultation consultation(id, patient, date, description, payment);
+  schedule.setConsultation(consultation, index);
+  orthodontist.setSchedule(schedule);
+  setOrthodontist(orthodontist, indexOrtho);
+}
+
+void Clinic::deleteConsulta(int indexOrtho, int index){
+  Orthodontist orthodontist = getOrthodontist(indexOrtho);
+  Schedule schedule = orthodontist.getSchedule();
+  vector<Consultation> consultations = orthodontist.getSchedule().getConsultations();
+  
+  consultations.erase(consultations.begin() + index);
+
+  //erase(consultations, index);
+  schedule.setConsultations(consultations);
+  orthodontist.setSchedule(schedule);
+  setOrthodontist(orthodontist, indexOrtho);
+
+}
+
 
 void Clinic::payExpense(){
     string description, dueDate, paymentDate, expenseType;
