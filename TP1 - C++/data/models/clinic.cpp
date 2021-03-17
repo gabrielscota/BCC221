@@ -153,3 +153,16 @@ void Clinic::payExpense(){
     Expense expense(id, description, dueDate, paymentDate, expenseType, value); 
     this->expenses.push_back(expense);
 }
+vector<PaymentConsultation> Clinic::getPayments(){
+     return this->payments;
+}
+
+void Clinic::receiveConsultation(){
+    this->listOrthodontists();
+    int orthodontistIndex;
+    cout << "Digite o numero do ortodontista da consulta que deseja receber pagamento" << endl;
+    cin >> orthodontistIndex;
+    Orthodontist orthodontist = this->getOrthodontist(orthodontistIndex-1);
+    vector<Consultation> orthodontistSchedule = orthodontist.getSchedule().getConsultations();
+
+}

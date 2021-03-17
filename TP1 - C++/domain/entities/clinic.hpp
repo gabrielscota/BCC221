@@ -21,6 +21,7 @@ class Clinic
   vector<Assistent> assistents;
   vector<Patient> patients;
   vector<Expense> expenses;
+  vector<PaymentConsultation> payments;
   Receptionist receptionist;
   User loggedUser;
   Admin admin;
@@ -41,10 +42,10 @@ public:
   vector<Expense> getExpenses();
   Receptionist getReceptionist();
   Admin getAdmin();
-
-  void setLoggedUser(User loggedUser);
   User getLoggedUser();
-  void clinicMenu();
+  vector<PaymentConsultation> getPayments();
+  
+  void setLoggedUser(User loggedUser);
   void setOrthodontists(vector<Orthodontist> orthodontists);
   void setOrthodontist(Orthodontist orthodontist, int index);
   void setAssistents(vector<Assistent> assistents);
@@ -52,10 +53,13 @@ public:
   void setExpenses(vector<Expense> expenses);
   void setReceptionist(Receptionist receptionist);
   void setAdmin(Admin admin);
+
+  void clinicMenu();
   void addConsultation(Consultation consultation, int index);
   void listOrthodontists();
   void displaySchedule(int index);
   void payExpense();
+  void receiveConsultation();
 };
 
 #endif /* CLINIC_H_ */

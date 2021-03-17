@@ -135,8 +135,7 @@ void AdministrativeUser::showMenuOptions(Clinic *clinic)
     int option = -1;
     cout << "1 - Agenda" << endl;
     cout << "2 - Fazer pagamento de conta" << endl;
-    cout << "3 - Relatorio" << endl;
-    cout << "4 - Criar novo usuario" << endl;
+    cout << "3 - Receber consulta" << endl;
     cout << "0 - Deslogar" << endl;
     while (option != 0)
     {
@@ -148,11 +147,10 @@ void AdministrativeUser::showMenuOptions(Clinic *clinic)
             cout << "chama funcao edita agenda" << endl;
             break;
         case 2:
-            cout << "chama funcao cadastra despesa" << endl;
             clinic->payExpense();
             break;
         case 3:
-            cout << "chama funcao de gerar relatorio" << endl;
+            clinic->receiveConsultation();
             break;
         case 0:
             system("clear || cls");
