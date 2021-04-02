@@ -1,11 +1,13 @@
 package domain.entities;
 
+import java.util.List;
+
 public class Clinic {
     private final String id;
     private Orthodontist orthodontists[];
     private Assistent assistents[];
     private Patient patients[];
-    private Expense expenses[];
+    private List<Expense> expenses;
     private PaymentConsultation payments[];
     private Receptionist receptionist;
     private User loggedUser;
@@ -45,11 +47,11 @@ public class Clinic {
         this.patients = patients;
     }
 
-    public Expense[] getExpenses() {
+    public List<Expense> getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(Expense[] expenses) {
+    public void setExpenses(List<Expense> expenses) {
         this.expenses = expenses;
     }
 
