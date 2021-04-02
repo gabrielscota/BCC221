@@ -13,10 +13,6 @@ public class UserPermissions {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String[] getPermissions() {
         return permissions;
     }
