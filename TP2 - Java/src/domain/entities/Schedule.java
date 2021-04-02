@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class Schedule {
-    private String id;
+    private final String id;
     private Consultation consultations[];
 
     public Schedule(String id, Consultation[] consultations) {

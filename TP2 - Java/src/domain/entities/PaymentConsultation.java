@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class PaymentConsultation {
-    private String id;
+    private final String id;
     private String patientName;
     private String paymentDate;
     private double value;

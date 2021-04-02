@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class UserPermissions {
-    private String id;
+    private final String id;
     private String permissions[];
 
     public UserPermissions(String id, String[] permissions) {

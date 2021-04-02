@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class TimeSheet {
-    private String id;
+    private final String id;
     private Point points[];
 
     public TimeSheet(String id, Point[] points) {

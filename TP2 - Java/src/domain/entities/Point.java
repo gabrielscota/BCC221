@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class Point {
-    private String id;
+    private final String id;
     private String date;
     private String observation;
 

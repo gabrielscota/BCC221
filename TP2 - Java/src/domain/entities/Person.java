@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class Person {
-    private String id;
+    private final String id;
     private String name;
 
     public Person(String id, String name) {

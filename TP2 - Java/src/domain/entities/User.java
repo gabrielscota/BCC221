@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class User {
-    private String id;
+    private final String id;
     private String login;
     private String password;
     private UserPermissions userPermissions;

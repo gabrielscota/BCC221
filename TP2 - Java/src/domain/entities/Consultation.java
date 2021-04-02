@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class Consultation {
-    private String id;
+    private final String id;
     private Patient patient;
     private String date;
     private String description;

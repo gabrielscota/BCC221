@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class Expense {
-    private String id;
+    private final String id;
     private String description;
     private String dueDate;
     private String paymentDate;

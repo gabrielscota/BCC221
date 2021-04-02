@@ -1,7 +1,7 @@
 package domain.entities;
 
 public class Payment {
-    private String id;
+    private final String id;
     private String date;
     private double value;
     private String description;
