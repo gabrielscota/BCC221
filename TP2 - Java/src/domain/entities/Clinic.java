@@ -1,5 +1,7 @@
 package domain.entities;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Clinic {
@@ -29,6 +31,14 @@ public class Clinic {
 
     public void setOrthodontists(Orthodontist[] orthodontists) {
         this.orthodontists = orthodontists;
+    }
+
+    public void addOrthodontists(Orthodontist orthodontist){
+        Orthodontist[] aux = this.getOrthodontists();
+        ArrayList<Orthodontist> list = new ArrayList<Orthodontist>(Arrays.asList(aux));
+        list.add(orthodontist);
+        aux = list.toArray(aux);
+        this.orthodontists = aux;
     }
 
     public Assistent[] getAssistents() {
