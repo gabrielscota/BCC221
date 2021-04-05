@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Clinic {
     private final String id;
-    private Orthodontist orthodontists[];
-    private Assistent assistents[];
-    private Patient patients[];
+    private Orthodontist[] orthodontists;
+    private Assistent[] assistents;
+    private Patient[] patients;
     private List<Expense> expenses;
-    private PaymentConsultation payments[];
+    private PaymentConsultation[] payments;
     private Receptionist receptionist;
     private User loggedUser;
     private Admin admin;
