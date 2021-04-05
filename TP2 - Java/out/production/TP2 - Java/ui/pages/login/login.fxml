@@ -28,7 +28,7 @@
             </Pane>
             <Pane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #454545;">
                <children>
-                  <TextField layoutX="54.0" layoutY="238.0" prefHeight="42.0" prefWidth="242.0" promptText="Password" style="-fx-border-width: 2; -fx-border-radius: 8; -fx-background-color: #fafafa;">
+                  <TextField accessibleRole="PASSWORD_FIELD" layoutX="54.0" layoutY="238.0" prefHeight="42.0" prefWidth="242.0" promptText="Password" style="-fx-border-width: 2; -fx-border-radius: 8; -fx-background-color: #fafafa;">
                      <font>
                         <Font size="16.0" />
                      </font>
