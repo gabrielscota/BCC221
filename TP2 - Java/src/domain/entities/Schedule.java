@@ -1,10 +1,12 @@
 package domain.entities;
 
+import java.util.List;
+
 public class Schedule {
     private final String id;
-    private Consultation consultations[];
+    private List<Consultation> consultations;
 
-    public Schedule(String id, Consultation[] consultations) {
+    public Schedule(String id, List<Consultation> consultations) {
         this.id = id;
         this.consultations = consultations;
     }
@@ -13,11 +15,11 @@ public class Schedule {
         return id;
     }
 
-    public Consultation[] getConsultations() {
+    public List<Consultation> getConsultations() {
         return consultations;
     }
 
-    public void setConsultations(Consultation[] consultations) {
+    public void setConsultations(List<Consultation> consultations) {
         this.consultations = consultations;
     }
 }
