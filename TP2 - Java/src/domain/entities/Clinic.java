@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Clinic {
     private final String id;
-    private Orthodontist orthodontists[];
-    private Assistent assistents[];
-    private Patient patients[];
+    private List<Orthodontist> orthodontists;
+    private List<Assistent> assistents;
+    private List<Patient> patients;
     private List<Expense> expenses;
-    private PaymentConsultation payments[];
+    private List<PaymentConsultation> payments;
     private Receptionist receptionist;
     private User loggedUser;
     private Admin admin;
@@ -23,27 +23,27 @@ public class Clinic {
         return id;
     }
 
-    public Orthodontist[] getOrthodontists() {
+    public List<Orthodontist> getOrthodontists() {
         return orthodontists;
     }
 
-    public void setOrthodontists(Orthodontist[] orthodontists) {
+    public void setOrthodontists(List<Orthodontist> orthodontists) {
         this.orthodontists = orthodontists;
     }
 
-    public Assistent[] getAssistents() {
+    public List<Assistent> getAssistents() {
         return assistents;
     }
 
-    public void setAssistents(Assistent[] assistents) {
+    public void setAssistents(List<Assistent> assistents) {
         this.assistents = assistents;
     }
 
-    public Patient[] getPatients() {
+    public List<Patient> getPatients() {
         return patients;
     }
 
-    public void setPatients(Patient[] patients) {
+    public void setPatients(List<Patient> patients) {
         this.patients = patients;
     }
 
@@ -55,11 +55,11 @@ public class Clinic {
         this.expenses = expenses;
     }
 
-    public PaymentConsultation[] getPayments() {
+    public List<PaymentConsultation> getPayments() {
         return payments;
     }
 
-    public void setPayments(PaymentConsultation[] payments) {
+    public void setPayments(List<PaymentConsultation> payments) {
         this.payments = payments;
     }
 
