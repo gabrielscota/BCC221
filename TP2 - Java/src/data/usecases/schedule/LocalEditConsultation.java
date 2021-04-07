@@ -1,6 +1,5 @@
 package data.usecases.schedule;
 
-import domain.entities.Clinic;
 import domain.entities.Consultation;
 import domain.entities.Schedule;
 import domain.usecases.schedule.EditConsultation;
@@ -8,10 +7,10 @@ import domain.usecases.schedule.EditConsultation;
 import java.util.List;
 
 public class LocalEditConsultation implements EditConsultation {
-  private final Clinic clinic;
+  private final Schedule schedule;
 
-  public LocalEditConsultation(Clinic clinic) {
-    this.clinic = clinic;
+  public LocalEditConsultation(Schedule schedule) {
+    this.schedule = schedule;
   }
 
   @Override

@@ -13,7 +13,11 @@ public class LoginPage {
   }
 
   public void build(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+    Parent root = loader.load();
+
+    loader.setController(loginController);
+
     primaryStage.setTitle("Login | Clínica Odontológica");
     primaryStage.setScene(new Scene(root));
     primaryStage.setResizable(false);

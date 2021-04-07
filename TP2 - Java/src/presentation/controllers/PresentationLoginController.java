@@ -2,6 +2,7 @@ package presentation.controllers;
 
 import domain.usecases.authentication.AuthenticationParams;
 import domain.usecases.authentication.UserAuthentication;
+import javafx.fxml.FXML;
 import ui.pages.login.LoginController;
 
 public class PresentationLoginController implements LoginController {
@@ -38,5 +39,9 @@ public class PresentationLoginController implements LoginController {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public void printTest(){
+    System.out.println("Teste");
   }
 }

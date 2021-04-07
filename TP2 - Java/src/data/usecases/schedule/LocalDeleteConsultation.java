@@ -1,6 +1,5 @@
 package data.usecases.schedule;
 
-import domain.entities.Clinic;
 import domain.entities.Consultation;
 import domain.entities.Schedule;
 import domain.usecases.schedule.DeleteConsultation;
@@ -8,10 +7,10 @@ import domain.usecases.schedule.DeleteConsultation;
 import java.util.List;
 
 public class LocalDeleteConsultation implements DeleteConsultation {
-  private final Clinic clinic;
+  private final Schedule schedule;
 
-  public LocalDeleteConsultation(Clinic clinic) {
-    this.clinic = clinic;
+  public LocalDeleteConsultation(Schedule schedule) {
+    this.schedule = schedule;
   }
 
   @Override
