@@ -5,38 +5,38 @@ import domain.usecases.authentication.UserAuthentication;
 import ui.pages.login.LoginController;
 
 public class PresentationLoginController implements LoginController {
-    private final UserAuthentication userAuthentication;
+  private final UserAuthentication userAuthentication;
 
-    private String login;
-    private String password;
+  private String login;
+  private String password;
 
-    public PresentationLoginController(UserAuthentication userAuthentication) {
-        this.userAuthentication = userAuthentication;
-    }
+  public PresentationLoginController(UserAuthentication userAuthentication) {
+    this.userAuthentication = userAuthentication;
+  }
 
-    @Override
-    public void validatePassword(String password) {
+  @Override
+  public void validatePassword(String password) {
 
-    }
+  }
 
-    @Override
-    public void auth() {
-        userAuthentication.auth(new AuthenticationParams(getLogin(), getPassword()));
-    }
+  @Override
+  public void auth() {
+    userAuthentication.auth(new AuthenticationParams(getLogin(), getPassword()));
+  }
 
-    public String getLogin() {
-        return login;
-    }
+  public String getLogin() {
+    return login;
+  }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  public void setLogin(String login) {
+    this.login = login;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }

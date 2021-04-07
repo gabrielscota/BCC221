@@ -3,87 +3,87 @@ package domain.entities;
 import java.util.List;
 
 public class Clinic {
-    private final String id;
-    private List<Orthodontist> orthodontists;
-    private List<Assistent> assistents;
-    private List<Patient> patients;
-    private List<Expense> expenses;
-    private List<PaymentConsultation> payments;
-    private Receptionist receptionist;
-    private User loggedUser;
-    private Admin admin;
+  private final String id;
+  private List<Orthodontist> orthodontists;
+  private List<Assistent> assistents;
+  private List<Patient> patients;
+  private List<Expense> expenses;
+  private List<PaymentConsultation> payments;
+  private Receptionist receptionist;
+  private User loggedUser;
+  private Admin admin;
 
-    public Clinic(String id, Receptionist receptionist, Admin admin) {
-        this.id = id;
-        this.receptionist = receptionist;
-        this.admin = admin;
-    }
+  public Clinic(String id, Receptionist receptionist, Admin admin) {
+    this.id = id;
+    this.receptionist = receptionist;
+    this.admin = admin;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public List<Orthodontist> getOrthodontists() {
-        return orthodontists;
-    }
+  public List<Orthodontist> getOrthodontists() {
+    return orthodontists;
+  }
 
-    public void setOrthodontists(List<Orthodontist> orthodontists) {
-        this.orthodontists = orthodontists;
-    }
+  public void setOrthodontists(List<Orthodontist> orthodontists) {
+    this.orthodontists = orthodontists;
+  }
 
-    public List<Assistent> getAssistents() {
-        return assistents;
-    }
+  public List<Assistent> getAssistents() {
+    return assistents;
+  }
 
-    public void setAssistents(List<Assistent> assistents) {
-        this.assistents = assistents;
-    }
+  public void setAssistents(List<Assistent> assistents) {
+    this.assistents = assistents;
+  }
 
-    public List<Patient> getPatients() {
-        return patients;
-    }
+  public List<Patient> getPatients() {
+    return patients;
+  }
 
-    public void setPatients(List<Patient> patients) {
-        this.patients = patients;
-    }
+  public void setPatients(List<Patient> patients) {
+    this.patients = patients;
+  }
 
-    public List<Expense> getExpenses() {
-        return expenses;
-    }
+  public List<Expense> getExpenses() {
+    return expenses;
+  }
 
-    public void setExpenses(List<Expense> expenses) {
-        this.expenses = expenses;
-    }
+  public void setExpenses(List<Expense> expenses) {
+    this.expenses = expenses;
+  }
 
-    public List<PaymentConsultation> getPayments() {
-        return payments;
-    }
+  public List<PaymentConsultation> getPayments() {
+    return payments;
+  }
 
-    public void setPayments(List<PaymentConsultation> payments) {
-        this.payments = payments;
-    }
+  public void setPayments(List<PaymentConsultation> payments) {
+    this.payments = payments;
+  }
 
-    public Receptionist getReceptionist() {
-        return receptionist;
-    }
+  public Receptionist getReceptionist() {
+    return receptionist;
+  }
 
-    public void setReceptionist(Receptionist receptionist) {
-        this.receptionist = receptionist;
-    }
+  public void setReceptionist(Receptionist receptionist) {
+    this.receptionist = receptionist;
+  }
 
-    public User getLoggedUser() {
-        return loggedUser;
-    }
+  public User getLoggedUser() {
+    return loggedUser;
+  }
 
-    public void setLoggedUser(User loggedUser) {
-        this.loggedUser = loggedUser;
-    }
+  public void setLoggedUser(User loggedUser) {
+    this.loggedUser = loggedUser;
+  }
 
-    public Admin getAdmin() {
-        return admin;
-    }
+  public Admin getAdmin() {
+    return admin;
+  }
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
-    }
+  public void setAdmin(Admin admin) {
+    this.admin = admin;
+  }
 }

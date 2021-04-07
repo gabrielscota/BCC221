@@ -5,14 +5,14 @@ import domain.entities.Receptionist;
 import domain.usecases.receptionist.AddReceptionist;
 
 public class LocalAddReceptionist implements AddReceptionist {
-    private final Clinic clinic;
+  private final Clinic clinic;
 
-    public LocalAddReceptionist(Clinic clinic) {
-        this.clinic = clinic;
-    }
+  public LocalAddReceptionist(Clinic clinic) {
+    this.clinic = clinic;
+  }
 
-    @Override
-    public void addReceptionist(Receptionist receptionist) {
-        clinic.setReceptionist(receptionist);
-    }
+  @Override
+  public void addReceptionist(Receptionist receptionist) {
+    clinic.setReceptionist(receptionist);
+  }
 }

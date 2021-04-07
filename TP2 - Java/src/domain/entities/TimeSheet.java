@@ -3,23 +3,23 @@ package domain.entities;
 import java.util.List;
 
 public class TimeSheet {
-    private final String id;
-    private List<Point> points;
+  private final String id;
+  private List<Point> points;
 
-    public TimeSheet(String id, List<Point> points) {
-        this.id = id;
-        this.points = points;
-    }
+  public TimeSheet(String id, List<Point> points) {
+    this.id = id;
+    this.points = points;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public List<Point> getPoints() {
-        return points;
-    }
+  public List<Point> getPoints() {
+    return points;
+  }
 
-    public void setPoints(List<Point> points) {
-        this.points = points;
-    }
+  public void setPoints(List<Point> points) {
+    this.points = points;
+  }
 }
