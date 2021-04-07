@@ -8,7 +8,6 @@ public class Clinic {
   private List<Assistent> assistents;
   private List<Patient> patients;
   private List<Expense> expenses;
-  private List<PaymentConsultation> payments;
   private Receptionist receptionist;
   private User loggedUser;
   private Admin admin;
@@ -53,14 +52,6 @@ public class Clinic {
 
   public void setExpenses(List<Expense> expenses) {
     this.expenses = expenses;
-  }
-
-  public List<PaymentConsultation> getPayments() {
-    return payments;
-  }
-
-  public void setPayments(List<PaymentConsultation> payments) {
-    this.payments = payments;
   }
 
   public Receptionist getReceptionist() {
