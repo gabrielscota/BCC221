@@ -7,4 +7,33 @@ public class Orthodontist extends Employee {
   public Orthodontist(String id, String login, String password, UserPermissions userPermissions) {
     super(id, login, password, userPermissions);
   }
+
+  public Schedule getSchedule() {
+    return schedule;
+  }
+
+  public Assistent getAssistent() {
+    return assistent;
+  }
+
+  public void setSchedule(Schedule schedule) {
+    this.schedule = schedule;
+  }
+
+  public void setAssistent(Assistent assistent) {
+    this.assistent = assistent;
+  }
+
+  public void printSchedule() {
+    //this.schedule.print();                            IMPLEMENTAR
+  }
+
+  public void addConsultation(Consultation consultation) {
+    //this.schedule.addConsultation(consultation);      IMPLEMENTAR
+  }
+
+  public void editSchedule(int index) {
+    //Consultation consultation = this.getSchedule().getConsultation(index); IMPLEMENTAR
+    //                                              THE METHOD GETCONSULTATION BELONGS TO SCHEDULE
+  }
 }
