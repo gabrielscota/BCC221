@@ -41,7 +41,7 @@ public class PresentationLoginController implements LoginController {
     this.password = password;
   }
 
-  public void printTest(){
+  public void printTest() {
     System.out.println("Teste");
   }
 }

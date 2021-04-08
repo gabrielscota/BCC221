@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PresentationLoginController">
    <children>
       <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0">
          <children>
@@ -43,7 +43,7 @@
                         <Font size="32.0" />
                      </font>
                   </Label>
-                  <Button layoutX="54.0" layoutY="297.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="242.0" style="-fx-background-color: #466acd;" text="Entrar" textFill="#fafafa">
+                  <Button layoutX="54.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#printTest" prefHeight="42.0" prefWidth="242.0" style="-fx-background-color: #466acd;" text="Entrar" textFill="#fafafa">
                      <font>
                         <Font size="16.0" />
                      </font>
