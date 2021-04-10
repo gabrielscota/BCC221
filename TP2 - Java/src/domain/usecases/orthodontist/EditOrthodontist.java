@@ -4,6 +4,6 @@ import domain.entities.Orthodontist;
 import domain.entities.Schedule;
 import domain.entities.Assistent;
 
-public interface EditOrthododhontist{
-    void editOrthododhontist(Orthodontist orthodontist);
+public interface EditOrthodontist{
+    void editOrthodontist(Orthodontist orthodontist);
 }

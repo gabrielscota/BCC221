@@ -3,9 +3,11 @@ package data.usecases.orthodontist;
 import domain.entities.Orthodontist;
 import domain.entities.Schedule;
 import domain.entities.Assistent;
-import domain.usecases.Orthodontist.DeleteExpense;
+import domain.usecases.orthodontist.DeleteOrthodontist;
 
-public class LocalDeleteOrthodontist implements  DeleteExpense{
+import java.util.List;
+
+public class LocalDeleteOrthodontist implements DeleteOrthodontist{
     private final Orthodontist orthodontist;
 
     public LocalDeleteOrthodontist(Clinic clinic){

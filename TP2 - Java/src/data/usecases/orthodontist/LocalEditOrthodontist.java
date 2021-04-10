@@ -3,9 +3,11 @@ package data.usecases.orthodontist;
 import domain.entities.Orthodontist;
 import domain.entities.Schedule;
 import domain.entities.Assistent;
-import domain.usecases.orthodontist.EditOrthododhontist;
+import domain.usecases.orthodontist.EditOrthodontist;
 
-public class LocalEditOrthodontist implements EditOrthododhontist{
+import java.util.List;
+
+public class LocalEditOrthodontist implements EditOrthodontist{
     private final Clinic clinic;
 
     public LocalEditOrthodontist(Clinic clinic){
@@ -13,7 +15,7 @@ public class LocalEditOrthodontist implements EditOrthododhontist{
     }
 
     @Override
-    public void editOrthododhontist(Orthodontist orthodontist){
+    public void editOrthodontist(Orthodontist orthodontist){
         List<Orthodontist> orthodontists = clinic.getOrthodontists();
         if(!orthodontists.isEmpty()){
             for(int i = 0; i<orthodontists.size(); i++){
