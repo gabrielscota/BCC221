@@ -4,7 +4,7 @@ import domain.entities.Orthodontist;
 import domain.entities.Schedule;
 import domain.entities.Assistent;
 import domain.usecases.orthodontist.EditOrthodontist;
-
+import domain.entities.Clinic;
 import java.util.List;
 
 public class LocalEditOrthodontist implements EditOrthodontist{

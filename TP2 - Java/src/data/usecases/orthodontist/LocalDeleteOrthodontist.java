@@ -4,12 +4,11 @@ import domain.entities.Orthodontist;
 import domain.entities.Schedule;
 import domain.entities.Assistent;
 import domain.usecases.orthodontist.DeleteOrthodontist;
-
+import domain.entities.Clinic;
 import java.util.List;
 
 public class LocalDeleteOrthodontist implements DeleteOrthodontist{
-    private final Orthodontist orthodontist;
-
+    private final Clinic clinic;
     public LocalDeleteOrthodontist(Clinic clinic){
         this.clinic = clinic;
     }
@@ -17,8 +16,8 @@ public class LocalDeleteOrthodontist implements DeleteOrthodontist{
     @Override
     public void deleteOrthodontist(String id){
         List<Orthodontist> orthodontists = clinic.getOrthodontists();
-        if(!orthodontist.isEmpty()){
-            for(int i = 0; i<orthodontist.size(); i++){
+        if(!orthodontists.isEmpty()){
+            for(int i = 0; i<orthodontists.size(); i++){
                 if(orthodontists.get(i).getId() == id){
                     orthodontists.remove(i);
                     break;
