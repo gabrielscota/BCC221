@@ -4,8 +4,8 @@ public class Orthodontist extends Employee {
   private Schedule schedule;
   private Assistent assistent;
 
-  public Orthodontist(String id, String login, String password, UserPermissions userPermissions) {
-    super(id, login, password, userPermissions);
+  public Orthodontist(String id, String name, String login, String password, UserPermissions userPermissions) {
+    super(id, name, login, password, userPermissions);
   }
 
   public Schedule getSchedule() {

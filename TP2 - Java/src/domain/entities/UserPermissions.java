@@ -1,10 +1,12 @@
 package domain.entities;
 
+import java.util.List;
+
 public class UserPermissions {
     private final String id;
-    private String permissions[];
+    private List<String> permissions;
 
-    public UserPermissions(String id, String[] permissions) {
+    public UserPermissions(String id, List<String> permissions) {
         this.id = id;
         this.permissions = permissions;
     }
@@ -13,29 +15,29 @@ public class UserPermissions {
         return id;
     }
 
-    public String[] getPermissions() {
+    public List<String> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(String[] permissions) {
+    public void setPermissions(List<String> permissions) {
         this.permissions = permissions;
     }
 }
 
 class GeneralUser extends UserPermissions {
-    public GeneralUser(String id, String[] permissions) {
+    public GeneralUser(String id, List<String> permissions) {
         super(id, permissions);
     }
 }
 
 class AdministrativeAssistantUser extends UserPermissions {
-    public AdministrativeAssistantUser(String id, String[] permissions) {
+    public AdministrativeAssistantUser(String id, List<String> permissions) {
         super(id, permissions);
     }
 }
 
 class AdministrativeUser extends UserPermissions {
-    public AdministrativeUser(String id, String[] permissions) {
+    public AdministrativeUser(String id, List<String> permissions) {
         super(id, permissions);
     }
 }
