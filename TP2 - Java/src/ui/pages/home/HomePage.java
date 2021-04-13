@@ -18,7 +18,7 @@ public class HomePage {
   }
 
   public void build(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
     primaryStage.setTitle("Inicio | Clínica Odontológica");
     primaryStage.setScene(new Scene(root));
     primaryStage.setResizable(false);
