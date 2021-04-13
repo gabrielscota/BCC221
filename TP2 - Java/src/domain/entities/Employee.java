@@ -1,16 +1,11 @@
 package domain.entities;
 
 public class Employee extends User {
-  private String id;
   private TimeSheet timeSheet;
   private Payment payments[];
 
-  public Employee(String id, String login, String password, UserPermissions userPermissions) {
-    super(id, login, password, userPermissions);
-  }
-
-  public String getId() {
-    return id;
+  public Employee(String id, String name, String login, String password, UserPermissions userPermissions) {
+    super(id, name, login, password, userPermissions);
   }
 
   public TimeSheet getTimeSheet() {

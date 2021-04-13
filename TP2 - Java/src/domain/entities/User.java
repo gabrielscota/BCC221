@@ -1,20 +1,15 @@
 package domain.entities;
 
-public class User {
-  private final String id;
+public class User extends Person {
   private String login;
   private String password;
   private UserPermissions userPermissions;
 
-  public User(String id, String login, String password, UserPermissions userPermissions) {
-    this.id = id;
+  public User(String id, String name, String login, String password, UserPermissions userPermissions) {
+    super(id, name);
     this.login = login;
     this.password = password;
     this.userPermissions = userPermissions;
-  }
-
-  public String getId() {
-    return id;
   }
 
   public String getLogin() {
