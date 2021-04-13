@@ -23,12 +23,12 @@ public class Main extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-//    LoginPage loginPage = new LoginPage(new PresentationLoginController(new LocalAuthentication()));
-//    loginPage.build(primaryStage);
-    buildReceptionistPage(primaryStage);
+    LoginPage loginPage = new LoginPage(new PresentationLoginController(new LocalAuthentication(), primaryStage));
+    loginPage.build(primaryStage);
+//    buildReceptionistPage(primaryStage);
   }
 
-  public void buildReceptionistPage(Stage primaryStage) throws Exception {
+/*  public void buildReceptionistPage(Stage primaryStage) throws Exception {
     UUID clinicUUID = UUID.randomUUID();
     UUID receptionistUUID = UUID.randomUUID();
     List<String> permissions = Arrays.asList("SCHEDULE");
@@ -41,5 +41,5 @@ public class Main extends Application {
             new LocalDeleteReceptionist(clinic)
     ));
     receptionistPage.build(primaryStage);
-  }
+  }*/
 }

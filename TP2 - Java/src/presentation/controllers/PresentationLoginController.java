@@ -15,7 +15,7 @@ import ui.pages.login.LoginPage;
 
 public class PresentationLoginController implements LoginController {
   private final UserAuthentication userAuthentication;
-
+  private final Stage stage;
   private String login;
   private String password;
   private HomePage homePage;
@@ -24,8 +24,9 @@ public class PresentationLoginController implements LoginController {
   @FXML
   TextField passwordTextField = new TextField();
 
-  public PresentationLoginController(UserAuthentication userAuthentication) {
+  public PresentationLoginController(UserAuthentication userAuthentication, Stage stage) {
     this.userAuthentication = userAuthentication;
+    this.stage = stage;
   }
 
   @Override
@@ -59,5 +60,7 @@ public class PresentationLoginController implements LoginController {
   @Override
   public void loadHomePage() throws Exception{
     this.homePage = new HomePage(null);
+    stage.close();
+    homePage.build(new Stage());
   }
 }
