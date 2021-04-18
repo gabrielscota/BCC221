@@ -59,8 +59,9 @@ public class PresentationLoginController implements LoginController {
 
   @Override
   public void loadHomePage() throws Exception{
-    this.homePage = new HomePage(null);
+    Stage homeStage = new Stage();
+    this.homePage = new HomePage(new PresentationHomeController(null, homeStage));
     stage.close();
-    homePage.build(new Stage());
+    homePage.build(homeStage);
   }
 }

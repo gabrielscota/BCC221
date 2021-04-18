@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="346.0" prefWidth="681.0" style="-fx-background-color: #454545;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="432.0" prefWidth="682.0" style="-fx-background-color: #454545;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PresentationHomeController">
    <children>
       <Pane prefHeight="122.0" prefWidth="682.0" style="-fx-background-color: #F1F3F4;">
          <children>
@@ -17,7 +17,7 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="27.0" layoutY="158.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="AGENDAS" textFill="WHITE">
+      <Button layoutX="27.0" layoutY="165.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="AGENDAS" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="350.0" layoutY="158.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="FOLHA DE PONTO" textFill="WHITE">
+      <Button layoutX="350.0" layoutY="165.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="FOLHA DE PONTO" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -41,6 +41,16 @@
          </font>
       </Button>
       <Button layoutX="350.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="GERAR RELATÓRIO" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="27.0" layoutY="379.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" style="-fx-background-color: #F72F2F; -fx-cursor: pointer;" text="SAIR" onMouseClicked="#logout" textFill="WHITE" >
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="350.0" layoutY="325.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="GERENCIAR FUNCIONARIOS" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
