@@ -25,7 +25,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="27.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="PAGAR CONTAS" textFill="WHITE">
+      <Button layoutX="27.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="PAGAR CONTAS" textFill="WHITE" onMouseClicked="#loadExpensesPage">
          <font>
             <Font size="18.0" />
          </font>
