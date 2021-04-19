@@ -14,11 +14,13 @@ public class ReceptionistPage {
 
   public void build(Stage primaryStage) throws Exception {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("receptionist.fxml"));
-    loader.setControllerFactory(c -> receptionistController);
+    loader.setControllerFactory(controller -> receptionistController);
     Parent root = loader.load();
     primaryStage.setTitle("Recepcionista | Clínica Odontológica");
     primaryStage.setScene(new Scene(root));
     primaryStage.setResizable(false);
     primaryStage.show();
+    receptionistController.setRecepcionistName();
+    receptionistController.setSaveButtonStatus(true);
   }
 }
