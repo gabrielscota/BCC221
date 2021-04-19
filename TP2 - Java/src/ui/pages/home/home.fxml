@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="432.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="432.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PresentationHomeController">
    <children>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="408.0" spacing="2.0">
          <children>
@@ -131,44 +131,6 @@
                </VBox.margin>
             </Button>
          </children>
-      </Pane>
-      <Button layoutX="27.0" layoutY="165.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="AGENDAS" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="27.0" layoutY="217.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="RECEBER CONSULTA" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="27.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="PAGAR CONTAS" textFill="WHITE" onMouseClicked="#loadExpensesPage">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="350.0" layoutY="165.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="FOLHA DE PONTO" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="350.0" layoutY="217.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="PAGAR SALÁRIO" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="350.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="GERAR RELATÓRIO" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="27.0" layoutY="379.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" style="-fx-background-color: #F72F2F; -fx-cursor: pointer;" text="SAIR" onMouseClicked="#logout" textFill="WHITE" >
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="350.0" layoutY="325.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="GERENCIAR FUNCIONARIOS" textFill="WHITE" onMouseClicked="#loadManageEmployeePage">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
+      </VBox>
    </children>
 </FlowPane>

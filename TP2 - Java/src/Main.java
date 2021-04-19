@@ -21,22 +21,22 @@ public class Main extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-//    LoginPage loginPage = new LoginPage(new PresentationLoginController(new LocalAuthentication(), primaryStage));
-//    loginPage.build(primaryStage);
-    buildReceptionistPage(primaryStage);
+    LoginPage loginPage = new LoginPage(new PresentationLoginController(new LocalAuthentication(), primaryStage));
+    loginPage.build(primaryStage);
+//    buildReceptionistPage(primaryStage);
   }
 
-  public void buildReceptionistPage(Stage stage) throws Exception {
-    UUID clinicUUID = UUID.randomUUID();
-    UUID receptionistUUID = UUID.randomUUID();
-    List<String> permissions = Arrays.asList("SCHEDULE");
-    UserPermissions userPermissions = new UserPermissions(receptionistUUID.toString(), permissions);
-    Receptionist receptionist = new Receptionist(receptionistUUID.toString(), "Ana Silva", "ana", "123456", userPermissions);
-    Clinic clinic = new Clinic(clinicUUID.toString(), receptionist, null);
-    ReceptionistPage receptionistPage = new ReceptionistPage(new PresentationReceptionistController(
-            new LocalEditReceptionist(clinic),
-            receptionist.getName()
-    ));
-    receptionistPage.build(stage);
-  }
+//  public void buildReceptionistPage(Stage stage) throws Exception {
+//    UUID clinicUUID = UUID.randomUUID();
+//    UUID receptionistUUID = UUID.randomUUID();
+//    List<String> permissions = Arrays.asList("SCHEDULE");
+//    UserPermissions userPermissions = new UserPermissions(receptionistUUID.toString(), permissions);
+//    Receptionist receptionist = new Receptionist(receptionistUUID.toString(), "Ana Silva", "ana", "123456", userPermissions);
+//    Clinic clinic = new Clinic(clinicUUID.toString(), receptionist, null);
+//    ReceptionistPage receptionistPage = new ReceptionistPage(new PresentationReceptionistController(
+//            new LocalEditReceptionist(clinic),
+//            receptionist.getName()
+//    ));
+//    receptionistPage.build(stage);
+//  }
 }
