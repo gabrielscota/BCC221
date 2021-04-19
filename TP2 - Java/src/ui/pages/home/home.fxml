@@ -50,7 +50,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="350.0" layoutY="325.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="GERENCIAR FUNCIONARIOS" textFill="WHITE">
+      <Button layoutX="350.0" layoutY="325.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #466acd; -fx-cursor: pointer;" text="GERENCIAR FUNCIONARIOS" textFill="WHITE" onMouseClicked="#loadManageEmployeePage">
          <font>
             <Font size="18.0" />
          </font>

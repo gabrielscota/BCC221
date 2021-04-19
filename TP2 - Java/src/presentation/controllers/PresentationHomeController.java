@@ -8,9 +8,11 @@ import data.usecases.schedule.LocalAddConsultation;
 import data.usecases.schedule.LocalLoadConsultations;
 import domain.entities.Clinic;
 import domain.entities.Consultation;
+import domain.entities.Employee;
 import domain.entities.Schedule;
 import domain.usecases.schedule.LoadConsultations;
 import javafx.stage.Stage;
+import ui.pages.employees.EmployeesPage;
 import ui.pages.expense.ExpensePage;
 import ui.pages.home.HomeController;
 import ui.pages.login.LoginPage;
@@ -72,6 +74,13 @@ public class PresentationHomeController implements HomeController {
   };
   @Override
   public void loadManageEmployeePage() throws Exception {
-
+    Stage employeeStage = new Stage();
+    EmployeesPage employeePage = new EmployeesPage(new PresentationEmployeeController(
+            employeeStage,
+            stage,
+            clinic
+    ));
+    employeePage.build(employeeStage);
+    stage.close();
   };
 }
