@@ -1,5 +1,6 @@
 package domain.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Clinic {
@@ -16,6 +17,10 @@ public class Clinic {
     this.id = id;
     this.receptionist = receptionist;
     this.admin = admin;
+    this.expenses = new ArrayList<Expense>();
+    this.orthodontists = new ArrayList<Orthodontist>();
+    this.assistents = new ArrayList<Assistent>();
+    this.patients = new ArrayList<Patient>();
   }
 
   public String getId() {

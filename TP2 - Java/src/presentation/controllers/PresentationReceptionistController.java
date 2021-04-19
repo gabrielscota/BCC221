@@ -17,7 +17,6 @@ public class PresentationReceptionistController implements ReceptionistControlle
   private final AddReceptionist addReceptionist;
   private final EditReceptionist editReceptionist;
   private final DeleteReceptionist deleteReceptionist;
-
   private String name;
 
   @FXML

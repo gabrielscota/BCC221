@@ -51,7 +51,9 @@ public class PresentationHomeController implements HomeController {
     ExpensePage expensePage = new ExpensePage(new PresentationExpenseController(
       new LocalAddExpense(clinic),
       new LocalDeleteExpense(clinic),
-      new LocalEditExpense(clinic)
+      new LocalEditExpense(clinic),
+      expenseStage,
+      stage
     ));
     expensePage.build(expenseStage);
     stage.close();

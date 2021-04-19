@@ -1,6 +1,9 @@
 package presentation.controllers;
 
 import data.usecases.authentication.LocalAuthentication;
+import domain.entities.Clinic;
+import domain.entities.Receptionist;
+import domain.entities.UserPermissions;
 import domain.usecases.authentication.AuthenticationParams;
 import domain.usecases.authentication.UserAuthentication;
 import javafx.fxml.FXML;
@@ -12,6 +15,10 @@ import ui.pages.login.LoginController;
 import ui.pages.home.HomePage;
 import ui.pages.home.HomeController;
 import ui.pages.login.LoginPage;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 
 public class PresentationLoginController implements LoginController {
   private final UserAuthentication userAuthentication;
@@ -30,23 +37,19 @@ public class PresentationLoginController implements LoginController {
   }
 
   @Override
-  public void validateLogin() {
+  public boolean validateLogin() {
     if(loginTextField != null && loginTextField.getText().length() + 1 < 6){
-      System.out.println("Login invalido!");
-    } else {
-      System.out.println("Login: " + loginTextField.getText().substring(0, loginTextField.getText().length()));
-      login = loginTextField.getText();
+      return false;
     }
+    return true;
   }
 
   @Override
-  public void validatePassword() {
+  public boolean validatePassword() {
     if(passwordTextField != null && passwordTextField.getText().length() + 1 < 6){
-      System.out.println("Password invalido!");
-    } else {
-      System.out.println("Password: " + passwordTextField.getText().substring(0, passwordTextField.getText().length()));
-      password = passwordTextField.getText();
+      return false;
     }
+    return true;
   }
 
   @Override
@@ -59,8 +62,14 @@ public class PresentationLoginController implements LoginController {
 
   @Override
   public void loadHomePage() throws Exception{
+    UUID clinicUUID = UUID.randomUUID();
+    UUID receptionistUUID = UUID.randomUUID();
+    List<String> permissions = Arrays.asList("SCHEDULE");
+    UserPermissions userPermissions = new UserPermissions(receptionistUUID.toString(), permissions);
+    Receptionist receptionist = new Receptionist(receptionistUUID.toString(), "Ana Silva", "ana", "123456", userPermissions);
+    Clinic clinic = new Clinic(clinicUUID.toString(), receptionist, null);
     Stage homeStage = new Stage();
-    this.homePage = new HomePage(new PresentationHomeController(null, homeStage));
+    this.homePage = new HomePage(new PresentationHomeController(clinic, homeStage));
     stage.close();
     homePage.build(homeStage);
   }

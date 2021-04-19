@@ -1,9 +1,10 @@
 package ui.pages.expense;
 
 public interface ExpenseController {
-    void validateDescription();
-    void validatePaymentDate();
-    void validateDueDate();
+    boolean validateDescription();
+    boolean validatePaymentDate();
+    boolean validateDueDate();
+    boolean validateValue();
     void addExpense();
     void removeExpense();
     void editExpense();

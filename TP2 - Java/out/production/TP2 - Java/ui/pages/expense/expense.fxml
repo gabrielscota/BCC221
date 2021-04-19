@@ -9,35 +9,40 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pages.expense.ExpenseController">
    <children>
-      <FlowPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0">
+      <FlowPane layoutX="5.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0">
          <children>
             <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0">
                <children>
                   <Pane prefHeight="500.0" prefWidth="800.0">
                      <children>
-                        <Button layoutX="29.0" layoutY="29.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="99.0" text="Voltar" />
+                        <Button layoutX="29.0" layoutY="29.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="99.0" text="Voltar" onMouseClicked="#backPage"/>
                         <TextField fx:id="descriptionTextField" layoutX="29.0" layoutY="148.0" onKeyTyped="#validateDescription" prefHeight="47.0" prefWidth="647.0" />
                         <Label layoutX="29.0" layoutY="118.0" prefHeight="17.0" prefWidth="129.0" text="Descrição">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Button layoutX="29.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#addExpense" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #568216;" text="Salvar" textFill="WHITE">
+                        <Button layoutX="29.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#addExpense" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #568216;" text="Salvar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="paymentDate" layoutX="31.0" layoutY="231.0" onKeyTyped="#validatePaymentDate" prefHeight="47.0" prefWidth="195.0" />
-                        <Label layoutX="29.0" layoutY="201.0" prefHeight="30.0" prefWidth="205.0" text="Data de pagamento">
+                        <TextField fx:id="paymentDateTextField" layoutX="265.0" layoutY="318.0" onKeyTyped="#validatePaymentDate" prefHeight="47.0" prefWidth="195.0" />
+                        <Label layoutX="265.0" layoutY="288.0" prefHeight="30.0" prefWidth="205.0" text="Data de pagamento">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="dueDate" layoutX="31.0" layoutY="318.0" onKeyTyped="#validateDueDate" prefHeight="47.0" prefWidth="195.0" />
-                        <Label layoutX="29.0" layoutY="288.0" prefHeight="30.0" prefWidth="205.0" text="Data de vencimento">
+                        <TextField fx:id="dueDateTextField" layoutX="31.0" layoutY="318.0" onKeyTyped="#validateDueDate" prefHeight="47.0" prefWidth="195.0" />
+                        <Label layoutX="31.0" layoutY="288.0" prefHeight="30.0" prefWidth="205.0" text="Data de vencimento">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="valueTextField" layoutX="31.0" layoutY="241.0" onKeyTyped="#validateValue" prefHeight="47.0" prefWidth="195.0" />
+                        <Label layoutX="31.0" layoutY="203.0" prefHeight="30.0" prefWidth="205.0" text="Valor">
                            <font>
                               <Font size="20.0" />
                            </font>
