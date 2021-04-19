@@ -1,6 +1,4 @@
 import data.usecases.authentication.LocalAuthentication;
-import data.usecases.receptionist.LocalAddReceptionist;
-import data.usecases.receptionist.LocalDeleteReceptionist;
 import data.usecases.receptionist.LocalEditReceptionist;
 import domain.entities.Clinic;
 import domain.entities.Receptionist;
@@ -23,12 +21,12 @@ public class Main extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    LoginPage loginPage = new LoginPage(new PresentationLoginController(new LocalAuthentication(), primaryStage));
-    loginPage.build(primaryStage);
-//    buildReceptionistPage(primaryStage);
+//    LoginPage loginPage = new LoginPage(new PresentationLoginController(new LocalAuthentication(), primaryStage));
+//    loginPage.build(primaryStage);
+    buildReceptionistPage(primaryStage);
   }
 
-/*  public void buildReceptionistPage(Stage primaryStage) throws Exception {
+  public void buildReceptionistPage(Stage stage) throws Exception {
     UUID clinicUUID = UUID.randomUUID();
     UUID receptionistUUID = UUID.randomUUID();
     List<String> permissions = Arrays.asList("SCHEDULE");
@@ -36,10 +34,9 @@ public class Main extends Application {
     Receptionist receptionist = new Receptionist(receptionistUUID.toString(), "Ana Silva", "ana", "123456", userPermissions);
     Clinic clinic = new Clinic(clinicUUID.toString(), receptionist, null);
     ReceptionistPage receptionistPage = new ReceptionistPage(new PresentationReceptionistController(
-            new LocalAddReceptionist(clinic),
             new LocalEditReceptionist(clinic),
-            new LocalDeleteReceptionist(clinic)
+            receptionist.getName()
     ));
-    receptionistPage.build(primaryStage);
-  }*/
+    receptionistPage.build(stage);
+  }
 }
