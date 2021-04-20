@@ -13,7 +13,7 @@
       <TableView fx:id="employees" layoutX="278.0" layoutY="90.0" prefHeight="220.0" prefWidth="620.0">
         <columns>
             <TableColumn fx:id="selectCol" prefWidth="78.39996337890625" text="SELECT" />
-            <TableColumn fx:id="idColumn" prefWidth="152.800048828125" text="ID" />
+            <TableColumn fx:id="idColumn" prefWidth="152.800048828125" text="ID" visible="false" />
             <TableColumn fx:id="nameColumn" minWidth="0.0" prefWidth="192.79998779296875" text="NOME" />
             <TableColumn fx:id="typeColumn" prefWidth="198.4000244140625" text="CARGO" />
         </columns>
@@ -28,6 +28,6 @@
       <Text layoutX="28.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SENHA DO USUARIO" wrappingWidth="207.73675918579102" />
       <Button layoutX="28.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#addEmployee" text="ADICIONAR" />
       <Button layoutX="28.0" layoutY="28.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="VOLTAR" />
-      <Button layoutX="113.0" layoutY="348.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="93.0" text="DELETAR" />
+      <Button layoutX="203.0" layoutY="347.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="93.0" text="DELETAR" />
    </children>
 </AnchorPane>

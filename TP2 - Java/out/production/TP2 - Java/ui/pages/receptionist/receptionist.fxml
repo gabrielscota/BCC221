@@ -41,7 +41,7 @@
                               </TextField>
                            </children>
                         </VBox>
-                        <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" onMouseClicked="#addReceptionist" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #568216;" text="Salvar" textFill="WHITE">
+                        <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" onMouseClicked="#editReceptionist" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #568216;" text="Salvar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

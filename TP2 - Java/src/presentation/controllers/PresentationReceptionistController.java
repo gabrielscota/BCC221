@@ -4,6 +4,7 @@ import domain.entities.Receptionist;
 import domain.entities.UserPermissions;
 import domain.usecases.receptionist.EditReceptionist;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -50,12 +51,17 @@ public class PresentationReceptionistController implements ReceptionistControlle
   }
 
   @Override
-  public void addReceptionist() {
+  public void editReceptionist() {
     UUID uuid = UUID.randomUUID();
     List<String> permissions = Arrays.asList("SCHEDULE");
     UserPermissions userPermissions = new UserPermissions(uuid.toString(), permissions);
     Receptionist receptionist = new Receptionist(uuid.toString(), name, name, "123456", userPermissions);
     editReceptionist.editReceptionist(receptionist);
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Sucesso");
+    alert.setHeaderText("Recepcionista editada com sucesso!");
+    alert.show();
+    setSaveButtonStatus(true);
   }
 
   @Override
