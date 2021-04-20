@@ -8,6 +8,7 @@ import domain.usecases.authentication.AuthenticationParams;
 import domain.usecases.authentication.UserAuthentication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import ui.pages.home.HomeController;
@@ -26,10 +27,13 @@ public class PresentationLoginController implements LoginController {
   private String login;
   private String password;
   private HomePage homePage;
+
   @FXML
   TextField loginTextField = new TextField();
   @FXML
   TextField passwordTextField = new TextField();
+  @FXML
+  Button loginButton = new Button();
 
   public PresentationLoginController(UserAuthentication userAuthentication, Stage stage) {
     this.userAuthentication = userAuthentication;
@@ -37,31 +41,40 @@ public class PresentationLoginController implements LoginController {
   }
 
   @Override
-  public boolean validateLogin() {
-    if(loginTextField != null && loginTextField.getText().length() + 1 < 6){
-      return false;
-    }
-    return true;
+  public void validateLogin() {
+    login = loginTextField.getText();
+    validateForm();
   }
 
   @Override
-  public boolean validatePassword() {
-    if(passwordTextField != null && passwordTextField.getText().length() + 1 < 6){
-      return false;
+  public void validatePassword() {
+    password = passwordTextField.getText();
+    validateForm();
+  }
+
+  void validateForm() {
+    if ((passwordTextField != null && passwordTextField.getText().length() < 6) || (loginTextField != null && loginTextField.getText().length() < 3)) {
+      setLoginButtonStatus(true);
+    } else {
+      setLoginButtonStatus(false);
     }
-    return true;
+  }
+
+  public void setLoginButtonStatus(boolean value) {
+    this.loginButton.setDisable(value);
   }
 
   @Override
   public void auth() throws Exception {
-    System.out.println("Login: " + loginTextField.getText());
-    System.out.println("Senha: " + passwordTextField.getText());
-    loadHomePage();
-    userAuthentication.auth(new AuthenticationParams(login, password));
+    String result = userAuthentication.auth(new AuthenticationParams(login, password));
+    System.out.println(result);
+    if (result != null) {
+      loadHomePage();
+    }
   }
 
   @Override
-  public void loadHomePage() throws Exception{
+  public void loadHomePage() throws Exception {
     UUID clinicUUID = UUID.randomUUID();
     UUID receptionistUUID = UUID.randomUUID();
     List<String> permissions = Arrays.asList("SCHEDULE");

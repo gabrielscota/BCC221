@@ -9,4 +9,5 @@ public interface HomeController {
     void loadPayEmployeePage() throws Exception;
     void loadRelatoryPage() throws Exception;
     void loadManageEmployeePage() throws Exception;
+    void loadReceptionistPage() throws  Exception;
 }

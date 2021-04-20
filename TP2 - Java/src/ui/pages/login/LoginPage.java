@@ -8,20 +8,23 @@ import javafx.stage.Stage;
 public class LoginPage {
   private final LoginController loginController;
   private Stage stage;
+
   public LoginPage(LoginController loginController) {
     this.loginController = loginController;
   }
 
-  public void build(Stage primaryStage) throws Exception {
-    this.stage = primaryStage;
+  public void build(Stage stage) throws Exception {
+    this.stage = stage;
     FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
-    loader.setControllerFactory(c -> loginController);
+    loader.setControllerFactory(controller -> loginController);
     Parent root = loader.load();
-    primaryStage.setTitle("Login | Clínica Odontológica");
-    primaryStage.setScene(new Scene(root));
-    primaryStage.setResizable(false);
-    primaryStage.show();
+    stage.setTitle("Login | Clínica Odontológica");
+    stage.setScene(new Scene(root));
+    stage.setResizable(false);
+    stage.show();
+    loginController.setLoginButtonStatus(true);
   }
+
   public void close() {
     stage.close();
   }

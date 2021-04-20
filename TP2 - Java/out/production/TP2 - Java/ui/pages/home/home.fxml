@@ -106,7 +106,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #454545;" text="Editar Recepcionista" textFill="WHITE">
+                  <Button mnemonicParsing="false" onMouseClicked="#loadReceptionistPage" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #454545;" text="Editar Recepcionista" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>

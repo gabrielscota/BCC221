@@ -6,4 +6,5 @@ public interface ReceptionistController {
   void addReceptionist();
   void setRecepcionistName();
   void setSaveButtonStatus(boolean value);
+  void backPage();
 }

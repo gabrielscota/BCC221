@@ -13,7 +13,7 @@
 
 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PresentationReceptionistController">
    <children>
-      <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #454545;" text="Voltar" textFill="WHITE">
+      <Button mnemonicParsing="false" onMouseClicked="#backPage" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #454545;" text="Voltar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
