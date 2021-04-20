@@ -22,5 +22,6 @@ public class EmployeesPage {
     primaryStage.setScene(new Scene(root));
     primaryStage.setResizable(false);
     primaryStage.show();
+    employeeController.populateCombobox();
   }
 }

@@ -8,9 +8,15 @@ public interface EmployeeController
 {
   void addOrthodontistTable();
   void editOrthodontistTable();
+  boolean validateName();
+  boolean validateUser();
+  boolean validatePassword();
+  boolean validateCombobox();
   void deleteOrthodontistTable();
   void addAssistentTable();
   void editAssistentTable();
   void deleteAssistentTable();
   void showEmployeesTable();
+  void addEmployee();
+  void populateCombobox();
 }
