@@ -1,25 +1,31 @@
 package presentation.controllers;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import data.usecases.assistent.LocalAddAssistent;
 import data.usecases.orthodontist.LocalAddOrthodontist;
 import domain.entities.*;
 import domain.usecases.assistent.AddAssistent;
+import javafx.beans.InvalidationListener;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableStringValue;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import ui.pages.employees.EmployeeController;
 import javafx.stage.Stage;
 import domain.usecases.orthodontist.AddOrthodontist;
 import domain.usecases.orthodontist.DeleteOrthodontist;
 import domain.usecases.orthodontist.EditOrthodontist;
+
+import javax.swing.event.ChangeEvent;
 import javax.xml.soap.Text;
 
 import java.util.*;
 
-public class PresentationEmployeeController implements EmployeeController{
+public class PresentationEmployeeController implements EmployeeController {
   private Stage stage;
   private Stage backStage;
   private Clinic clinic;
@@ -32,20 +38,25 @@ public class PresentationEmployeeController implements EmployeeController{
   @FXML
   TextField userLoginTextField = new TextField();
   @FXML
-  TableView <TableEmployees> employees;
+  TableView<Employee> employees;
   @FXML
-  TableColumn <TableEmployees, String> idColumn;
+  TableColumn<Employee, String> idColumn;
   @FXML
-  TableColumn <TableEmployees, String> nameColumn;
+  TableColumn<Employee, String> nameColumn;
   @FXML
-  TableColumn <TableEmployees, String> typeColumn;
+  TableColumn<Employee, String> typeColumn;
   @FXML
-  TableColumn selectCol;
-  public PresentationEmployeeController(Stage stage, Stage backStage, Clinic clinic){
+  Button addEmployeeButton = new Button();
+  @FXML
+  Button saveEmployeeButton = new Button();
+  @FXML
+  Button deleteEmployeeButton = new Button();
+
+  public PresentationEmployeeController(Stage stage, Stage backStage, Clinic clinic) {
     this.backStage = backStage;
     this.stage = stage;
     this.clinic = clinic;
-    this.employees = new TableView<TableEmployees>();
+    this.employees = new TableView<Employee>();
   }
 
   @Override
@@ -97,91 +108,141 @@ public class PresentationEmployeeController implements EmployeeController{
   public void deleteAssistentTable() {
 
   }
+
   @Override
-  public void showEmployeesTable(){
+  public void showEmployeesTable() {
+    addEmployeeButton.setDisable(false);
+    saveEmployeeButton.setDisable(true);
+    deleteEmployeeButton.setDisable(true);
     List<Assistent> assistents = clinic.getAssistents();
     List<Orthodontist> orthodontists = clinic.getOrthodontists();
-    List<TableEmployees> employeesList  = new ArrayList<TableEmployees>();
-    ObservableList<TableEmployees> observableList = FXCollections.observableArrayList();
+    ObservableList<Employee> observableList = FXCollections.observableArrayList();
     if (!orthodontists.isEmpty()) {
-      for (int i = 0; i < orthodontists.size(); i++) {
-          TableEmployees tableEmployees = new TableEmployees(
-                  orthodontists.get(i).getName(),
-                  orthodontists.get(i).getId(),
-                  "Ortodontista"
-                  );
-          observableList.add(tableEmployees);
-        }
-      }
+      observableList.addAll(orthodontists);
+    }
     if (!assistents.isEmpty()) {
-      for (int i = 0; i < assistents.size(); i++) {
-        TableEmployees tableEmployees = new TableEmployees(
-                assistents.get(i).getName(),
-                assistents.get(i).getId(),
-                "Assistente"
-        );
-        observableList.add(tableEmployees);
-      }
+      observableList.addAll(assistents);
     }
-    idColumn.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("id"));
-    nameColumn.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("name"));
-    typeColumn.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("type"));
-    selectCol.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("checkBox"));
+    idColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("id"));
+    nameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
+    typeColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Employee, String>, ObservableValue<String>>() {
+      @Override
+      public ObservableValue<String> call(TableColumn.CellDataFeatures<Employee, String> param) {
+        ObservableStringValue value = new ObservableStringValue() {
+          @Override
+          public String get() {
+            return null;
+          }
+
+          @Override
+          public void addListener(ChangeListener<? super String> listener) {
+
+          }
+
+          @Override
+          public void removeListener(ChangeListener<? super String> listener) {
+
+          }
+
+          @Override
+          public String getValue() {
+            String simpleName = param.getValue().getClass().getSimpleName();
+            switch (simpleName) {
+              case "Orthodontist":
+                return "Ortodontista";
+              case "Assistent":
+                return "Assistente";
+            }
+            return simpleName;
+          }
+
+          @Override
+          public void addListener(InvalidationListener listener) {
+
+          }
+
+          @Override
+          public void removeListener(InvalidationListener listener) {
+
+          }
+        };
+        return value;
+      }
+    });
     employees.setItems(observableList);
+  }
+
+  @Override
+  public void onSelectedEmployee() {
+    Employee selectedEmployee = employees.getSelectionModel().getSelectedItem();
+    if (selectedEmployee != null) {
+      nameTextField.setText(selectedEmployee.getName());
+      userLoginTextField.setText(selectedEmployee.getLogin());
+      passwordTextField.setText(selectedEmployee.getPassword());
+      String classSimpleName = selectedEmployee.getClass().getSimpleName().equals("Orthodontist") ? "Ortodontista" : "Assistente";
+      comboBoxType.setValue(classSimpleName);
+      addEmployeeButton.setDisable(true);
+      saveEmployeeButton.setDisable(false);
+      deleteEmployeeButton.setDisable(false);
     }
-    @Override
-    public void addEmployee(){
-      if(validateCombobox() && validateName() && validateUser() && validatePassword()){
-        if(comboBoxType.getValue() == "Ortodontista"){
-          addOrthodontistTable();
-        }
-        else{
-          addAssistentTable();
-        }
-        nameTextField.setText("");
-        userLoginTextField.setText("");
-        passwordTextField.setText("");
-        comboBoxType.setValue("");
+  }
+
+  @Override
+  public void addEmployee() {
+    if (validateCombobox() && validateName() && validateUser() && validatePassword()) {
+      if (comboBoxType.getValue().equals("Ortodontista")) {
+        addOrthodontistTable();
+      } else {
+        addAssistentTable();
       }
-      else{
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Dados invalidos");
-        alert.setHeaderText("Preencha corretamente todos os campos");
-        alert.setContentText("Nome, usuario e senha devem possuir mais de 3 caracteres.");
-        alert.show();
-      }
+      nameTextField.setText("");
+      userLoginTextField.setText("");
+      passwordTextField.setText("");
+      comboBoxType.setValue("");
+    } else {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Dados invalidos");
+      alert.setHeaderText("Preencha corretamente todos os campos");
+      alert.setContentText("Nome, usuario e senha devem possuir mais de 3 caracteres.");
+      alert.show();
     }
-    @Override
-    public void populateCombobox(){
-      ObservableList obsList = FXCollections.observableArrayList();
-      obsList.add("Ortodontista");
-      obsList.add("Assistente");
-      comboBoxType.setItems(obsList);
-    }
+  }
+
+  @Override
+  public void populateCombobox() {
+    ObservableList obsList = FXCollections.observableArrayList();
+    obsList.add("Ortodontista");
+    obsList.add("Assistente");
+    comboBoxType.setItems(obsList);
+  }
+
   @Override
   public boolean validateName() {
-    if(nameTextField.getText().length() < 3){
+    if (nameTextField.getText().length() < 3) {
       return false;
     }
     return true;
   }
+
   @Override
   public boolean validateUser() {
-    if(nameTextField.getText().length() < 3){
+    if (nameTextField.getText().length() < 3) {
       return false;
     }
     return true;
   }
+
   @Override
   public boolean validatePassword() {
-    if(passwordTextField.getText().length() < 3){
+    if (passwordTextField.getText().length() < 3) {
       return false;
     }
     return true;
   }
+
   @Override
   public boolean validateCombobox() {
-    if(comboBoxType.getValue() == ""){
+    if (comboBoxType.getValue().equals("")) {
       return false;
     }
     return true;

@@ -19,4 +19,5 @@ public interface EmployeeController
   void showEmployeesTable();
   void addEmployee();
   void populateCombobox();
+  void onSelectedEmployee();
 }
