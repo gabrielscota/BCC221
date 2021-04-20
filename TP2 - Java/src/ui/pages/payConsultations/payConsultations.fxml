@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="455.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PresentationPayConsultationController">
+   <children>
+      <Button layoutX="22.0" layoutY="29.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="124.0" text="VOLTAR" />
+      <TableView fx:id="consultations" layoutX="277.0" layoutY="95.0" prefHeight="290.0" prefWidth="500.0">
+        <columns>
+          <TableColumn fx:id="date" prefWidth="75.0" text="DATA " />
+          <TableColumn fx:id="value" prefWidth="75.0" text="VALOR" />
+            <TableColumn fx:id="patientName" prefWidth="348.79998779296875" text="PACIENTE" />
+        </columns>
+      </TableView>
+      <Button layoutX="14.0" layoutY="358.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="124.0" text="ADICIONAR" />
+      <Text layoutX="389.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAGAMENTOS" textAlignment="CENTER" wrappingWidth="275.73675537109375">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <TextField layoutX="14.0" layoutY="188.0" prefHeight="40.0" prefWidth="105.0" />
+      <TextField layoutX="15.0" layoutY="260.0" prefHeight="40.0" prefWidth="246.0" />
+      <Text layoutX="20.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECIONE A CONSULTA" wrappingWidth="223.42612075805664">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VALOR" wrappingWidth="111.73669815063477">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="13.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DO PACIENTE" wrappingWidth="237.3366584777832">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox layoutX="15.0" layoutY="122.0" prefHeight="31.0" prefWidth="246.0" fx:id="comboBoxConsultations"/>
+   </children>
+</AnchorPane>

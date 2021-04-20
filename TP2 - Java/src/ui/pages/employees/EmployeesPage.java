@@ -23,5 +23,6 @@ public class EmployeesPage {
     primaryStage.setResizable(false);
     primaryStage.show();
     employeeController.populateCombobox();
+    employeeController.showEmployeesTable();
   }
 }

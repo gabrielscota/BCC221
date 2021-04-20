@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.pages.employees.EmployeeController;
 import javafx.stage.Stage;
@@ -40,7 +41,7 @@ public class PresentationEmployeeController implements EmployeeController{
   @FXML
   TableColumn <TableEmployees, String> typeColumn;
   @FXML
-  TableColumn selectCol;
+  TableColumn <TableEmployees, Boolean>selectCol;
   public PresentationEmployeeController(Stage stage, Stage backStage, Clinic clinic){
     this.backStage = backStage;
     this.stage = stage;
@@ -95,7 +96,7 @@ public class PresentationEmployeeController implements EmployeeController{
 
   @Override
   public void deleteAssistentTable() {
-
+    System.out.println(selectCol.getText());
   }
   @Override
   public void showEmployeesTable(){
@@ -126,7 +127,6 @@ public class PresentationEmployeeController implements EmployeeController{
     idColumn.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("id"));
     nameColumn.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("name"));
     typeColumn.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("type"));
-    selectCol.setCellValueFactory(new PropertyValueFactory<TableEmployees, String>("checkBox"));
     employees.setItems(observableList);
     }
     @Override
@@ -185,5 +185,10 @@ public class PresentationEmployeeController implements EmployeeController{
       return false;
     }
     return true;
+  }
+  @Override
+  public void backPage(){
+    backStage.show();
+    stage.close();
   }
 }

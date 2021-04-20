@@ -6,6 +6,7 @@ import domain.entities.Orthodontist;
 
 public interface EmployeeController
 {
+  void backPage();
   void addOrthodontistTable();
   void editOrthodontistTable();
   boolean validateName();

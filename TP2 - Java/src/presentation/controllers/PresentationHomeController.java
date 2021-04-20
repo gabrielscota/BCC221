@@ -15,6 +15,8 @@ import ui.pages.expense.ExpensePage;
 import ui.pages.home.HomeController;
 import ui.pages.login.LoginPage;
 import javafx.fxml.FXML;
+import ui.pages.payConsultations.PayConsultationController;
+import ui.pages.payConsultations.PayConsultationPage;
 import ui.pages.receptionist.ReceptionistPage;
 
 import java.util.List;
@@ -48,7 +50,10 @@ public class PresentationHomeController implements HomeController {
 
   @Override
   public void loadConsultationPage() throws Exception {
-
+    Stage consultationsStage = new Stage();
+    PayConsultationPage payConsultationPage = new PayConsultationPage(new PresentationPayConsultationController(clinic, consultationsStage, stage));
+    payConsultationPage.build(consultationsStage);
+    stage.close();
   }
 
   ;
