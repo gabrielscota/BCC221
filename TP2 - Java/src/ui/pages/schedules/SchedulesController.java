@@ -8,7 +8,7 @@ import java.util.List;
 public interface SchedulesController {
   void backPage();
   void populateCombobox();
-  void updateTable(List<Orthodontist> orthodontists);
+  void updateTable();
   void addConsultation();
   boolean validateCombobox();
   boolean validatePatientName();

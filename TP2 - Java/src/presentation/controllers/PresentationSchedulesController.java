@@ -1,5 +1,6 @@
 package presentation.controllers;
 
+
 import domain.entities.Clinic;
 import domain.entities.Consultation;
 import domain.entities.Orthodontist;
@@ -7,11 +8,7 @@ import domain.entities.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import ui.pages.schedules.SchedulesController;
 
@@ -30,7 +27,7 @@ public class PresentationSchedulesController implements SchedulesController {
   @FXML
   TextField dateTextField;
   @FXML
-  TextField descriptionTextField;
+  TextArea descriptionTextField;
   @FXML
   TableView<Consultation> consultations;
   @FXML
@@ -56,11 +53,13 @@ public class PresentationSchedulesController implements SchedulesController {
   public void backPage() {
     stage.close();
     backStage.show();
+    System.out.println(backStage.getClass().getName());
+
   }
 
   @Override
-  public void updateTable(List<Orthodontist> orthodontists) {
-
+  public void updateTable() {
+    List<Orthodontist> ortodontistas = clinic.getOrthodontists();
   }
 
   @Override

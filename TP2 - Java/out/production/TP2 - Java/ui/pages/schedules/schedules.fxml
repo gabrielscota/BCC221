@@ -10,11 +10,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="560.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PresentationSchedulesController">
    <children>
-      <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="VOLTAR" onMouseClicked="#backPage"/>
-      <ComboBox layoutX="22.0" layoutY="108.0" prefHeight="26.0" prefWidth="224.0" fx:id="comboBoxOrthodontists" />
+      <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#backPage" prefHeight="34.0" prefWidth="97.0" text="VOLTAR" />
+      <ComboBox fx:id="comboBoxOrthodontists" layoutX="22.0" layoutY="108.0" prefHeight="26.0" prefWidth="224.0" onAction="#updateTable" />
       <Text layoutX="22.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECIONE O ORTODONTISTA" wrappingWidth="224.0">
          <font>
             <Font size="14.0" />
@@ -25,14 +24,14 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="22.0" layoutY="192.0" prefHeight="34.0" prefWidth="224.0" />
-      <TextField layoutX="22.0" layoutY="268.0" prefHeight="34.0" prefWidth="224.0" />
+      <TextField id="name" layoutX="22.0" layoutY="192.0" prefHeight="34.0" prefWidth="224.0" fx:id="nameTextField" />
+      <TextField id="date" layoutX="22.0" layoutY="268.0" prefHeight="34.0" prefWidth="224.0" fx:id="dateTextField" />
       <Text layoutX="22.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA DA CONSULTA" textAlignment="CENTER" wrappingWidth="131.60510635375977">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <TextArea layoutX="22.0" layoutY="347.0" prefHeight="112.0" prefWidth="267.0" />
+      <TextArea id="description" layoutX="22.0" layoutY="347.0" prefHeight="112.0" prefWidth="267.0" fx:id="descriptionTextField"/>
       <Text layoutX="22.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIÇÃO" wrappingWidth="204.55645751953125">
          <font>
             <Font size="14.0" />

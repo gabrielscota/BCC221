@@ -13,7 +13,7 @@
 <AnchorPane prefHeight="560.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PresentationSchedulesController">
    <children>
       <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#backPage" prefHeight="34.0" prefWidth="97.0" text="VOLTAR" />
-      <ComboBox fx:id="comboBoxOrthodontists" layoutX="22.0" layoutY="108.0" prefHeight="26.0" prefWidth="224.0" />
+      <ComboBox fx:id="comboBoxOrthodontists" layoutX="22.0" layoutY="108.0" prefHeight="26.0" prefWidth="224.0" onAction="#updateTable" />
       <Text layoutX="22.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECIONE O ORTODONTISTA" wrappingWidth="224.0">
          <font>
             <Font size="14.0" />
