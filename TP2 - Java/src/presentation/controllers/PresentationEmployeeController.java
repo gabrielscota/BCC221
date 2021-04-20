@@ -51,11 +51,9 @@ public class PresentationEmployeeController implements EmployeeController {
   @FXML
   Button saveEmployeeButton = new Button();
   @FXML
-
   Button deleteEmployeeButton = new Button();
 
   public PresentationEmployeeController(Stage stage, Stage backStage, Clinic clinic) {
-
     this.backStage = backStage;
     this.stage = stage;
     this.clinic = clinic;

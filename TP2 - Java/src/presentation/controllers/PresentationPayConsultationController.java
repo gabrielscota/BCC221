@@ -80,6 +80,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
         obsList.add(consultationsLoaded.get(i).getPatient().getName() + consultationsLoaded.get(i).getDate());
       }
     }
+    obsList.add("Consulta 1 blabla");
     comboBoxConsultations.setItems(obsList);
   }
   @Override

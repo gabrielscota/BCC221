@@ -29,7 +29,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="214.0" spacing="12.0">
                <children>
-                  <Button disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #454545;" text="Agenda" textFill="WHITE">
+                  <Button onMouseClicked="#loadSchedulesPage" disable="false" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #454545;" text="Agenda" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -50,9 +50,9 @@
                   <Insets bottom="8.0" top="8.0" />
                </VBox.margin>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="12.0">
+            <HBox prefHeight="40.0" prefWidth="432.0" spacing="12.0">
                <children>
-                  <Button disable="false" mnemonicParsing="false" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #454545;" text="Receber consulta" textFill="WHITE" onMouseClicked="#loadConsultationPage">
+                  <Button disable="false" mnemonicParsing="false" onMouseClicked="#loadConsultationPage" prefHeight="26.0" prefWidth="265.0" style="-fx-background-color: #454545;" text="Receber consulta" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>

@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import ui.pages.payConsultations.PayConsultationController;
 import ui.pages.payConsultations.PayConsultationPage;
 import ui.pages.receptionist.ReceptionistPage;
+import ui.pages.schedules.SchedulesPage;
 
 import java.util.List;
 
@@ -43,7 +44,10 @@ public class PresentationHomeController implements HomeController {
 
   @Override
   public void loadSchedulesPage() throws Exception {
-
+    Stage schedulesStage = new Stage();
+    SchedulesPage schedulesPage = new SchedulesPage(new PresentationSchedulesController(schedulesStage, stage, clinic));
+    schedulesPage.build(schedulesStage);
+    stage.close();
   }
 
   ;
