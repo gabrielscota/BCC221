@@ -16,13 +16,13 @@ public class EmployeesPage {
   public void build(Stage primaryStage) throws Exception{
     this.stage = primaryStage;
     FXMLLoader loader = new FXMLLoader(getClass().getResource("employees.fxml"));
-    loader.setControllerFactory(c -> employeeController);
+    loader.setControllerFactory(controller -> employeeController);
     Parent root = loader.load();
     primaryStage.setTitle("Funcionários");
     primaryStage.setScene(new Scene(root));
     primaryStage.setResizable(false);
-    primaryStage.show();
     employeeController.populateCombobox();
     employeeController.showEmployeesTable();
+    primaryStage.show();
   }
 }

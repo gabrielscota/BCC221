@@ -1,9 +1,7 @@
 package presentation.controllers;
 
 import data.usecases.authentication.LocalAuthentication;
-import domain.entities.Clinic;
-import domain.entities.Receptionist;
-import domain.entities.UserPermissions;
+import domain.entities.*;
 import domain.usecases.authentication.AuthenticationParams;
 import domain.usecases.authentication.UserAuthentication;
 import javafx.fxml.FXML;
@@ -80,7 +78,12 @@ public class PresentationLoginController implements LoginController {
     List<String> permissions = Arrays.asList("SCHEDULE");
     UserPermissions userPermissions = new UserPermissions(receptionistUUID.toString(), permissions);
     Receptionist receptionist = new Receptionist(receptionistUUID.toString(), "Ana Silva", "ana", "123456", userPermissions);
+    Assistent assistent = new Assistent(UUID.randomUUID().toString(), "Gabriel", "gabriel", "123456", null);
+    Orthodontist orthodontist = new Orthodontist(UUID.randomUUID().toString(), "Joao", "joao", "123456", null);
+    orthodontist.setAssistent(assistent);
     Clinic clinic = new Clinic(clinicUUID.toString(), receptionist, null);
+    clinic.getOrthodontists().add(orthodontist);
+    clinic.getAssistents().add(assistent);
     Stage homeStage = new Stage();
     this.homePage = new HomePage(new PresentationHomeController(clinic, homeStage));
     stage.close();
