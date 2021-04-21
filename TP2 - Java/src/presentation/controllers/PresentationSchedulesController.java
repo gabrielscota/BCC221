@@ -53,6 +53,7 @@ public class PresentationSchedulesController implements SchedulesController {
   }
 
   @Override
+  //Função que controla a navegação entre paginas. Ela abre a pagina anterior e fecha a atual. Isso da a funcionalidade ao botao voltar.
   public void backPage() {
     stage.close();
     backStage.show();
@@ -61,6 +62,7 @@ public class PresentationSchedulesController implements SchedulesController {
   }
 
   @Override
+  //Atualiza a tabela com o as consultas existentes.
   public void updateTable() {
     List<Orthodontist> ortodontistas = clinic.getOrthodontists();
     ObservableList obsList = FXCollections.observableArrayList();
@@ -79,6 +81,7 @@ public class PresentationSchedulesController implements SchedulesController {
   }
 
   @Override
+  //Preenche o combobox com os ortodontistas da clinica para que o usuário possa adicionar uma consulta para aquele ortodontista.
   public void populateCombobox() {
     List<Orthodontist> orthodontists = clinic.getOrthodontists();
     ObservableList obsList = FXCollections.observableArrayList();
@@ -89,6 +92,7 @@ public class PresentationSchedulesController implements SchedulesController {
   }
 
   @Override
+  //Cria uma consulta para um ortodontista da clinica Ja adiciona ela na agenda do seu respectivo ortodontista.
   public void addConsultation() {
     if(validateCombobox() && validatePatientName() && validateDate() && validateDescription()){
       UUID uuid = UUID.randomUUID();
