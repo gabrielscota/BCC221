@@ -1,9 +1,9 @@
 package presentation.controllers;
 
 import data.usecases.assistent.LocalAddAssistent;
-import data.usecases.assistent.LocalEditAssistent;
+import data.usecases.assistent.LocalDeleteAssistent;
 import data.usecases.orthodontist.LocalAddOrthodontist;
-import data.usecases.orthodontist.LocalEditOrthodontist;
+import data.usecases.orthodontist.LocalDeleteOrthodontist;
 import domain.entities.*;
 import domain.usecases.assistent.AddAssistent;
 import javafx.beans.InvalidationListener;
@@ -203,6 +203,30 @@ public class PresentationEmployeeController implements EmployeeController {
       selectedEmployee.setName(nameTextField.getText());
       selectedEmployee.setLogin(userLoginTextField.getText());
       selectedEmployee.setPassword(passwordTextField.getText());
+      nameTextField.setText("");
+      userLoginTextField.setText("");
+      passwordTextField.setText("");
+      comboBoxType.setValue("");
+      employees.getSelectionModel().clearSelection();
+      showEmployeesTable();
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      alert.setTitle("Sucesso!");
+      alert.setHeaderText("Funcionário editado com sucesso!");
+      alert.show();
+    }
+  }
+
+  @Override
+  public void deleteEmployee() {
+    Employee selectedEmployee = employees.getSelectionModel().getSelectedItem();
+    if (selectedEmployee != null) {
+      if (selectedEmployee instanceof Orthodontist) {
+        LocalDeleteOrthodontist localDeleteOrthodontist = new LocalDeleteOrthodontist(clinic);
+        localDeleteOrthodontist.deleteOrthodontist(selectedEmployee.getId());
+      } else {
+        LocalDeleteAssistent localDeleteAssistent = new LocalDeleteAssistent(clinic);
+        localDeleteAssistent.deleteAssistent(selectedEmployee.getId());
+      }
       nameTextField.setText("");
       userLoginTextField.setText("");
       passwordTextField.setText("");

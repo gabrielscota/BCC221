@@ -106,7 +106,7 @@
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding></Button>
-            <Button fx:id="deleteEmployeeButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="107.0" text="Deletar">
+            <Button fx:id="deleteEmployeeButton" mnemonicParsing="false" onMouseClicked="#deleteEmployee" prefHeight="34.0" prefWidth="107.0" text="Deletar">
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding></Button>

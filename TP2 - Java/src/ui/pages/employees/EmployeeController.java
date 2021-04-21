@@ -6,6 +6,7 @@ public interface EmployeeController
   void addEmployeeToClinic(String type);
   void addEmployee();
   void saveEmployee();
+  void deleteEmployee();
   boolean validateName();
   boolean validateUser();
   boolean validatePassword();
