@@ -23,6 +23,6 @@ public class PayConsultationPage {
     primaryStage.setResizable(false);
     primaryStage.show();
     consultationController.showConsultationsTable();
-    consultationController.populateCombobox();
+    consultationController.populateComboboxOrthodontist();
   }
 }

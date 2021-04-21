@@ -19,29 +19,35 @@
             <TableColumn fx:id="patientName" prefWidth="348.79998779296875" text="PACIENTE" />
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#addPaidConsultation" prefHeight="26.0" prefWidth="124.0" text="ADICIONAR" />
+      <Button layoutX="15.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#addPaidConsultation" prefHeight="26.0" prefWidth="124.0" text="ADICIONAR" />
       <Text layoutX="389.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAGAMENTOS" textAlignment="CENTER" wrappingWidth="275.73675537109375">
          <font>
             <Font size="23.0" />
          </font>
       </Text>
-      <TextField id="value" layoutX="14.0" layoutY="188.0" prefHeight="40.0" prefWidth="105.0" fx:id="valueTextField" />
-      <TextField id="patientName" layoutX="15.0" layoutY="260.0" prefHeight="40.0" prefWidth="246.0" fx:id="nameTextField"/>
-      <Text layoutX="20.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECIONE A CONSULTA" wrappingWidth="223.42612075805664">
+      <TextField id="value" fx:id="valueTextField" layoutX="15.0" layoutY="337.0" prefHeight="40.0" prefWidth="105.0" />
+      <Text layoutX="20.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECIONE A CONSULTA" wrappingWidth="223.42612075805664">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="20.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VALOR" wrappingWidth="111.73669815063477">
+      <Text layoutX="21.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VALOR" wrappingWidth="111.73669815063477">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="13.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DO PACIENTE" wrappingWidth="237.3366584777832">
+      <Text layoutX="19.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECIONE O PACIENTE" wrappingWidth="237.3366584777832">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <ComboBox fx:id="comboBoxConsultations" layoutX="15.0" layoutY="122.0" prefHeight="31.0" prefWidth="246.0" />
+      <ComboBox id="consultation" fx:id="comboBoxConsultations" layoutX="14.0" layoutY="177.0" prefHeight="31.0" prefWidth="246.0" onAction="#populateComboboxPatients"/>
+      <ComboBox id="patient" fx:id="comboBoxPatients" layoutX="15.0" layoutY="247.0" prefHeight="31.0" prefWidth="246.0" />
+      <ComboBox id="orthodontist" fx:id="comboBoxOrthodontist" layoutX="12.0" layoutY="112.0" prefHeight="31.0" prefWidth="246.0" onAction="#populateComboboxConsultations" />
+      <Text layoutX="24.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECIONE O ORTODONTISTA" wrappingWidth="215.42621231079102">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

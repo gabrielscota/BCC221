@@ -38,7 +38,7 @@ public class PresentationSchedulesController implements SchedulesController {
   @FXML
   TableColumn<Consultation, String> date;
   @FXML
-  TableColumn<Patient, String> name;
+  TableColumn<Consultation, String> name;
   @FXML
   Button addConsultationButton = new Button();
   @FXML
@@ -72,7 +72,7 @@ public class PresentationSchedulesController implements SchedulesController {
         obsList.addAll(consultations);
       }
     }
-    name.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
+    name.setCellValueFactory(new PropertyValueFactory<Consultation, String>("name"));
     description.setCellValueFactory(new PropertyValueFactory<Consultation, String>("description"));
     date.setCellValueFactory(new PropertyValueFactory<Consultation, String>("date"));
     consultations.setItems(obsList);
@@ -94,6 +94,7 @@ public class PresentationSchedulesController implements SchedulesController {
       UUID uuid = UUID.randomUUID();
       UUID patientUuid = UUID.randomUUID();
       Patient newPatient = new Patient(patientUuid.toString(), nameTextField.getText());
+      clinic.getPatients().add(newPatient);
       Consultation newConsultation = new Consultation(
               uuid.toString(),
               newPatient,
