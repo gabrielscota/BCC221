@@ -22,7 +22,7 @@ import domain.usecases.orthodontist.AddOrthodontist;
 import ui.pages.time_sheet.TimeSheetPage;
 
 import java.util.*;
-
+//Essa classe é responsavel por fazer as alterações nos funcionarios da clinica.
 public class PresentationEmployeeController implements EmployeeController {
   private Stage stage;
   private Stage backStage;
@@ -61,6 +61,7 @@ public class PresentationEmployeeController implements EmployeeController {
   }
 
   @Override
+  //Adiciona um funcionario novo a lista de funcionarios da clinica
   public void addEmployeeToClinic(String type) {
     if (type.equals("Ortodontista")) {
       AddOrthodontist addOrthodontist = new LocalAddOrthodontist(clinic);
@@ -89,6 +90,7 @@ public class PresentationEmployeeController implements EmployeeController {
   }
 
   @Override
+  //Exibe os funcionarios da clinica na tabela da interface criada pelo arquivo "employees.fxml"
   public void showEmployeesTable() {
     addEmployeeButton.setDisable(false);
     saveEmployeeButton.setDisable(true);

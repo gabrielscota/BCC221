@@ -68,6 +68,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
   }
 
   @Override
+  //Faz o controle da navegação entre paginas. Fecha a pagina atual e abre a anterior dando função ao botao voltar;
   public void backPage() {
     backStage.show();
     stage.close();
@@ -81,6 +82,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
     return true;
   }
   @Override
+  //Popula o combobox para o funcionario escolher uma consulta para pagar
   public void populateComboboxConsultations(){
     String orthodontistName = comboBoxOrthodontist.getValue();
     ObservableList obsList = FXCollections.observableArrayList();
@@ -98,6 +100,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
   }
 
   @Override
+  //Popula o combobox com os ortodontistas
   public void populateComboboxOrthodontist() {
     List<Orthodontist> orthodontists = clinic.getOrthodontists();
     ObservableList obsList = FXCollections.observableArrayList();
@@ -108,6 +111,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
   }
 
   @Override
+  //Popula o combobox para o funcionario escolher um paciente
   public void populateComboboxPatients() {
     String date = comboBoxConsultations.getValue();
     ObservableList obsList = FXCollections.observableArrayList();
@@ -125,6 +129,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
   }
 
   @Override
+  //Adiciona um paiymentconsultation as consultas pagas.
   public void addPaidConsultation() {
     List<Orthodontist> orthodontistList = clinic.getOrthodontists();
     List<Consultation> consultations = new ArrayList<Consultation>();
