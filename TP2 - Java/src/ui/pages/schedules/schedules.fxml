@@ -37,14 +37,14 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <TableView layoutX="325.0" layoutY="110.0" prefHeight="351.0" prefWidth="504.0">
+      <TableView layoutX="325.0" layoutY="110.0" prefHeight="351.0" prefWidth="504.0" fx:id="consultations">
         <columns>
-            <TableColumn prefWidth="75.0" text="DATA" />
-          <TableColumn prefWidth="185.5999755859375" text="ORTODONTISTA" />
-          <TableColumn prefWidth="244.00006103515625" text="PACIENTE" />
+            <TableColumn prefWidth="75.0" text="DATA" fx:id="date"/>
+          <TableColumn prefWidth="185.5999755859375" text="DESCRIÇÃO" fx:id="description" />
+          <TableColumn prefWidth="244.00006103515625" text="PACIENTE" fx:id="name"/>
         </columns>
       </TableView>
-      <Button layoutX="22.0" layoutY="500.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" text="ADICIONAR" />
+      <Button layoutX="22.0" layoutY="500.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" text="ADICIONAR" onMouseClicked="#addConsultation"/>
       <Button layoutX="134.0" layoutY="501.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" text="SALVAR" />
       <Button layoutX="246.0" layoutY="500.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" text="DELETAR" />
       <Text layoutX="460.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONSULTAS" textAlignment="CENTER" wrappingWidth="234.6461181640625">

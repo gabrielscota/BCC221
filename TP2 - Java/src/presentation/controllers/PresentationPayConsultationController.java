@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -62,6 +63,12 @@ public class PresentationPayConsultationController implements PayConsultationCon
   }
 
   @Override
+  public void backPage() {
+    backStage.show();
+    stage.close();
+  }
+
+  @Override
   public boolean validatePatientName() {
     if(nameTextField.getText().length() < 3){
       return false;
@@ -76,11 +83,11 @@ public class PresentationPayConsultationController implements PayConsultationCon
     for (int i = 0; i <orthodontistList.size(); i++){
       LoadConsultations loadConsultations = new LocalLoadConsultations(orthodontistList.get(i).getSchedule());
       List<Consultation> consultationsLoaded = loadConsultations.loadConsultations();
+      System.out.println(consultationsLoaded.get(0).getDate());
       for(int j = 0; j < consultationsLoaded.size(); j++){
-        obsList.add(consultationsLoaded.get(i).getPatient().getName() + consultationsLoaded.get(i).getDate());
+        obsList.add("Consulta de: " + consultationsLoaded.get(i).getPatient().getName() + "  | " + "Dia: " + consultationsLoaded.get(i).getDate());
       }
     }
-    obsList.add("Consulta 1 blabla");
     comboBoxConsultations.setItems(obsList);
   }
   @Override
@@ -117,6 +124,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
       alert.setContentText("O nome do paciente deve ter mais de 3 caracteres");
       alert.show();
     }
+    showConsultationsTable();
   }
 
   @Override
@@ -131,12 +139,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
         consultations.add(contationsLoaded.get(i));
       }
     }
-    for (int i = 0; i < consultations.size(); i ++){
-      if(consultations.get(i).getPatient().getName() == nameTextField.getText()){
-        if(consultations.get(i).getPaymentConsultation() != null)
-          paidConsultations.add(consultations.get(i).getPaymentConsultation());
-      }
-    }
+
     patientName.setCellValueFactory(new PropertyValueFactory<PaymentConsultation, String>("name"));
     date.setCellValueFactory(new PropertyValueFactory<PaymentConsultation, String>("paymentDate"));
     value.setCellValueFactory(new PropertyValueFactory<PaymentConsultation, Float>("value"));

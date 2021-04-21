@@ -9,17 +9,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import ui.pages.schedules.SchedulesController;
 
 
 import java.util.List;
+import java.util.UUID;
 
 public class PresentationSchedulesController implements SchedulesController {
   private Stage stage;
   private Stage backStage;
   private Clinic clinic;
-
+  private Orthodontist selectedOrthodontist;
+  private int indexSelectedOrthodontist;
   @FXML
   ComboBox<String> comboBoxOrthodontists;
   @FXML
@@ -31,7 +34,7 @@ public class PresentationSchedulesController implements SchedulesController {
   @FXML
   TableView<Consultation> consultations;
   @FXML
-  TableColumn<Orthodontist, String> orthodontist;
+  TableColumn<Consultation, String> description;
   @FXML
   TableColumn<Consultation, String> date;
   @FXML
@@ -60,6 +63,19 @@ public class PresentationSchedulesController implements SchedulesController {
   @Override
   public void updateTable() {
     List<Orthodontist> ortodontistas = clinic.getOrthodontists();
+    ObservableList obsList = FXCollections.observableArrayList();
+    for (int i = 0; i < ortodontistas.size(); i++){
+      if(ortodontistas.get(i).getName() == comboBoxOrthodontists.getValue()){
+        this.selectedOrthodontist = ortodontistas.get(i);
+        indexSelectedOrthodontist = i;
+        List<Consultation> consultations = ortodontistas.get(i).getSchedule().getConsultations();
+        obsList.addAll(consultations);
+      }
+    }
+    name.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
+    description.setCellValueFactory(new PropertyValueFactory<Consultation, String>("description"));
+    date.setCellValueFactory(new PropertyValueFactory<Consultation, String>("date"));
+    consultations.setItems(obsList);
   }
 
   @Override
@@ -74,26 +90,55 @@ public class PresentationSchedulesController implements SchedulesController {
 
   @Override
   public void addConsultation() {
-
+    if(validateCombobox() && validatePatientName() && validateDate() && validateDescription()){
+      UUID uuid = UUID.randomUUID();
+      UUID patientUuid = UUID.randomUUID();
+      Patient newPatient = new Patient(patientUuid.toString(), nameTextField.getText());
+      Consultation newConsultation = new Consultation(
+              uuid.toString(),
+              newPatient,
+              dateTextField.getText(),
+              descriptionTextField.getText(),
+              null
+      );
+      selectedOrthodontist.getSchedule().getConsultations().add(newConsultation);
+      clinic.getOrthodontists().set(indexSelectedOrthodontist, selectedOrthodontist);
+      updateTable();
+    }
   }
 
   @Override
   public boolean validateCombobox() {
-    return false;
+    if(comboBoxOrthodontists.getValue() == null || comboBoxOrthodontists.getValue() == ""){
+      return false;
+    }
+    return true;
   }
 
   @Override
   public boolean validatePatientName() {
-    return false;
+    if(nameTextField.getText() == ""){
+      return false;
+    }else {
+      return true;
+    }
   }
 
   @Override
   public boolean validateDate() {
-    return false;
+    if(dateTextField.getText() == ""){
+      return false;
+    }else {
+      return true;
+    }
   }
 
   @Override
   public boolean validateDescription() {
-    return false;
+    if(descriptionTextField.getText() == ""){
+      return false;
+    }else {
+      return true;
+    }
   }
 }

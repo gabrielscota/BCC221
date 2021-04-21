@@ -1,5 +1,6 @@
 package domain.entities;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -9,7 +10,7 @@ public class Orthodontist extends Employee {
 
   public Orthodontist(String id, String name, String login, String password, UserPermissions userPermissions) {
     super(id, name, login, password, userPermissions);
-    this.schedule = new Schedule(UUID.randomUUID().toString(), Arrays.asList());
+    this.schedule = new Schedule(UUID.randomUUID().toString(), new ArrayList<Consultation>());
   }
 
   public Schedule getSchedule() {

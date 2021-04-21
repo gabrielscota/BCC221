@@ -8,4 +8,5 @@ public interface PayConsultationController {
   void addPaidConsultation();
   void showConsultationsTable();
   void populateCombobox();
+  void backPage();
 }
