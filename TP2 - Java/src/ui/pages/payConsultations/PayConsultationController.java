@@ -7,5 +7,8 @@ public interface PayConsultationController {
   boolean validatePatientName();
   void addPaidConsultation();
   void showConsultationsTable();
-  void populateCombobox();
+  void populateComboboxConsultations();
+  void populateComboboxOrthodontist();
+  void populateComboboxPatients();
+  void backPage();
 }

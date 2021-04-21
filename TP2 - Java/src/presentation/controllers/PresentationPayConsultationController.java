@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -32,8 +33,13 @@ public class PresentationPayConsultationController implements PayConsultationCon
   private final Clinic clinic;
   private final Stage stage;
   private final Stage backStage;
+  private int selectedOrthodontistIndex;
   @FXML
   ComboBox<String> comboBoxConsultations;
+  @FXML
+  ComboBox<String> comboBoxPatients;
+  @FXML
+  ComboBox<String> comboBoxOrthodontist;
   @FXML
   TextField valueTextField = new TextField();
   @FXML
@@ -62,6 +68,12 @@ public class PresentationPayConsultationController implements PayConsultationCon
   }
 
   @Override
+  public void backPage() {
+    backStage.show();
+    stage.close();
+  }
+
+  @Override
   public boolean validatePatientName() {
     if(nameTextField.getText().length() < 3){
       return false;
@@ -69,54 +81,75 @@ public class PresentationPayConsultationController implements PayConsultationCon
     return true;
   }
   @Override
-  public void populateCombobox(){
+  public void populateComboboxConsultations(){
+    String orthodontistName = comboBoxOrthodontist.getValue();
     ObservableList obsList = FXCollections.observableArrayList();
-    List<Orthodontist> orthodontistList = clinic.getOrthodontists();
+    List<Orthodontist> orthodontists = clinic.getOrthodontists();
     List<Consultation> consultations = new ArrayList<Consultation>();
-    for (int i = 0; i <orthodontistList.size(); i++){
-      LoadConsultations loadConsultations = new LocalLoadConsultations(orthodontistList.get(i).getSchedule());
-      List<Consultation> consultationsLoaded = loadConsultations.loadConsultations();
-      for(int j = 0; j < consultationsLoaded.size(); j++){
-        obsList.add(consultationsLoaded.get(i).getPatient().getName() + consultationsLoaded.get(i).getDate());
+    for(int i = 0; i < orthodontists.size(); i ++){
+      if(orthodontistName == orthodontists.get(i).getName()){
+        consultations = orthodontists.get(i).getSchedule().getConsultations();
       }
     }
-    obsList.add("Consulta 1 blabla");
+    for(int i = 0; i < consultations.size(); i++){
+      obsList.add(consultations.get(i).getDate());
+    }
     comboBoxConsultations.setItems(obsList);
   }
+
+  @Override
+  public void populateComboboxOrthodontist() {
+    List<Orthodontist> orthodontists = clinic.getOrthodontists();
+    ObservableList obsList = FXCollections.observableArrayList();
+    for(int i = 0; i < orthodontists.size(); i++){
+      obsList.add(orthodontists.get(i).getName());
+    }
+    comboBoxOrthodontist.setItems(obsList);
+  }
+
+  @Override
+  public void populateComboboxPatients() {
+    String date = comboBoxConsultations.getValue();
+    ObservableList obsList = FXCollections.observableArrayList();
+    List<Orthodontist> orthodontists = clinic.getOrthodontists();
+    List<Consultation> consultations = new ArrayList<Consultation>();
+    for(int i = 0; i < orthodontists.size(); i ++){
+        consultations = orthodontists.get(i).getSchedule().getConsultations();
+      for(int j = 0; j < consultations.size(); j++){
+        if (consultations.get(j).getDate() == date){
+          obsList.add(consultations.get(i).getPatient().getName());
+        }
+      }
+    }
+    comboBoxConsultations.setItems(obsList);
+  }
+
   @Override
   public void addPaidConsultation() {
     List<Orthodontist> orthodontistList = clinic.getOrthodontists();
     List<Consultation> consultations = new ArrayList<Consultation>();
-    for (int i = 0; i <orthodontistList.size(); i++){
-      LoadConsultations loadConsultations = new LocalLoadConsultations(orthodontistList.get(i).getSchedule());
-      List<Consultation> contationsLoaded = loadConsultations.loadConsultations();
-      for(int j = 0; j < contationsLoaded.size(); j++){
-        consultations.add(contationsLoaded.get(i));
-      }
-    }
-    if(validatePatientName() && validateValue()){
-      for (int i = 0; i < consultations.size(); i ++){
-        if(consultations.get(i).getPatient().getName() == nameTextField.getText()){
-          Date date = new Date();
-          DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-          String formatedDate = dateFormat.format(date);
-          PaymentConsultation payment = new PaymentConsultation(
-                  consultations.get(i).getId(),
-                  consultations.get(i).getPatient().getName(),
-                  formatedDate,
-                  Float.parseFloat(valueTextField.getText())
-          );
-          consultations.get(i).setPaymentConsultation(payment);
+    String selectedOrthodontist = comboBoxOrthodontist.getValue();
+    String selectedDate = comboBoxConsultations.getValue();
+    for(int i = 0; i < orthodontistList.size(); i++){
+      if(orthodontistList.get(i).getName() == selectedOrthodontist){
+        consultations = orthodontistList.get(i).getSchedule().getConsultations();
+        for (int j = 0; j < consultations.size(); j++){
+          if(consultations.get(j).getDate() == selectedDate){
+            Date date = new Date();
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String formatedDate = dateFormat.format(date);
+            PaymentConsultation payment = new PaymentConsultation(
+                    consultations.get(j).getId(),
+                    comboBoxPatients.getValue(),
+                    formatedDate,
+                    Float.parseFloat(valueTextField.getText())
+            );
+            consultations.get(j).setPaymentConsultation(payment);
+          }
         }
       }
     }
-    else{
-      Alert alert = new Alert(Alert.AlertType.ERROR);
-      alert.setTitle("Dados invalidos");
-      alert.setHeaderText("Preencha corretamente todos os campos");
-      alert.setContentText("O nome do paciente deve ter mais de 3 caracteres");
-      alert.show();
-    }
+    showConsultationsTable();
   }
 
   @Override
@@ -129,12 +162,6 @@ public class PresentationPayConsultationController implements PayConsultationCon
       List<Consultation> contationsLoaded = loadConsultations.loadConsultations();
       for(int j = 0; j < contationsLoaded.size(); j++){
         consultations.add(contationsLoaded.get(i));
-      }
-    }
-    for (int i = 0; i < consultations.size(); i ++){
-      if(consultations.get(i).getPatient().getName() == nameTextField.getText()){
-        if(consultations.get(i).getPaymentConsultation() != null)
-          paidConsultations.add(consultations.get(i).getPaymentConsultation());
       }
     }
     patientName.setCellValueFactory(new PropertyValueFactory<PaymentConsultation, String>("name"));
