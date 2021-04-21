@@ -19,6 +19,7 @@ import javafx.util.Callback;
 import ui.pages.employees.EmployeeController;
 import javafx.stage.Stage;
 import domain.usecases.orthodontist.AddOrthodontist;
+import ui.pages.time_sheet.TimeSheetPage;
 
 import java.util.*;
 
@@ -237,6 +238,21 @@ public class PresentationEmployeeController implements EmployeeController {
       alert.setTitle("Sucesso!");
       alert.setHeaderText("Funcionário editado com sucesso!");
       alert.show();
+    }
+  }
+
+  @Override
+  public void loadTimeSheetPage() throws Exception {
+    Employee selectedEmployee = employees.getSelectionModel().getSelectedItem();
+    if (selectedEmployee != null) {
+      Stage timeSheetStage = new Stage();
+      TimeSheetPage timeSheetPage = new TimeSheetPage(new PresentationTimeSheetController(
+              timeSheetStage,
+              stage,
+              selectedEmployee.getTimeSheet()
+      ));
+      timeSheetPage.build(timeSheetStage);
+//      stage.close();
     }
   }
 

@@ -7,8 +7,16 @@ public class Point {
 
   public Point(String id, String date, String observation) {
     this.id = id;
-    this.date = date;
-    this.observation = observation;
+    if (date == null) {
+      this.date = "";
+    } else {
+      this.date = date;
+    }
+    if (observation == null) {
+      this.observation = "";
+    } else {
+      this.observation = observation;
+    }
   }
 
   public String getId() {

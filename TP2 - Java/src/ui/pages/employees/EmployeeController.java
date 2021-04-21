@@ -14,4 +14,5 @@ public interface EmployeeController
   void showEmployeesTable();
   void populateCombobox();
   void onSelectedEmployee();
+  void loadTimeSheetPage() throws Exception;
 }

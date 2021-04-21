@@ -6,14 +6,14 @@ import domain.entities.TimeSheet;
 import domain.usecases.time_sheet.AddPoint;
 
 public class LocalAddPoint implements AddPoint {
-  private final Clinic clinic;
+  private final TimeSheet timeSheet;
 
-  public LocalAddPoint(Clinic clinic) {
-    this.clinic = clinic;
+  public LocalAddPoint(TimeSheet timeSheet) {
+    this.timeSheet = timeSheet;
   }
 
   @Override
-  public void addPoint(TimeSheet timeSheet, Point point) {
+  public void addPoint(Point point) {
     if (timeSheet != null) {
       timeSheet.getPoints().add(point);
     }

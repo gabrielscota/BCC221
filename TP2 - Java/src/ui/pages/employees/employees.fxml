@@ -110,7 +110,7 @@
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                </padding></Button>
-            <Button fx:id="timeSheetEmployeeButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="203.0" text="Editar folha de ponto">
+            <Button fx:id="timeSheetEmployeeButton" mnemonicParsing="false" onMouseClicked="#loadTimeSheetPage" prefHeight="34.0" prefWidth="203.0" text="Editar folha de ponto">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

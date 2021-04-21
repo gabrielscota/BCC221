@@ -8,14 +8,14 @@ import domain.usecases.time_sheet.DeletePoint;
 import java.util.List;
 
 public class LocalDeletePoint implements DeletePoint {
-  private final Clinic clinic;
+  private final TimeSheet timeSheet;
 
-  public LocalDeletePoint(Clinic clinic) {
-    this.clinic = clinic;
+  public LocalDeletePoint(TimeSheet timeSheet) {
+    this.timeSheet = timeSheet;
   }
 
   @Override
-  public void deletePoint(TimeSheet timeSheet, String id) {
+  public void deletePoint(String id) {
     List<Point> points = timeSheet.getPoints();
     if (!points.isEmpty()) {
       for (int i = 0; i < points.size(); i++) {

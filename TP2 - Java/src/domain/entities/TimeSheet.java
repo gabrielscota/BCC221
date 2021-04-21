@@ -1,5 +1,6 @@
 package domain.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TimeSheet {
@@ -8,7 +9,7 @@ public class TimeSheet {
 
   public TimeSheet(String id, List<Point> points) {
     this.id = id;
-    this.points = points;
+    this.points = new ArrayList<Point>();
   }
 
   public String getId() {
