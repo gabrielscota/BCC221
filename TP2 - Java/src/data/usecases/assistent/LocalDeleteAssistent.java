@@ -10,7 +10,7 @@ public class LocalDeleteAssistent implements DeleteAssistent{
         this.clinic = clinic;
     }
     @Override
-    public void deleteAssistent(Clinic clinic, String id){
+    public void deleteAssistent(String id){
         List<Assistent>  assistents = clinic.getAssistents();
         if(!assistents.isEmpty()){
             for(int i = 0; i < assistents.size(); i ++){

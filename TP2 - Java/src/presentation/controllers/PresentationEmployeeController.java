@@ -1,9 +1,9 @@
 package presentation.controllers;
 
 import data.usecases.assistent.LocalAddAssistent;
-import data.usecases.assistent.LocalEditAssistent;
+import data.usecases.assistent.LocalDeleteAssistent;
 import data.usecases.orthodontist.LocalAddOrthodontist;
-import data.usecases.orthodontist.LocalEditOrthodontist;
+import data.usecases.orthodontist.LocalDeleteOrthodontist;
 import domain.entities.*;
 import domain.usecases.assistent.AddAssistent;
 import javafx.beans.InvalidationListener;
@@ -19,6 +19,7 @@ import javafx.util.Callback;
 import ui.pages.employees.EmployeeController;
 import javafx.stage.Stage;
 import domain.usecases.orthodontist.AddOrthodontist;
+import ui.pages.time_sheet.TimeSheetPage;
 
 import java.util.*;
 //Essa classe é responsavel por fazer as alterações nos funcionarios da clinica.
@@ -215,6 +216,45 @@ public class PresentationEmployeeController implements EmployeeController {
       alert.setTitle("Sucesso!");
       alert.setHeaderText("Funcionário editado com sucesso!");
       alert.show();
+    }
+  }
+
+  @Override
+  public void deleteEmployee() {
+    Employee selectedEmployee = employees.getSelectionModel().getSelectedItem();
+    if (selectedEmployee != null) {
+      if (selectedEmployee instanceof Orthodontist) {
+        LocalDeleteOrthodontist localDeleteOrthodontist = new LocalDeleteOrthodontist(clinic);
+        localDeleteOrthodontist.deleteOrthodontist(selectedEmployee.getId());
+      } else {
+        LocalDeleteAssistent localDeleteAssistent = new LocalDeleteAssistent(clinic);
+        localDeleteAssistent.deleteAssistent(selectedEmployee.getId());
+      }
+      nameTextField.setText("");
+      userLoginTextField.setText("");
+      passwordTextField.setText("");
+      comboBoxType.setValue("");
+      employees.getSelectionModel().clearSelection();
+      showEmployeesTable();
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      alert.setTitle("Sucesso!");
+      alert.setHeaderText("Funcionário editado com sucesso!");
+      alert.show();
+    }
+  }
+
+  @Override
+  public void loadTimeSheetPage() throws Exception {
+    Employee selectedEmployee = employees.getSelectionModel().getSelectedItem();
+    if (selectedEmployee != null) {
+      Stage timeSheetStage = new Stage();
+      TimeSheetPage timeSheetPage = new TimeSheetPage(new PresentationTimeSheetController(
+              timeSheetStage,
+              stage,
+              selectedEmployee.getTimeSheet()
+      ));
+      timeSheetPage.build(timeSheetStage);
+//      stage.close();
     }
   }
 
