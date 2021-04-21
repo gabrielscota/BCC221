@@ -11,7 +11,7 @@ public class LocalEditAssistent implements EditAssistent {
         this.clinic = clinic;
     }
     @Override
-    public void editAssistent(Clinic clinic, Assistent assistent){
+    public void editAssistent(Assistent assistent){
         List<Assistent> assistents = clinic.getAssistents();
         if(!assistents.isEmpty()){
             for(int i = 0; i < assistents.size(); i++){

@@ -1,7 +1,9 @@
 package presentation.controllers;
 
 import data.usecases.assistent.LocalAddAssistent;
+import data.usecases.assistent.LocalEditAssistent;
 import data.usecases.orthodontist.LocalAddOrthodontist;
+import data.usecases.orthodontist.LocalEditOrthodontist;
 import domain.entities.*;
 import domain.usecases.assistent.AddAssistent;
 import javafx.beans.InvalidationListener;
@@ -12,17 +14,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import ui.pages.employees.EmployeeController;
 import javafx.stage.Stage;
 import domain.usecases.orthodontist.AddOrthodontist;
-import domain.usecases.orthodontist.DeleteOrthodontist;
-import domain.usecases.orthodontist.EditOrthodontist;
-
-import javax.swing.event.ChangeEvent;
-import javax.xml.soap.Text;
 
 import java.util.*;
 
@@ -30,6 +26,7 @@ public class PresentationEmployeeController implements EmployeeController {
   private Stage stage;
   private Stage backStage;
   private Clinic clinic;
+
   @FXML
   ComboBox<String> comboBoxType;
   @FXML
@@ -52,6 +49,8 @@ public class PresentationEmployeeController implements EmployeeController {
   Button saveEmployeeButton = new Button();
   @FXML
   Button deleteEmployeeButton = new Button();
+  @FXML
+  Button timeSheetEmployeeButton = new Button();
 
   public PresentationEmployeeController(Stage stage, Stage backStage, Clinic clinic) {
     this.backStage = backStage;
@@ -61,53 +60,31 @@ public class PresentationEmployeeController implements EmployeeController {
   }
 
   @Override
-  public void addOrthodontistTable() {
-    AddOrthodontist addOrthodontist = new LocalAddOrthodontist(clinic);
-    UUID orthodontistId = UUID.randomUUID();
-    Orthodontist newOrthodontist = new Orthodontist(
-            orthodontistId.toString(),
-            nameTextField.getText(),
-            userLoginTextField.getText(),
-            passwordTextField.getText(),
-            null
-    );
-    addOrthodontist.addOrthodontist(newOrthodontist);
+  public void addEmployeeToClinic(String type) {
+    if (type.equals("Ortodontista")) {
+      AddOrthodontist addOrthodontist = new LocalAddOrthodontist(clinic);
+      UUID orthodontistId = UUID.randomUUID();
+      Orthodontist newOrthodontist = new Orthodontist(
+              orthodontistId.toString(),
+              nameTextField.getText(),
+              userLoginTextField.getText(),
+              passwordTextField.getText(),
+              null
+      );
+      addOrthodontist.addOrthodontist(newOrthodontist);
+    } else {
+      AddAssistent addAssistent = new LocalAddAssistent(clinic);
+      UUID assistentUUID = UUID.randomUUID();
+      Assistent newAssistent = new Assistent(
+              assistentUUID.toString(),
+              nameTextField.getText(),
+              userLoginTextField.getText(),
+              passwordTextField.getText(),
+              null
+      );
+      addAssistent.addAssistent(newAssistent);
+    }
     showEmployeesTable();
-  }
-
-  @Override
-  public void editOrthodontistTable() {
-
-  }
-
-  @Override
-  public void deleteOrthodontistTable() {
-
-  }
-
-  @Override
-  public void addAssistentTable() {
-    AddAssistent addAssistent = new LocalAddAssistent(clinic);
-    UUID assistentUUID = UUID.randomUUID();
-    Assistent newAssistent = new Assistent(
-            assistentUUID.toString(),
-            nameTextField.getText(),
-            userLoginTextField.getText(),
-            passwordTextField.getText(),
-            null
-    );
-    addAssistent.addAssistent(newAssistent);
-    showEmployeesTable();
-  }
-
-  @Override
-  public void editAssistentTable() {
-
-  }
-
-  @Override
-  public void deleteAssistentTable() {
-
   }
 
   @Override
@@ -115,6 +92,8 @@ public class PresentationEmployeeController implements EmployeeController {
     addEmployeeButton.setDisable(false);
     saveEmployeeButton.setDisable(true);
     deleteEmployeeButton.setDisable(true);
+    timeSheetEmployeeButton.setDisable(true);
+    timeSheetEmployeeButton.setVisible(false);
     List<Assistent> assistents = clinic.getAssistents();
     List<Orthodontist> orthodontists = clinic.getOrthodontists();
     ObservableList<Employee> observableList = FXCollections.observableArrayList();
@@ -173,6 +152,7 @@ public class PresentationEmployeeController implements EmployeeController {
     });
 
     employees.setItems(observableList);
+    employees.refresh();
   }
 
   @Override
@@ -182,21 +162,26 @@ public class PresentationEmployeeController implements EmployeeController {
       nameTextField.setText(selectedEmployee.getName());
       userLoginTextField.setText(selectedEmployee.getLogin());
       passwordTextField.setText(selectedEmployee.getPassword());
-      String classSimpleName = selectedEmployee.getClass().getSimpleName().equals("Orthodontist") ? "Ortodontista" : "Assistente";
+      String classSimpleName;
+      if (selectedEmployee instanceof Orthodontist) {
+        classSimpleName = "Ortodontista";
+      } else {
+        classSimpleName = "Assistente";
+      }
       comboBoxType.setValue(classSimpleName);
       addEmployeeButton.setDisable(true);
       saveEmployeeButton.setDisable(false);
       deleteEmployeeButton.setDisable(false);
+      timeSheetEmployeeButton.setDisable(false);
+      timeSheetEmployeeButton.setVisible(true);
     }
   }
 
   @Override
   public void addEmployee() {
     if (validateCombobox() && validateName() && validateUser() && validatePassword()) {
-      if (comboBoxType.getValue().equals("Ortodontista")) {
-        addOrthodontistTable();
-      } else {
-        addAssistentTable();
+      if (comboBoxType.getValue().equals("Ortodontista") || comboBoxType.getValue().equals("Assistente")) {
+        addEmployeeToClinic(comboBoxType.getValue());
       }
       nameTextField.setText("");
       userLoginTextField.setText("");
@@ -207,6 +192,26 @@ public class PresentationEmployeeController implements EmployeeController {
       alert.setTitle("Dados invalidos");
       alert.setHeaderText("Preencha corretamente todos os campos");
       alert.setContentText("Nome, usuario e senha devem possuir mais de 3 caracteres.");
+      alert.show();
+    }
+  }
+
+  @Override
+  public void saveEmployee() {
+    Employee selectedEmployee = employees.getSelectionModel().getSelectedItem();
+    if (selectedEmployee != null) {
+      selectedEmployee.setName(nameTextField.getText());
+      selectedEmployee.setLogin(userLoginTextField.getText());
+      selectedEmployee.setPassword(passwordTextField.getText());
+      nameTextField.setText("");
+      userLoginTextField.setText("");
+      passwordTextField.setText("");
+      comboBoxType.setValue("");
+      employees.getSelectionModel().clearSelection();
+      showEmployeesTable();
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      alert.setTitle("Sucesso!");
+      alert.setHeaderText("Funcionário editado com sucesso!");
       alert.show();
     }
   }
@@ -250,8 +255,9 @@ public class PresentationEmployeeController implements EmployeeController {
     }
     return true;
   }
+
   @Override
-  public void backPage(){
+  public void backPage() {
     backStage.show();
     stage.close();
   }

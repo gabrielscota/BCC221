@@ -33,6 +33,7 @@ public class PresentationPayConsultationController implements PayConsultationCon
   private final Clinic clinic;
   private final Stage stage;
   private final Stage backStage;
+  private int selectedOrthodontistIndex;
   @FXML
   ComboBox<String> comboBoxConsultations;
   @FXML
@@ -94,37 +95,28 @@ public class PresentationPayConsultationController implements PayConsultationCon
   public void addPaidConsultation() {
     List<Orthodontist> orthodontistList = clinic.getOrthodontists();
     List<Consultation> consultations = new ArrayList<Consultation>();
-    for (int i = 0; i <orthodontistList.size(); i++){
-      LoadConsultations loadConsultations = new LocalLoadConsultations(orthodontistList.get(i).getSchedule());
-      List<Consultation> contationsLoaded = loadConsultations.loadConsultations();
-      for(int j = 0; j < contationsLoaded.size(); j++){
-        consultations.add(contationsLoaded.get(i));
-      }
-    }
-    if(validatePatientName() && validateValue()){
-      for (int i = 0; i < consultations.size(); i ++){
-        if(consultations.get(i).getPatient().getName() == nameTextField.getText()){
-          Date date = new Date();
-          DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-          String formatedDate = dateFormat.format(date);
-          PaymentConsultation payment = new PaymentConsultation(
-                  consultations.get(i).getId(),
-                  consultations.get(i).getPatient().getName(),
-                  formatedDate,
-                  Float.parseFloat(valueTextField.getText())
-          );
-          consultations.get(i).setPaymentConsultation(payment);
-        }
-      }
-    }
-    else{
+
+    Date date = new Date();
+    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    String formatedDate = dateFormat.format(date);
+    PaymentConsultation payment = new PaymentConsultation(
+            consultations.get(i).getId(),
+            consultations.get(i).getPatient().getName(),
+            formatedDate,
+            Float.parseFloat(valueTextField.getText())
+    );
+
+
+
+
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Dados invalidos");
       alert.setHeaderText("Preencha corretamente todos os campos");
       alert.setContentText("O nome do paciente deve ter mais de 3 caracteres");
       alert.show();
-    }
+
     showConsultationsTable();
+    consultationsTable.refresh();
   }
 
   @Override
